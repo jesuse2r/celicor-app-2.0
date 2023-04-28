@@ -1,3 +1,47 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+
+
+.blue {
+    background-color: #272B51;
+}
+.blue2{
+    background-color: #3b3f67;
+}
+.yellow {
+    color: #ebaa15;
+}
+
+.logo {
+    height: 10vh;
+}
+
+.navigationbar {
+    background-color: #272B51;
+    width: 100%;
+}
+
+.scrollmenu {
+    background-color: #272B51;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.scrollmenu p {
+    display: inline-block;
+    text-align: center;
+    padding: 14px;
+    padding-inline: 30px;
+}
+p a {
+    color: #ebaa15;
+    text-decoration: none;
+
+}
+p a:hover {
+    color: #ad7a02;
+}
+.cardd {
+    width: 18rem;
+}
