@@ -65,8 +65,6 @@ class Licores(db.Model):
             # do not serialize the password, its a security breach
         }
 
-
-
 class Cartitem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name= db.Column(db.String(50),nullable= False)
@@ -74,7 +72,6 @@ class Cartitem(db.Model):
     
     licores_id = db.Column(db.Integer, db.ForeignKey('licores.id'), nullable=False)
     licores = db.relationship("Licores", backref="cartitem")
-  
     
 
     def __repr__(self):
@@ -108,6 +105,7 @@ class Cart(db.Model):
 
             # do not serialize the password, its a security breach
         }
+
 
 
 
