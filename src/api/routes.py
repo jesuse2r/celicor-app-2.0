@@ -29,7 +29,7 @@ def register():
     if role not in  Role.__members__:
         return{"error": f"{role} No existe en los roles"}
     password_hash = generate_password_hash(password)
-   
+
     new_user = User(email=email, password=password_hash, is_active=is_active, name=name, address=address, document_id=document_id, phone=phone, role="buyer" )
     db.session.add(new_user)
     try: 
