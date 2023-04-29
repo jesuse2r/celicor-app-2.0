@@ -15,8 +15,8 @@ class User(db.Model):
     address= db.Column(db.String(120), nullable= False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(260), unique=False, nullable=False)
-    is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     role = db.Column(db.Enum(Role), nullable=False, default="buyer")
+    cart = db.relationship("Cart")
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -44,7 +44,7 @@ class Licores(db.Model):
     litres= db.Column(db.Integer,nullable= False)
     style= db.Column(db.String(50),nullable= False)
     old =db.Column(db.Integer,nullable= False)
-  
+
 
     def __repr__(self):
         return f'<Licores {self.name}>'
@@ -69,13 +69,13 @@ class Licores(db.Model):
 
 class Cartitem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name= db.Column(db.String(50),nullable= False)
     quantity= db.Column(db.Integer,nullable= False)
     
     licores_id = db.Column(db.Integer, db.ForeignKey('licores.id'), nullable=False)
-    licores = db.relationship("Licores", backref="cartitem")
-  
-    
+    licores = db.relationship("Licores")
+
+    cart_id = db.Column(db.Integer, db.ForeignKey('cart.id'), nullable=False)
+    cart = db.relationship("Cart")
 
     def __repr__(self):
         return f'<Cartitem {self.id}>'
@@ -91,9 +91,8 @@ class Cartitem(db.Model):
 class Cart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    user = db.relationship("User", backref="cart")
-    cart_item_id = db.Column(db.Integer, db.ForeignKey('cartitem.id'), nullable=False)
-    cart_item = db.relationship("Cartitem", backref="cart")
+    user = db.relationship("User")
+    cart_item = db.relationship("Cartitem")
 
     
 
