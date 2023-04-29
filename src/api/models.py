@@ -65,8 +65,6 @@ class Licores(db.Model):
             # do not serialize the password, its a security breach
         }
 
-
-
 class Cartitem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     quantity= db.Column(db.Integer,nullable= False)
@@ -107,6 +105,7 @@ class Cart(db.Model):
 
             # do not serialize the password, its a security breach
         }
+
 
 
 
