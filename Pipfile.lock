@@ -476,11 +476,13 @@
         },
         "werkzeug": {
             "hashes": [
+
                 "sha256:340335057f72974d9281dbaf52c8090a9f9a59ba304ae814bf0656e6559c0020",
                 "sha256:3b6b46926d052b8ebca97c4dc73c12e47bdd07d57ab0600c039c3155450227bc"
             ],
             "markers": "python_version >= '3.8'",
             "version": "==2.3.0"
+
         },
         "wtforms": {
             "hashes": [

@@ -16,6 +16,7 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(260), unique=False, nullable=False)
     role = db.Column(db.Enum(Role), nullable=False, default="buyer")
+    cart = db.relationship("Cart")
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -64,15 +65,12 @@ class Licores(db.Model):
             # do not serialize the password, its a security breach
         }
 
-
-
 class Cartitem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name= db.Column(db.String(50),nullable= False)
     quantity= db.Column(db.Integer,nullable= False)
     
     licores_id = db.Column(db.Integer, db.ForeignKey('licores.id'), nullable=False)
-    licores = db.relationship("Licores", backref="cartitem")
+    licores = db.relationship("Licores")
 
     
 
@@ -90,9 +88,8 @@ class Cartitem(db.Model):
 class Cart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    user = db.relationship("User", backref="cart")
-    cart_item_id = db.Column(db.Integer, db.ForeignKey('cartitem.id'), nullable=False)
-    cart_item = db.relationship("Cartitem", backref="cart")
+    user = db.relationship("User")
+    cart_item = db.relationship("Cartitem")
 
     
 
@@ -107,6 +104,7 @@ class Cart(db.Model):
 
             # do not serialize the password, its a security breach
         }
+
 
 
 
