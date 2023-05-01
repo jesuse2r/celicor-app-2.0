@@ -15,7 +15,6 @@ class User(db.Model):
     address= db.Column(db.String(120), nullable= False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(260), unique=False, nullable=False)
-    is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     role = db.Column(db.Enum(Role), nullable=False, default="buyer")
 
     def __repr__(self):
@@ -43,8 +42,8 @@ class Licores(db.Model):
     origen= db.Column(db.String(50),nullable= False)
     litres= db.Column(db.Integer,nullable= False)
     style= db.Column(db.String(50),nullable= False)
-    old =db.Column(db.Integer,nullable= False)
-  
+    old =db.Column(db.String(50),nullable= False)
+
 
     def __repr__(self):
         return f'<Licores {self.name}>'
@@ -74,7 +73,7 @@ class Cartitem(db.Model):
     
     licores_id = db.Column(db.Integer, db.ForeignKey('licores.id'), nullable=False)
     licores = db.relationship("Licores", backref="cartitem")
-  
+
     
 
     def __repr__(self):
