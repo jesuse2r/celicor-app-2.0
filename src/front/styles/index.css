@@ -3,14 +3,24 @@
 */
 
 
+body {
+    background-color: #272B51;
+    font-family: 'Rajdhani', sans-serif;
+}
+
 .blue {
     background-color: #272B51;
 }
-.blue2{
-    background-color: #3b3f67;
-}
+
 .yellow {
     color: #ebaa15;
+}
+
+.border-product {
+    border-radius: 33px 33px 33px 33px;
+    -moz-border-radius: 33px 33px 33px 33px;
+    -webkit-border-radius: 33px 33px 33px 33px;
+    border: 3px solid #ebaa15;
 }
 
 .logo {
@@ -41,7 +51,4 @@ p a {
 }
 p a:hover {
     color: #ad7a02;
-}
-.cardd {
-    width: 18rem;
 }

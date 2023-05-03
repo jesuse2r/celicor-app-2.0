@@ -6,7 +6,7 @@ import logo from "../../img/logo.png";
 export const Navbar = () => {
 	return (
 		<nav className="navigationbar">
-			<div className="d-flex justify-content-between navigationbar">
+			<div className="d-flex justify-content-between">
 				<Link to="/">
 					<img src={logo} className="logo"></img>
 				</Link>
@@ -15,15 +15,6 @@ export const Navbar = () => {
 					<button className="btn btn-warning ">Login/register</button>
 				</div>
 			</div>
-			{/* <div className="scrollmenu d-flex justify-content-around fs-4">
-				<p><a href="#">Whisky</a></p>
-				<p><a href="#">Ron</a></p>
-				<p><a href="#">Vinos</a></p>
-				<p><a href="#">Espumantes</a></p>
-				<p><a href="#">Vodka</a></p>
-				<p><a href="#">Cerverza</a></p>
-				<p><a href="#">Otros</a></p>
-			</div> */}
 		</nav>
 	);
 };
