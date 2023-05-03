@@ -13,146 +13,114 @@ export const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [document, setDocument] = useState("");
+  const [document_id, setDocument_id] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [role, setRole] = useState("");
 
-  const hanledClick = async () => {
-    const opts = {
-      method: "POST",
-      headers: {
-        "Content-Type": "aplication/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-        name: value,
-        document_id: document_id,
-        phone: phone,
-        address: address,
-        role: role,
-      }),
-    };
-
-    fetch(
-      "https://3001-4geeksacade-reactflaskh-7ls1dddc4fh.ws-us96b.gitpod.io/api/register",
-      opts
-    )
-      .then((response) => {
-        if (response.status === 200) return response.json();
-        else alert("hay algun error");
-      })
-      .then()
-      .catch((error) => {
-        console.error("hay un error", error);
-      });
-  };
   return (
     <div className="container col-4">
       <div className="card body d-flex justify-content-center">
         <div className="mt-5">
-          <h1 className>Crear una Cuenta</h1>
+          <h1 className>Registro de Usuario</h1>
           <form className="form_container">
             <div className="form_group">
               <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                className="form_input"
+                className="form-control form_input"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
               />
-              <label for="exampleInputEmail1" className="form_label">
+              <label htmlFor="exampleInputEmail1" className="form_label">
                 Email
               </label>
               <span className="form_line"></span>
             </div>
             <div className="form_group">
               <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                className="form_input"
+                className="form-control form_input"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
               />
-              <label for="exampleInputEmail1" className="form_label">
+              <label htmlFor="exampleInputEmail1" className="form_label">
                 Password
               </label>
               <span className="form_line"></span>
             </div>
             <div className="form_group">
               <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                className="form_input"
+                className="form-control form_input"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
               />
-              <label for="exampleInputEmail1" className="form_label">
+              <label htmlFor="exampleInputEmail1" className="form_label">
                 Name
               </label>
               <span className="form_line"></span>
             </div>
             <div className="form_group">
               <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                className="form_input"
+                className="form-control form_input"
+                value={document_id}
+                onChange={(event) => setDocument_id(event.target.value)}
               />
-              <label for="exampleInputEmail1" className="form_label">
+              <label htmlFor="exampleInputEmail1" className="form_label">
                 Cedula
               </label>
               <span className="form_line"></span>
             </div>
             <div className="form_group">
               <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                className="form_input"
+                className="form-control form_input"
+                value={phone}
+                onChange={(event) => setPhone(event.target.value)}
               />
-              <label for="exampleInputEmail1" className="form_label">
+              <label htmlFor="exampleInputEmail1" className="form_label">
                 Telefono
               </label>
               <span className="form_line"></span>
             </div>
             <div className="form_group">
               <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                className="form_input"
+                className="form-control form_input"
+                value={address}
+                onChange={(event) => setAddress(event.target.value)}
               />
-              <label for="exampleInputEmail1" className="form_label">
+              <label htmlFor="exampleInputEmail1" className="form_label">
                 Direccion
               </label>
               <span className="form_line"></span>
             </div>
             <div className="form_group">
               <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                className="form_input"
+                className="form-control form_input"
+                value={role}
+                onChange={(event) => setRole(event.target.value)}
               />
-              <label for="exampleInputEmail1" className="form_label">
+              <label htmlFor="exampleInputEmail1" className="form_label">
                 Role
               </label>
               <span className="form_line"></span>
             </div>
           </form>
           <div className="m-3">
-            <button type="submit" className="boton">
-              Login
+            <button
+              className="boton"
+              onClick={(event) =>
+                actions.handleRegister(
+                  event,
+                  email,
+                  password,
+                  name,
+                  document_id,
+                  phone,
+                  address,
+                  role
+                )
+              }
+            >
+              Register
             </button>
-            <NavLink to="/" ClassName="active">
-              Volver
-            </NavLink>
+            <NavLink to="/">Volver</NavLink>
           </div>
         </div>
       </div>

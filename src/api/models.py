@@ -82,7 +82,8 @@ class Cartitem(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "licores_id": self.licores_id
+            "licores_id": self.licores_id,
+            "cart_id":self.cart_id
 
             # do not serialize the password, its a security breach
         }

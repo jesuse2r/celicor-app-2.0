@@ -15,8 +15,7 @@ api = Blueprint('api', __name__)
 def register():
     body = request.json
     email = body.get('email', None)
-    password = body.get('password', None)
-    is_active = True
+    password = body.get('password', None)    
     name = body.get('name', None)
     address = body.get('address', None)
     document_id = body.get('document_id', None)
@@ -27,7 +26,7 @@ def register():
     if role not in  Role.__members__:
         return{"error": f"{role} No existe en los roles"}
     password_hash = generate_password_hash(password)
-    new_user = User(email=email, password=password_hash, is_active=is_active, name=name, address=address, document_id=document_id, phone=phone, role="buyer" )
+    new_user = User(email=email, password=password_hash, name=name, address=address, document_id=document_id, phone=phone, role="buyer" )
     db.session.add(new_user)
     try: 
         db.session.commit()
