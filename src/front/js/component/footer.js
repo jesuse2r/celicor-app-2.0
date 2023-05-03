@@ -19,14 +19,14 @@ export const Footer = () => (
 				</div>
 				<div className="col-6 col-sm-4 col-lg-2 text-center">
 					<p className="fs-4 fw-bold">Sobre Nosotros</p>
-					<p>Somos una tienda de licores situada en caracas con el fin de brindarle a nuestros clientes la mejor atencion y los mejores productos al mejor precio de la ciudad</p>
+					<p>Somos una tienda de licores situada en Caracas con el fin de brindarle a nuestros clientes la mejor atención y los mejores productos al mejor precio de la ciudad.</p>
 				</div>
 				<div className="col-6 col-sm-4 col-lg-2 text-center">
 					<p className="fs-4 fw-bold">Delivery</p>
-					<p>Lunes a Sábado de 8 am a 6 pm (entregas el mismo día para pedidos pagados antes de las 5:30 pm)</p>
+					<p>Lunes a Sábado de 8:00 am a 6:00 pm (entregas el mismo día para pedidos pagados antes de las 5:30 pm)</p>
 				</div>
 				<div className="col-6 col-sm-4 col-lg-2 text-center">
-					<p className="fs-4 fw-bold">Atencion al cliente</p>
+					<p className="fs-4 fw-bold">Atención al cliente</p>
 					<p>+58 04145555555 <i className="fab fa-whatsapp"></i></p>
 					<p>atencionalcliente@celicor.com</p>
 				</div>

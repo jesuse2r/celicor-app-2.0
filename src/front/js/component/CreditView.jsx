@@ -25,7 +25,7 @@ const CreditView = () => {
 
                         </div>
                         <div className="col-md-12 position-relative">
-                            <label htmlFor="validationTooltip02" className="form-label">Numero de la tarjeta de credito</label>
+                            <label htmlFor="validationTooltip02" className="form-label">Número de la tarjeta de crédito</label>
                             <input type="text" className="form-control" id="validationTooltip02" required />
                           
                         </div>
@@ -48,7 +48,7 @@ const CreditView = () => {
                         </div>
                     </form>
 
-                    <p>Por favor enviar captura de pantalla</p>
+                    <p>Por favor enviar captura de pantalla.</p>
                     <div className=" display-6">
                     <a href="https://api.whatsapp.com/send/?phone=4142776795&text&type=phone_number&app_absent=" className="card-link text-success  "><i className=" whatssapLogo  fab fa-whatsapp"></i></a>
                     </div>

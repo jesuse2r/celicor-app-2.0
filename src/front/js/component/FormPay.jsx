@@ -30,14 +30,14 @@ const FormPay = (props) => {
    
       <div className="m-5 w-25 border border-black-4 p-4">
       <div className="text-black "><h1 className="text-center">Resumen del pedido</h1>  </div>
-        <label htmlFor="exampleFormControlInput1" className="form-label">Direccion de envio</label>
+        <label htmlFor="exampleFormControlInput1" className="form-label">Dirección de envio</label>
         <input type="email" className="form-control mb-4" id="exampleFormControlInput1" placeholder="escribe direccion de envio" />
         <select className="form-select mb-4" required aria-label="select example" value={metodoPago} onChange={(e)=> setMetodoPago(e.target.value)}>
-          <option value="">Metodo de pago </option>
+          <option value="">Método de pago </option>
 
-          <option value="pagomovil"> Pagomovil </option>
+          <option value="pagomovil"> Pagomóvil </option>
           <option value="transferencia">Transferencias bancarias  </option>
-          <option value="tarjetaDeCredito">Tarjeta de credito</option>
+          <option value="tarjetaDeCredito">Tarjeta de crédito</option>
           <option value="efectivo">Efectivo </option>
           <option value="zelle">Zelle  </option>
           <option value="paypal">Paypal </option>
@@ -47,26 +47,7 @@ const FormPay = (props) => {
         <div className="invalid-feedback">Example invalid select feedback</div>
 
 
-        <div className="form-check form-check-inline mb-4">
-          <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
-          <label className="form-check-label" htmlFor="inlineRadio1"> <i className="fas fa-dollar-sign"></i></label>
-        </div>
-        <div className="form-check form-check-inline">
-          <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-          <label className="form-check-label" htmlFor="inlineRadio2">Bs.</label>
-        </div>
-        <div className="form-check form-check-inline">
-          <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-          <label className="form-check-label" htmlFor="inlineRadio2"><i className="fab fa-cc-paypal"></i></label>
-        </div>
-        <div className="form-check form-check-inline" >
-          <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-          <label className="form-check-label" htmlFor="inlineRadio2"><i className="fas fa-money-check"></i></label>
-        </div>
-        <div className="form-check form-check-inline " >
-          <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-          <label className="form-check-label" htmlFor="inlineRadio2"><i className="fab fa-btc"></i></label>
-        </div>
+      
 
 
 
@@ -76,16 +57,16 @@ const FormPay = (props) => {
 
           </div>
 
-          <span className="input-group-text " id="basic-addon1">subtotal</span>
+          <span className="input-group-text " id="basic-addon1">Subtotal</span>
           <input type="text" className="form-control" placeholder="Bs." aria-label="Username" aria-describedby="basic-addon1" />
         </div>
         <div className="input-group mb-3">
-          <span className="input-group-text" id="basic-addon1">ahorro</span>
+          <span className="input-group-text" id="basic-addon1">Ahorro</span>
           <input type="text" className="form-control" placeholder="Bs." aria-label="" aria-describedby="basic-addon1" />
         </div>
 
         <div className="input-group mb-3">
-          <span className="input-group-text">monto</span>
+          <span className="input-group-text">Monto</span>
           <input type="text" className="form-control" aria-label="Amount (to the nearest dollar)" />
           <span className="input-group-text">Bs</span>
 
@@ -95,7 +76,7 @@ const FormPay = (props) => {
 
 
         <div className="input-group mb-3">
-          <span className="input-group-text">monto</span>
+          <span className="input-group-text">Monto</span>
           <input type="text" className="form-control" aria-label="Amount (to the nearest dollar)" />
           <span className="input-group-text">$</span>
         </div>
