@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 
 const FormPay = (props) => {
-  console.log(props)
+ 
 
   const [metodoPago, setMetodoPago] = useState("")
 
@@ -17,20 +18,21 @@ const FormPay = (props) => {
   }
   const handlePay = (e) => {
 
-    setMetodoPago(e.target.value)
-    console.log(e.target.value)
-    props.setHandleCredit({ ...setValue, [e.target.value]: true })
+  
+
+    props.setHandleCredit({ ...setValue, [metodoPago]: true })
 
 
 
   }
   return (
     <>
-      <div className="text-black justify-content-center d-flex "><h1>Resumen del pedido</h1>  </div>
+   
       <div className="m-5 w-25 border border-black-4 p-4">
+      <div className="text-black "><h1 className="text-center">Resumen del pedido</h1>  </div>
         <label htmlFor="exampleFormControlInput1" className="form-label">Direccion de envio</label>
         <input type="email" className="form-control mb-4" id="exampleFormControlInput1" placeholder="escribe direccion de envio" />
-        <select className="form-select mb-4" required aria-label="select example" value={metodoPago} onChange={handlePay}>
+        <select className="form-select mb-4" required aria-label="select example" value={metodoPago} onChange={(e)=> setMetodoPago(e.target.value)}>
           <option value="">Metodo de pago </option>
 
           <option value="pagomovil"> Pagomovil </option>
@@ -109,7 +111,7 @@ const FormPay = (props) => {
 
         <div className="justify-content-center d-flex">
           <div className="d-grid gap-2 d-md-block  ">
-            <button onClick={() => props.setHandleCredit(true)} className="btn btn-warning " type="button">Ir a pagar</button>
+            <button  onClick={handlePay}  className="btn btn-warning " type="button">Ir a pagar</button>
           </div>
 
 

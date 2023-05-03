@@ -22,7 +22,7 @@ const ViewFormPay =() =>{
         efectivo: false
     })
 
-    return <>
+    return <div className="d-flex">
     
     <FormPay setHandleCredit={setHandleCredit} handleCredit={handleCredit}/>
     {handleCredit.tarjetaDeCredito ? <CreditView/>: null}
@@ -32,7 +32,7 @@ const ViewFormPay =() =>{
     {handleCredit.pagomovil ? <PagomovilView/>: null}
     {handleCredit.efectivo ? <EfectivoView/>: null}
 
-    </>
+    </div>
 }
 
 export default ViewFormPay

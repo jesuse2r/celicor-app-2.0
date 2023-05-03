@@ -60,7 +60,7 @@ class Licores(db.Model):
             "origen": self.origen,
             "litres": self.litres,
             "style": self.style,
-            "old": self.old,
+            "old": self.old
 
             # do not serialize the password, its a security breach
         }
@@ -72,6 +72,9 @@ class Cartitem(db.Model):
     licores_id = db.Column(db.Integer, db.ForeignKey('licores.id'), nullable=False)
     licores = db.relationship("Licores")
 
+    cart_id = db.Column(db.Integer, db.ForeignKey('cart.id'), nullable=False)
+    cart = db.relationship("Cart")
+
     
 
     def __repr__(self):
@@ -81,10 +84,25 @@ class Cartitem(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "licores_id": self.licores_id
+            "licores_id": self.licores_id,
+            "cart_id": self.cart_id
 
             # do not serialize the password, its a security breach
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 class Cart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -104,6 +122,7 @@ class Cart(db.Model):
 
             # do not serialize the password, its a security breach
         }
+
 
 
 

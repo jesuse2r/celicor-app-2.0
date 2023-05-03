@@ -1,13 +1,17 @@
 import React from "react";
 import banescoLogo from "../../img/banesco.png"
+import logo from "../../img/logo.png"
 
 const PagomovilView = () => {
     return (
 
         <>
-        <div className="card m-4 " style={{width: "18rem"}}>
+        <div className="card m-5 w-25 " style={{width: "18rem", height:"auto"}}>
         <div className="card-body">
-        <img src={banescoLogo} className="card-img-top" alt="..."/>
+        <div className="justify-content-between d-flex">
+        <img src={logo} className="card-img-top w-25 mb-4" alt="..."/>
+        <img src={banescoLogo} className="card-img-top w-25" alt="..."/>
+        </div>
           <h5 className="card-title">Pagomovil</h5>
           <h6 className="card-subtitle mb-2 text-body-secondary">Numero de Cedula: 23.944.726</h6>
           <p className="card-text">Numero de telefono: 04242187006</p>
