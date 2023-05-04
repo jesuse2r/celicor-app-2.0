@@ -15,24 +15,58 @@ api = Blueprint('api', __name__)
 def register():
     body = request.json
     email = body.get('email', None)
+<<<<<<< HEAD
     password = body.get('password', None)    
     name = body.get('name', None)
     address = body.get('address', None)
     document_id = body.get('document_id', None)
     phone = body.get('phone', None)
+=======
+    password = body.get('password', None)
+
+    name = body.get('name', None)
+    address = body.get('address', None)
+    document_id = body.get('document_id', None)
+    phone = body.get('phone', None) 
+>>>>>>> f9f2c60f8a39dcc6013ccc6763554d183f69289b
     role = body.get('role', None)
     if email is None or password is None or name is None or  address is None or document_id is None or phone is None:
         return{"error": "todos los campos son requeridos"}, 400
     if role not in  Role.__members__:
         return{"error": f"{role} No existe en los roles"}
     password_hash = generate_password_hash(password)
+<<<<<<< HEAD
     new_user = User(email=email, password=password_hash, name=name, address=address, document_id=document_id, phone=phone, role="buyer" )
+=======
+
+    new_user = User(email=email, password=password_hash,  name=name, address=address, document_id=document_id, phone=phone, role="buyer" )
+>>>>>>> f9f2c60f8a39dcc6013ccc6763554d183f69289b
     db.session.add(new_user)
     try: 
         db.session.commit()
         return jsonify({"msg":"usuario creado con exito"}), 201
     except Exception as error:
+<<<<<<< HEAD
         return{"error": error}, 500
+=======
+        return ({"error":error})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> f9f2c60f8a39dcc6013ccc6763554d183f69289b
 
 
 @api.route("/user/login", methods=["POST"])
