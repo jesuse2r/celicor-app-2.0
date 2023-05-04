@@ -85,7 +85,11 @@ class Cartitem(db.Model):
             "id": self.id,
             "name": self.name,
             "licores_id": self.licores_id,
+<<<<<<< HEAD
+            "cart_id":self.cart_id
+=======
             "cart_id": self.cart_id
+>>>>>>> f9f2c60f8a39dcc6013ccc6763554d183f69289b
 
             # do not serialize the password, its a security breach
         }
