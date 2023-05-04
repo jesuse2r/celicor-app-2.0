@@ -13,6 +13,7 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import ViewFormPay from "./pages/ViewFormPay";
+import CartView from "./pages/CartView";
 
 
 //create your first component
@@ -35,6 +36,7 @@ const Layout = () => {
                         <Route element={<Demo />} path="/demo" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<ViewFormPay />} path="/viewpay" />
+                        <Route element={<CartView />} path="cartview" />
                        
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
