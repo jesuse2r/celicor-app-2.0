@@ -1,14 +1,14 @@
 import { redirect } from "react-router-dom";
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      token: JSON.parse(localStorage.getItem("token")) || "",
+      token: localStorage.getItem("token") || "",
     },
     actions: {
       // Use getActions to call a function within a fuction
 
-      handleLogin: async (event, email, password) => {
-        event.preventDefault();
+      handleLogin: async (email, password) => {
         const opts = {
           method: "POST",
           headers: {
@@ -20,19 +20,21 @@ const getState = ({ getStore, getActions, setStore }) => {
           }),
         };
         const response = await fetch(
-          "https://3001-santiagoarr-flaskproyec-7y1aq4l11xe.ws-us96b.gitpod.io/api/user/login",
+          `${process.env.BACKEND_URL}/api/user/login`,
           opts
         );
-        if (!response.ok) return alert("error con la solicitud");
+        if (!response.ok) {
+          alert("error con la solicitud");
+          return false;
+        }
         const data = await response.json();
         const store = getStore();
         setStore({ ...store, token: data });
         JSON.stringify(localStorage.setItem("token", data));
-        return redirect("/");
+        return true;
       },
 
       handleRegister: async (
-        event,
         email,
         password,
         name,
@@ -41,7 +43,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         address,
         role
       ) => {
-        event.preventDefault();
         const opts = {
           method: "POST",
           headers: {
@@ -58,15 +59,20 @@ const getState = ({ getStore, getActions, setStore }) => {
           }),
         };
         const response = await fetch(
-          "https://3001-santiagoarr-flaskproyec-7y1aq4l11xe.ws-us96b.gitpod.io/api/user",
+          `${process.env.BACKEND_URL}/api/user`,
           opts
         );
         if (!response.ok) return alert("error con la solicitud");
-        const data = await response.json();
-        const store = getStore();
-        setStore({ ...store, token: data });
+        const data = await response.json();     
         const actions = getActions();
-        return actions.handleLogin(event, email, password);
+        const login = await actions.handleLogin(email, password);
+        if (login) return true;
+        else return false;
+      },
+
+      hasledLogout: () => {
+        localStorage.removeItem("token");
+        setStore({ token: "" });
       },
 
       exampleFunction: () => {

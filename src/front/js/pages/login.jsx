@@ -2,12 +2,21 @@ import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/login.css";
 import user from "../../img/user.jpg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleRedirect = async (event) => {
+    event.preventDefault();
+    const response = await actions.handleLogin(email, password);
+    if (response) {
+      navigate("/");
+    }
+  };
 
   return (
     <div className="container col-4">
@@ -43,7 +52,7 @@ export const Login = () => {
             <div>
               <button
                 className="boton"
-                onClick={(event) => actions.handleLogin(event, email, password)}
+                onClick={(event) => handleRedirect(event)}
               >
                 Login
               </button>
