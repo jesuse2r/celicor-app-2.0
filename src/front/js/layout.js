@@ -37,7 +37,6 @@ const Layout = () => {
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<ViewFormPay />} path="/viewpay" />
                         <Route element={<CartView />} path="cartview" />
-                       
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

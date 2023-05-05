@@ -11,9 +11,9 @@ export const Login = () => {
 
   return (
     <div className="container col-4">
-      <div className="card box d-flex justify-content-center align-items-center">
+      <div className="card box d-flex justify-content-center align-items-center border-product">
         <img src={user} className="img"></img>
-        <div className="text-center mt-5">
+        <div className="text-center mt-5 yellow">
           <h1>Bienvenido</h1>
           <form>
             <div className="mb-3">

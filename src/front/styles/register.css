@@ -30,7 +30,7 @@
 }
 
 .form_input:focus+.form_label {
-    transform: translateY(-30px) scale(.10);
+    transform: translateY(-20px) scale(.10);
 }
 
 

@@ -52,3 +52,6 @@ p a {
 p a:hover {
     color: #ad7a02;
 }
+.border-none {
+    border: none;
+}

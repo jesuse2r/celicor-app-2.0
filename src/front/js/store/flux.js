@@ -20,7 +20,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           }),
         };
         const response = await fetch(
-          "https://3001-santiagoarr-flaskproyec-e7ur3w8v2ow.ws-us96b.gitpod.io/api/user/login",
+          "https://3001-santiagoarr-flaskproyec-7y1aq4l11xe.ws-us96b.gitpod.io/api/user/login",
           opts
         );
         if (!response.ok) return alert("error con la solicitud");
@@ -58,7 +58,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           }),
         };
         const response = await fetch(
-          "https://3001-santiagoarr-flaskproyec-e7ur3w8v2ow.ws-us96b.gitpod.io/api/user",
+          "https://3001-santiagoarr-flaskproyec-7y1aq4l11xe.ws-us96b.gitpod.io/api/user",
           opts
         );
         if (!response.ok) return alert("error con la solicitud");

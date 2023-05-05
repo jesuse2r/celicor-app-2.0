@@ -11,7 +11,9 @@ export const Navbar = () => {
 					<img src={logo} className="logo"></img>
 				</Link>
 				<div className="d-flex align-items-center gap-3">
-					<button className="btn btn-warning"><i className="fas fa-shopping-cart"></i></button>
+					<Link to="/viewpay">
+						<button className="btn btn-warning"><i className="fas fa-shopping-cart"></i></button>
+					</Link>
 					<button className="btn btn-warning ">Login/register</button>
 				</div>
 			</div>
