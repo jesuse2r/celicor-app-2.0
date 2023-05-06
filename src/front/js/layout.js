@@ -7,7 +7,7 @@ import { Home } from "./pages/home";
 import { Login } from "./pages/login.jsx";
 import { Register } from "./pages/Register.jsx";
 import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
+import { Details } from "./pages/details.jsx";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -34,7 +34,7 @@ const Layout = () => {
                         <Route element={<Register />} path="/register" />
                         <Route element={<Home />} path="/" />
                         <Route element={<Demo />} path="/demo" />
-                        <Route element={<Single />} path="/single/:theid" />
+                        <Route element={<Details />} path="/details" />
                         <Route element={<ViewFormPay />} path="/viewpay" />
                         <Route element={<CartView />} path="cartview" />
                         <Route element={<h1>Not found!</h1>} />

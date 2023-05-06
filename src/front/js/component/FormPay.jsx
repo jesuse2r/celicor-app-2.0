@@ -54,15 +54,15 @@ const FormPay = (props) => {
                   <h5 className="text-black mb-0">{producto.nombre}</h5>
                 </div>
                 <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                  <button className="btn btn-link px-2 yellow"><i className="fas fa-minus"></i></button>
+                  <button className="btn px-2 yellow"><i className="fas fa-minus"></i></button>
                   <input value={producto.cantidad} className="form-control form-control-sm" />
-                  <button className="btn btn-link px-2 yellow"><i className="fas fa-plus"></i></button>
+                  <button className="btn px-2 yellow"><i className="fas fa-plus"></i></button>
                 </div>
                 <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                   <h5 className="mb-0">{producto.precio * producto.cantidad}$</h5>
                 </div>
                 <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                  <i className="fas fa-times"></i>
+                  <button className="btn  px-2 yellow"><i className="fas fa-times"></i></button>
                 </div>
               </div>
             </div>
