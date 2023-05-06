@@ -1,14 +1,8 @@
 """empty message
 
-<<<<<<<< HEAD:migrations/versions/cf5d47b98d10_.py
-Revision ID: cf5d47b98d10
+Revision ID: b57dd8fb864a
 Revises: 
-Create Date: 2023-05-03 20:22:26.815998
-========
-Revision ID: 9e55523ec08d
-Revises: 
-Create Date: 2023-05-02 23:09:40.730579
->>>>>>>> f9f2c60f8a39dcc6013ccc6763554d183f69289b:migrations/versions/9e55523ec08d_.py
+Create Date: 2023-05-05 16:31:52.878409
 
 """
 from alembic import op
@@ -16,11 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-<<<<<<<< HEAD:migrations/versions/cf5d47b98d10_.py
-revision = 'cf5d47b98d10'
-========
-revision = '9e55523ec08d'
->>>>>>>> f9f2c60f8a39dcc6013ccc6763554d183f69289b:migrations/versions/9e55523ec08d_.py
+revision = 'b57dd8fb864a'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -31,6 +21,7 @@ def upgrade():
     op.create_table('licores',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=50), nullable=False),
+    sa.Column('category', sa.String(length=100), nullable=False),
     sa.Column('quantity', sa.Integer(), nullable=False),
     sa.Column('types', sa.String(length=50), nullable=False),
     sa.Column('marca', sa.String(length=50), nullable=False),

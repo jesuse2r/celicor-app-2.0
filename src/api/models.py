@@ -36,6 +36,7 @@ class User(db.Model):
 class Licores(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name= db.Column(db.String(50),nullable= False)
+    category= db.Column(db.String(100), nullable=False)
     quantity= db.Column(db.Integer, nullable = False)
     types= db.Column(db.String(50),nullable= False)
     marca= db.Column(db.String(50),nullable= False)
@@ -54,9 +55,11 @@ class Licores(db.Model):
             "id": self.id,
             "name": self.name,
             "quantity": self.quantity,
+            "category": self.category,
+
             "types": self.types,
             "marca": self.marca,
-            "prize": self.prize,
+            "price": self.price,
             "origen": self.origen,
             "litres": self.litres,
             "style": self.style,
@@ -85,28 +88,11 @@ class Cartitem(db.Model):
             "id": self.id,
             "name": self.name,
             "licores_id": self.licores_id,
-<<<<<<< HEAD
             "cart_id":self.cart_id
-=======
-            "cart_id": self.cart_id
->>>>>>> f9f2c60f8a39dcc6013ccc6763554d183f69289b
 
             # do not serialize the password, its a security breach
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-        
 class Cart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)

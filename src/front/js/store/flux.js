@@ -28,7 +28,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
         setStore({ ...store, token: data });
         JSON.stringify(localStorage.setItem("token", data));
-        return redirect("/");
+        
       },
 
       handleRegister: async (
