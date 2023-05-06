@@ -24,7 +24,10 @@ def register():
     if email is None or password is None or name is None or  address is None or document_id is None or phone is None:
         return{"error": "todos los campos son requeridos"}, 400
     if role not in  Role.__members__:
-        return{"error": f"{role} No existe en los roles"}
+        return{"error": f"{role} No existe en los roles"}, 400
+    user = User.query.filter_by(email = email).one_or_none()
+    if user is not None:
+        return{"error": "Este correo ya esta registrado"}, 400
     password_hash = generate_password_hash(password)
     new_user = User(email=email, password=password_hash, name=name, address=address, document_id=document_id, phone=phone, role="buyer" )
     db.session.add(new_user)
@@ -50,7 +53,7 @@ def login():
         print(token)
         return jsonify({"access_token": token})
     else:
-         return "contraseña incorrecta", 401    
+        return "contraseña incorrecta", 401    
     
 @api.route('/user', methods=['GET'])
 def handle_hello():

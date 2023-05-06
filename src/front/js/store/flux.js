@@ -29,8 +29,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
         const data = await response.json();
         const store = getStore();
-        setStore({ ...store, token: data });
-        JSON.stringify(localStorage.setItem("token", data));
+        setStore({ ...store, token: data.access_token });
+        JSON.stringify(localStorage.setItem("token", data.access_token));
         return true;
       },
 
@@ -62,12 +62,13 @@ const getState = ({ getStore, getActions, setStore }) => {
           `${process.env.BACKEND_URL}/api/user`,
           opts
         );
-        if (!response.ok) return alert("error con la solicitud");
-        const data = await response.json();     
+        if (!response.ok) {
+          alert("error con la solicitud");
+          return false
+        }    
         const actions = getActions();
         const login = await actions.handleLogin(email, password);
-        if (login) return true;
-        else return false;
+        return true
       },
 
       hasledLogout: () => {

@@ -13,7 +13,7 @@ export const Login = () => {
   const handleRedirect = async (event) => {
     event.preventDefault();
     const response = await actions.handleLogin(email, password);
-    if (response) {
+    if (response == true) {
       navigate("/");
     }
   };

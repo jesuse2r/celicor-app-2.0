@@ -20,9 +20,9 @@ export const Register = () => {
 
   const navigate = useNavigate();
 
-  const handleRedirect = (event) => {
+  const handleRedirect = async (event) => {
     event.preventDefault();
-    const response = actions.handleRegister(
+    const response = await actions.handleRegister(
       email,
       password,
       name,
@@ -31,7 +31,7 @@ export const Register = () => {
       address,
       role
     );
-    if (response) {
+    if (response == true) {
       navigate("/");
     }
   };
@@ -39,7 +39,7 @@ export const Register = () => {
   return (
     <div className="container col-4">
       <div className="card body d-flex justify-content-center">
-        <div className="mt-5">
+        <div className="mt-5 yellow">
           <h1>Registro de Usuario</h1>
           <form className="form_container">
             <div className="form_group">
@@ -122,7 +122,7 @@ export const Register = () => {
           </form>
           <div className="m-3">
             <button
-              className="boton"
+              className="boton mt-3"
               onClick={(event) => handleRedirect(event)}
             >
               Register
