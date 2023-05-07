@@ -1,26 +1,136 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
-import "../../styles/home.css";
+import "../../styles/register.css";
+import user from "../../img/user.jpg";
+import { NavLink, useNavigate } from "react-router-dom";
+const initialvalue = {
+  email: "",
+  password: "",
+};
 
 export const Register = () => {
-	const { store, actions } = useContext(Context);
+  const { store, actions } = useContext(Context);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [document_id, setDocument_id] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [role, setRole] = useState("");
 
-	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
-			<div className="alert alert-info">
-				{store.message || "Loading message from the backend (make sure your python backend is running)..."}
-			</div>
-			<p>
-				This boilerplate comes with lots of documentation:{" "}
-				<a href="https://start.4geeksacademy.com/starters/react-flask">
-					Read documentation
-				</a>
-			</p>
-		</div>
-	);
+  const navigate = useNavigate();
+
+  const handleRedirect = async (event) => {
+    event.preventDefault();
+    const response = await actions.handleRegister(
+      email,
+      password,
+      name,
+      document_id,
+      phone,
+      address,
+      role
+    );
+    if (response == true) {
+      navigate("/");
+    }
+  };
+
+  return (
+    <div className="container col-4">
+      <div className="card body d-flex justify-content-center">
+        <div className="mt-5 yellow">
+          <h1>Registro de Usuario</h1>
+          <form className="form_container">
+            <div className="form_group">
+              <input
+                className="form-control form_input"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+              />
+              <label htmlFor="exampleInputEmail1" className="form_label">
+                Email
+              </label>
+              <span className="form_line"></span>
+            </div>
+            <div className="form_group">
+              <input
+                className="form-control form_input"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+              />
+              <label htmlFor="exampleInputEmail1" className="form_label">
+                Password
+              </label>
+              <span className="form_line"></span>
+            </div>
+            <div className="form_group">
+              <input
+                className="form-control form_input"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+              />
+              <label htmlFor="exampleInputEmail1" className="form_label">
+                Name
+              </label>
+              <span className="form_line"></span>
+            </div>
+            <div className="form_group">
+              <input
+                className="form-control form_input"
+                value={document_id}
+                onChange={(event) => setDocument_id(event.target.value)}
+              />
+              <label htmlFor="exampleInputEmail1" className="form_label">
+                Cedula
+              </label>
+              <span className="form_line"></span>
+            </div>
+            <div className="form_group">
+              <input
+                className="form-control form_input"
+                value={phone}
+                onChange={(event) => setPhone(event.target.value)}
+              />
+              <label htmlFor="exampleInputEmail1" className="form_label">
+                Telefono
+              </label>
+              <span className="form_line"></span>
+            </div>
+            <div className="form_group">
+              <input
+                className="form-control form_input"
+                value={address}
+                onChange={(event) => setAddress(event.target.value)}
+              />
+              <label htmlFor="exampleInputEmail1" className="form_label">
+                Direccion
+              </label>
+              <span className="form_line"></span>
+            </div>
+            <div className="form_group">
+              <input
+                className="form-control form_input"
+                value={role}
+                onChange={(event) => setRole(event.target.value)}
+              />
+              <label htmlFor="exampleInputEmail1" className="form_label">
+                Role
+              </label>
+              <span className="form_line"></span>
+            </div>
+          </form>
+          <div className="m-3">
+            <button
+              className="boton mt-3"
+              onClick={(event) => handleRedirect(event)}
+            >
+              Register
+            </button>
+            <NavLink to="/">Volver</NavLink>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };

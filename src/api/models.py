@@ -43,7 +43,7 @@ class Licores(db.Model):
     origen= db.Column(db.String(50),nullable= False)
     litres= db.Column(db.Integer,nullable= False)
     style= db.Column(db.String(50),nullable= False)
-    old =db.Column(db.Integer,nullable= False)
+    old =db.Column(db.String(50),nullable= False)
 
 
     def __repr__(self):
@@ -60,7 +60,7 @@ class Licores(db.Model):
             "origen": self.origen,
             "litres": self.litres,
             "style": self.style,
-            "old": self.old,
+            "old": self.old
 
             # do not serialize the password, its a security breach
         }
@@ -75,6 +75,8 @@ class Cartitem(db.Model):
     cart_id = db.Column(db.Integer, db.ForeignKey('cart.id'), nullable=False)
     cart = db.relationship("Cart")
 
+    
+
     def __repr__(self):
         return f'<Cartitem {self.id}>'
 
@@ -82,10 +84,24 @@ class Cartitem(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "licores_id": self.licores_id
-
+            "licores_id": self.licores_id,
+            "cart_id":self.cart_id
             # do not serialize the password, its a security breach
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 class Cart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -105,6 +121,7 @@ class Cart(db.Model):
 
             # do not serialize the password, its a security breach
         }
+
 
 
 
