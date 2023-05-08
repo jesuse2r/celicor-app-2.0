@@ -29,9 +29,11 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
         const data = await response.json();
         const store = getStore();
+
         setStore({ ...store, token: data.access_token });
         JSON.stringify(localStorage.setItem("token", data.access_token));
         return true;
+
       },
 
       handleRegister: async (
