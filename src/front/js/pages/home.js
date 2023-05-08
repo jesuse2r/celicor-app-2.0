@@ -3,9 +3,11 @@ import { Context } from "../store/appContext";
 import beer from "../../img/beer.png";
 import whisky from "../../img/oldparr.png";
 import "../../styles/home.css";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
+	const navigate = useNavigate();
 	const ejemplo = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 
@@ -25,13 +27,13 @@ export const Home = () => {
 				{ejemplo.map(() => {
 					return (
 							<div className="col-12-justify col-sm-6 col-md-4 col-lg-3">
-								<div className="card yellow blue border-product m-3">
+								<div className="card border-product m-3">
 									<img src={whisky} className="card-img-top" alt="..."></img>
 									<div className="card-body ">
-										<h5 className="card-title">Old Parr 0.75Lts</h5>
+										<h5 className="card-title ">Old Parr 0.75Lts</h5>
 										<p className="card-text">26.99$</p>
 										<span className="d-flex justify-content-around gap-2">
-											<button className="btn btn-warning yellow blue ">Detalles <i className="fas fa-info-circle"></i></button>
+											<button className="btn btn-warning yellow blue" onClick={() => { navigate("/details") }}>Detalles <i className="fas fa-info-circle"></i></button>
 											<button className="btn btn-warning yellow blue">Agregar al  <i className="fas fa-shopping-cart"></i></button>
 										</span>
 									</div>

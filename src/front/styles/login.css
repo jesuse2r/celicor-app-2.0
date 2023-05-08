@@ -32,14 +32,11 @@
 }
 
 .boton {
-    font-family: sans-serif;
-    text-transform: uppercase;
-    outline: 0;
+    color: #ebaa15;
     background-color: #272B51;
     width: 100%;
     border: 0;
     padding: 15px;
-    color: #fff;
     font-size: 15px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;

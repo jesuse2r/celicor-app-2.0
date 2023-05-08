@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/register.css";
 import user from "../../img/user.jpg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 const initialvalue = {
   email: "",
   password: "",
@@ -18,11 +18,29 @@ export const Register = () => {
   const [address, setAddress] = useState("");
   const [role, setRole] = useState("");
 
+  const navigate = useNavigate();
+
+  const handleRedirect = async (event) => {
+    event.preventDefault();
+    const response = await actions.handleRegister(
+      email,
+      password,
+      name,
+      document_id,
+      phone,
+      address,
+      role
+    );
+    if (response == true) {
+      navigate("/");
+    }
+  };
+
   return (
     <div className="container col-4">
       <div className="card body d-flex justify-content-center">
-        <div className="mt-5">
-          <h1 className>Registro de Usuario</h1>
+        <div className="mt-5 yellow">
+          <h1>Registro de Usuario</h1>
           <form className="form_container">
             <div className="form_group">
               <input
@@ -104,19 +122,8 @@ export const Register = () => {
           </form>
           <div className="m-3">
             <button
-              className="boton"
-              onClick={(event) =>
-                actions.handleRegister(
-                  event,
-                  email,
-                  password,
-                  name,
-                  document_id,
-                  phone,
-                  address,
-                  role
-                )
-              }
+              className="boton mt-3"
+              onClick={(event) => handleRedirect(event)}
             >
               Register
             </button>
