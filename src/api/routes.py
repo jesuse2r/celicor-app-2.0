@@ -61,9 +61,12 @@ def handle_hello():
         "message": "hola manao"
     }
 #traer todos los datos del carrito
-@api.route("/cart/<int:id>", methods=['GET'])
-def get_all_cart(id):
-    cart_list = Cart.query.filter_by(user_id=id).all()
+@api.route("/cart", methods=['GET'])
+@jwt_required()
+def get_all_cart():
+    id=get_jwt_identity()
+    user_id= id["id"]
+    cart_list = Cart.query.filter_by(user_id=user_id).all()
     if not cart_list:
         return {"mensaje" : "este usuario no esta en el carrito"} 
     serialized_cart = [cart.serialize() for cart in cart_list]
@@ -84,10 +87,11 @@ def add_all_cart(id):
         return jsonify({"msg": "carrito agregado"}), 201
     except Exception as error:
         db.session.rollback()
-        return jsonify ({"error": error.args[0]})
+        return jsonify ({"error": error})
 
 #borrar del carrito
 @api.route('/cartitem/<int:licores_id>/<int:cart_id>', methods=['DELETE'])
+@jwt_required()
 def delete_cart_licores(cart_id, licores_id):
         cartitem_delete = Cartitem.query.filter_by(cart_id=cart_id, licores_id=licores_id).first()
         if not cartitem_delete:
@@ -101,6 +105,7 @@ def delete_cart_licores(cart_id, licores_id):
             return {"error": error}, 500
 #agregar al cartitem
 @api.route('/cartitem', methods=['POST'])
+@jwt_required()
 def create_cartitem():
     body = request.json
     body_cart_id = body.get('cart_id', None)
@@ -124,12 +129,14 @@ def create_cartitem():
     
 #traer del cartitem
 @api.route('/cartitem/<int:cart_id>', methods=['GET'])
+@jwt_required()
 def get_all_cart_item(cart_id):
     cartitem_list = Cartitem.query.filter_by(cart_id=cart_id)
     serialized_cartitem = [cartitem.serialize() for cartitem in cartitem_list]
     return jsonify({"data": serialized_cartitem})
 #editar cartitem
 @api.route('/cartitem/<int:cart_id>', methods=['PUT'])
+@jwt_required()
 def actualizar_cantidad(cart_id):
 
     body = request.json
@@ -196,7 +203,7 @@ def create_licores():
         return jsonify({"msg": "licor creado con exito!"}), 201
     except Exception as error:
         db.session.rollback()
-        return jsonify ({"error": error.args[0]}), 500 
+        return jsonify ({"error": error}), 500 
 #borrar licores
 @api.route('/licores/<int:id>', methods=['DELETE'])
 def delete_licores(id):
