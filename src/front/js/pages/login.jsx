@@ -8,13 +8,13 @@ export const Login = () => {
   const { store, actions } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
 
   const handleRedirect = async (event) => {
     event.preventDefault();
     const response = await actions.handleLogin(email, password);
     if (response == true) {
-      navigate("/");
+      Navigate("/");
     }
   };
 
@@ -58,13 +58,13 @@ export const Login = () => {
               </button>
             </div>
             <div>
-              <NavLink to="/demo">Perdiste tu Contraseña?</NavLink>
+              <NavLink to="/demo">Perdiste tu Contraseña?</NavLink>              
             </div>
             <div>
-              <NavLink to="/register">Registrate</NavLink>
+              <NavLink to="/register" activeClassName="selected">Registrate</NavLink>
             </div>
           </form>
-          <NavLink to="/">Volver</NavLink>
+          <NavLink to="/" >Volver</NavLink>
         </div>
       </div>
     </div>

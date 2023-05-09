@@ -87,9 +87,9 @@ class Cart(db.Model):
     def __repr__(self):
         return f'<Cart {self.id}>'
     def serialize(self):
-        items=[]
-        for item in self.cart_item: 
-            items.append({"id":item.id, "quantity":item.quantity, "licores_id":item.licores_id, "cart_id":item.cart_id})
+        # items=[]
+        # for item in self.cart_item: 
+        #     items.append({"id":item.id, "quantity":item.quantity, "licores_id":item.licores_id, "cart_id":item.cart_id})
 
         return {
             "id": self.id,
