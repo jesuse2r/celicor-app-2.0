@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/register.css";
-import user from "../../img/user.jpg";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 const initialvalue = {
   email: "",
   password: "",
@@ -16,7 +16,6 @@ export const Register = () => {
   const [document_id, setDocument_id] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const [role, setRole] = useState("");
 
   const navigate = useNavigate();
 
@@ -28,8 +27,7 @@ export const Register = () => {
       name,
       document_id,
       phone,
-      address,
-      role
+      address
     );
     if (response == true) {
       navigate("/");
@@ -45,6 +43,7 @@ export const Register = () => {
             <div className="form_group">
               <input
                 className="form-control form_input"
+                placeholder="  "
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
               />
@@ -55,6 +54,7 @@ export const Register = () => {
             </div>
             <div className="form_group">
               <input
+                placeholder="  "
                 className="form-control form_input"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
@@ -67,6 +67,7 @@ export const Register = () => {
             <div className="form_group">
               <input
                 className="form-control form_input"
+                placeholder="  "
                 value={name}
                 onChange={(event) => setName(event.target.value)}
               />
@@ -78,6 +79,7 @@ export const Register = () => {
             <div className="form_group">
               <input
                 className="form-control form_input"
+                placeholder="  "
                 value={document_id}
                 onChange={(event) => setDocument_id(event.target.value)}
               />
@@ -89,6 +91,7 @@ export const Register = () => {
             <div className="form_group">
               <input
                 className="form-control form_input"
+                placeholder="  "
                 value={phone}
                 onChange={(event) => setPhone(event.target.value)}
               />
@@ -101,6 +104,7 @@ export const Register = () => {
               <input
                 className="form-control form_input"
                 value={address}
+                placeholder="  "
                 onChange={(event) => setAddress(event.target.value)}
               />
               <label htmlFor="exampleInputEmail1" className="form_label">
@@ -108,26 +112,23 @@ export const Register = () => {
               </label>
               <span className="form_line"></span>
             </div>
-            <div className="form_group">
-              <input
-                className="form-control form_input"
-                value={role}
-                onChange={(event) => setRole(event.target.value)}
-              />
-              <label htmlFor="exampleInputEmail1" className="form_label">
-                Role
-              </label>
-              <span className="form_line"></span>
-            </div>
           </form>
           <div className="m-3">
             <button
-              className="boton mt-3"
+              className="boton my-2"
               onClick={(event) => handleRedirect(event)}
             >
               Register
             </button>
-            <NavLink to="/">Volver</NavLink>
+            <button
+              type="button"
+              className="btn btn-outline-primary border border-0 "
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Volver
+            </button>
           </div>
         </div>
       </div>

@@ -24,7 +24,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           opts
         );
         if (!response.ok) {
-          alert("error con la solicitud");
+          alert("Faltan Datos Requeridos");
           return false;
         }
         const data = await response.json();
@@ -43,7 +43,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         document_id,
         phone,
         address,
-        role
       ) => {
         const opts = {
           method: "POST",
@@ -56,8 +55,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             name: name,
             document_id: document_id,
             phone: phone,
-            address: address,
-            role: role,
+            address: address
           }),
         };
         const response = await fetch(
@@ -67,7 +65,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         if (!response.ok) {
           alert("error con la solicitud");
           return false
-        }    
+        }
         const actions = getActions();
         const login = await actions.handleLogin(email, password);
         return true
@@ -77,6 +75,38 @@ const getState = ({ getStore, getActions, setStore }) => {
         localStorage.removeItem("token");
         setStore({ token: "" });
       },
+
+      handleChange_Password: async (
+        email,
+        password
+      ) => {
+        const opts = {
+          method: "PUT",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password
+          }),
+        };
+        const response = await fetch(
+          `${process.env.BACKEND_URL}/api/change-password`,
+          opts
+        );
+        if (!response.ok) {
+          alert("error con el cambio de la contraña o el password");
+          return false;
+        }
+        const data = await response.json();
+        const store = getStore();
+        setStore({ ...store, token: data.access_token });
+        JSON.stringify(localStorage.setItem("token", data.access_token));
+        return true;
+      },
+
+
+
 
       exampleFunction: () => {
         getActions().changeColor(0, "green");

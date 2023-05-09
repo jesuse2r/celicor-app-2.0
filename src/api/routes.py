@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Role, Licores, Cart, Cartitem
+from api.models import db, User, Licores, Cart, Cartitem
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -19,17 +19,14 @@ def register():
     name = body.get('name', None)
     address = body.get('address', None)
     document_id = body.get('document_id', None)
-    phone = body.get('phone', None)
-    role = body.get('role', None)
+    phone = body.get('phone', None)   
     if email is None or password is None or name is None or  address is None or document_id is None or phone is None:
-        return{"error": "todos los campos son requeridos"}, 400
-    if role not in  Role.__members__:
-        return{"error": f"{role} No existe en los roles"}, 400
+        return{"error": "todos los campos son requeridos"}, 400    
     user = User.query.filter_by(email = email).one_or_none()
     if user is not None:
         return{"error": "Este correo ya esta registrado"}, 400
     password_hash = generate_password_hash(password)
-    new_user = User(email=email, password=password_hash, name=name, address=address, document_id=document_id, phone=phone, role="buyer" )
+    new_user = User(email=email, password=password_hash, name=name, address=address, document_id=document_id, phone=phone)
     db.session.add(new_user)
     try: 
         db.session.commit()
@@ -53,13 +50,16 @@ def login():
         print(token)
         return jsonify({"access_token": token})
     else:
-        return "contraseña incorrecta", 401    
+        return "contraseña incorrecta", 401   
+
     
 @api.route('/user', methods=['GET'])
 def handle_hello():
     response_body = {
         "message": "hola manao"
     }
+    return jsonify(response_body), 200
+
 #traer todos los datos del carrito
 @api.route("/cart", methods=['GET'])
 @jwt_required()
@@ -218,6 +218,28 @@ def delete_licores(id):
     except Exception as error:
         db.session.rollback()
         return {"error": error}, 500
+
+#-----Modificacion de la contraseña y email ------
+@api.route('/change-password', methods=["PUT"])
+def change_password():
+    body= request.json
+    email = body.get('email', None)
+    new_email = body.get('new_email', None)
+    password = body.get('password', None)
+    if not email or not password:
+        return{"error":"Todos los campos son necesarios"}
+    update_user = User.query.filter_by(email=email).first()
+    if not update_user:
+        return {"error":"usuario no encontrado"}, 404    
+    hash_password= generate_password_hash(password)
+    update_user.password = hash_password
+    update_user.email = new_email
+    try:
+        db.session.commit()
+        return jsonify({"msg":"cambiando contrase;a o correo" }) 
+    except Exception as error:    
+        db.session.rollback()    
+        return {"error": error}, 500  
 
 
 
