@@ -2,9 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 import enum
 
 db = SQLAlchemy()
-class Role(enum.Enum):
-    admin="admin"
-    buyer="buyer"
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name= db.Column(db.String(50),nullable= False)
@@ -12,8 +10,7 @@ class User(db.Model):
     phone= db.Column(db.String(50), nullable= False, unique=True)
     address= db.Column(db.String(120), nullable= False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(260), unique=False, nullable=False)
-    role = db.Column(db.Enum(Role), nullable=False, default="buyer")
+    password = db.Column(db.String(260), unique=False, nullable=False)    
     cart = db.relationship("Cart")
 
     def __repr__(self):
@@ -50,7 +47,6 @@ class Licores(db.Model):
             "name": self.name,
             "quantity": self.quantity,
             "category": self.category,
-
             "types": self.types,
             "marca": self.marca,
             "price": self.price,

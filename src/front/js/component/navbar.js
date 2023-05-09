@@ -13,6 +13,9 @@ export const Navbar = () => {
 	const navigateToRegister = () => {
 		navigate("/register");
 	};
+	const navigateToProfile = () => {
+		navigate("/profile");
+	};
 
 	return (
 		<nav className="navigationbar">
@@ -28,7 +31,7 @@ export const Navbar = () => {
 									<i className="fas fa-shopping-cart"></i>
 								</button>
 							</Link>
-							<button className="btn btn-warning" onClick={navigateToLogin}>
+							<button className="btn btn-warning" onClick={navigateToProfile}>
 								Profile
 							</button>
 							<button className="btn btn-warning " onClick={() => { actions.handleLogout() }}>
@@ -36,7 +39,7 @@ export const Navbar = () => {
 							</button>
 						</span>
 					) : (
-						<span className="d-flex">
+						<span className="d-flex gap-2">
 							<button className="btn btn-warning" onClick={navigateToLogin}>
 								Login
 							</button>
