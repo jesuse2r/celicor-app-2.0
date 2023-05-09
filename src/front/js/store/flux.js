@@ -73,7 +73,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         return true
       },
 
-      hasledLogout: () => {
+      handleLogout: () => {
         localStorage.removeItem("token");
         setStore({ token: "" });
       },
