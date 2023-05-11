@@ -253,7 +253,7 @@ def change_password():
     update_user.email = new_email
     try:
         db.session.commit()
-        return jsonify({"msg":"cambiando contrase;a o correo" }) 
+        return jsonify({"msg":"cambiando contraseña o correo" }) 
     except Exception as error:    
         db.session.rollback()    
         return {"error": error}, 500  

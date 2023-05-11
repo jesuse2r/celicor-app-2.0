@@ -37,11 +37,11 @@ export const Register = () => {
   };
 
   return (
-    <div className="container col-4">
-      <div className="card body d-flex justify-content-center">
+    <div className="container col-4 ">
+      <div className="card body d-flex justify-content-center ">
         <div className="mt-5 yellow">
           <h1>Registro de Usuario</h1>
-          <form className="form_container">
+          <form className="form_container yellow">
             <div className="form_group">
               <input
                 className="form-control form_input"
@@ -136,7 +136,7 @@ export const Register = () => {
             </button>
             <button
               type="button"
-              className="btn btn-outline-primary border border-0 "
+              className="btn btn-outline-light yellow border border-0 "
               onClick={() => {
                 navigate("/");
               }}
