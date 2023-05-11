@@ -6,6 +6,7 @@ from api.models import db, User, Licores, Cart, Cartitem
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
+from api.firebase.firebase import Bucket
 
 
 api = Blueprint('api', __name__)
@@ -66,11 +67,9 @@ def handle_hello():
 def get_all_cart():
     id=get_jwt_identity()
     user_id= id["id"]
-    cart_list = Cart.query.filter_by(user_id=user_id).all()
-    if not cart_list:
-        return {"mensaje" : "este usuario no esta en el carrito"} 
-    serialized_cart = [cart.serialize() for cart in cart_list]
-    return jsonify({"data": serialized_cart})
+    cart_list = Cart.query.filter_by(user_id=user_id).first()
+    # serialized_cart = [cart.serialize() for cart in cart_list]
+    return jsonify({"data": cart_list.serialize()})
 #agregar al carrito
 @api.route("/cart/<int:id>", methods=['POST'])
 def add_all_cart(id):
@@ -128,12 +127,23 @@ def create_cartitem():
 
     
 #traer del cartitem
-@api.route('/cartitem/<int:cart_id>', methods=['GET'])
+@api.route('/cartitem', methods=['GET'])
 @jwt_required()
-def get_all_cart_item(cart_id):
-    cartitem_list = Cartitem.query.filter_by(cart_id=cart_id)
+def get_all_cart_item():
+    user = get_jwt_identity()
+    cart = Cart.query.filter_by(user_id = user["id"]).first()
+    cartitem_list = Cartitem.query.filter_by(cart_id=cart.id).all()
+    list_items = []
+    for cartitem in cartitem_list:
+        item = cartitem.serialize()
+        licor = Licores.query.get(item["licores_id"])
+        item["licor"] = licor.serialize()
+        list_items.append(item)
     serialized_cartitem = [cartitem.serialize() for cartitem in cartitem_list]
-    return jsonify({"data": serialized_cartitem})
+    print(serialized_cartitem)
+    print(list_items)
+    return jsonify({"data": list_items})
+
 #editar cartitem
 @api.route('/cartitem/<int:cart_id>', methods=['PUT'])
 @jwt_required()
@@ -179,24 +189,28 @@ def get_category(category):
 #agregar licores
 @api.route('/licores', methods=['POST'])
 def create_licores():
-    body = request.json
-    body_name = body.get('name', None)
-    body_category = body.get('category', None)
-    body_quantity = body.get('quantity', None)
-    body_types = body.get('types', None)
-    body_marca = body.get('marca', None)
-    body_price = body.get('price', None)
-    body_origen = body.get('origen', None)
-    body_litres = body.get('litres', None)
-    body_style = body.get('style', None)
-    body_old = body.get('old', None)
-
+    form = request.form
+    files = request.files
+    print(form)
+    print(files)
+    body_name = form.get('name')
+    body_category = files.get('image')
+    body_quantity = form.get('quantity')
+    body_types = form.get('types')
+    body_marca = form.get('marca')
+    body_price = form.get('price')
+    body_origen = form.get('origen')
+    body_litres = form.get('litres')
+    body_style = form.get('style')
+    body_old = form.get('old')
+    new_image = Bucket.upload_file(body_category, body_category.filename)
+    print(new_image)
     if body_category is None or body_name is None or body_quantity is None or body_types is None or body_marca is None or body_price is None or body_origen is None or body_litres is None or body_style is None or body_old is None:
         return {"error": "Todos los campos requeridos"}, 400
     licores_exists = Licores.query.filter_by(name=body_name).first()
     if licores_exists:
         return {"error": f"ya existe un licor con el nombre: {body_name}"}, 400
-    new_licores = Licores(category=body_category, name=body_name,  quantity=body_quantity, types=body_types, marca=body_marca, price=body_price, origen=body_origen, litres=body_litres, style=body_style, old=body_old )
+    new_licores = Licores(category=new_image, name=body_name,  quantity=body_quantity, types=body_types, marca=body_marca, price=body_price, origen=body_origen, litres=body_litres, style=body_style, old=body_old )
     db.session.add(new_licores) 
     try:
         db.session.commit()

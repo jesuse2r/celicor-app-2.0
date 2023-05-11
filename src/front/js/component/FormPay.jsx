@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext} from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import whisky from "../../img/oldparr.png";
 
 
 const FormPay = (props) => {
+  const { store, actions } = useContext(Context);
   const [metodoPago, setMetodoPago] = useState("")
   const setValue = {
     pagomovil: false,
@@ -16,50 +18,38 @@ const FormPay = (props) => {
   const handlePay = (e) => {
     props.setHandleCredit({ ...setValue, [metodoPago]: true });
   }
-  const carroDeProductos = [
-    {
-      "nombre": "santa teresa",
-      "tipo": "Rones",
-      "precio": 7.99,
-      "cantidad": 2
-    },
-    {
-      "nombre": "gordons mandarina",
-      "tipo": "Vodka",
-      "precio": 6.99,
-      "cantidad": 1
-    },
-    {
-      "nombre": "santa teresa linaje",
-      "tipo": "Rones",
-      "precio": 12.99,
-      "cantidad": 4
-    },
-  ]
+  if (store.cartItems.length == 0){
+    return(
+      <h2>no tienes elementos en el carrito</h2>
+    )
+  }
   return (
     <div className="text-center">
       <div className="m-5 border-product p-4 card w-75 text-center">
         <div className="yellow">
           <h1 className="text-center">Resumen del pedido</h1>
         </div>
-        {carroDeProductos.map((producto) => {
+        {store.cartItems.length == 0 && (
+          <h2>No tienes elementos en el carrito</h2>
+        )}
+        {store.cartItems.map((cartItem) => {
           return (
-            <div className="">
+            <div  key={`cartitems${cartItem.id}`}className="">
               <div className="row mb-4 d-flex justify-content-between align-items-center">
                 <div className="col-md-2 col-lg-2 col-xl-2">
                   <img src={whisky} className="img-fluid rounded-3" alt="foto producto"></img>
                 </div>
                 <div className="col-md-3 col-lg-3 col-xl-3">
-                  <h4 className="text-muted">{producto.tipo}</h4>
-                  <h5 className="text-black mb-0">{producto.nombre}</h5>
+                  <h4 className="text-muted">{cartItem.licor.category}</h4>
+                  <h5 className="text-black mb-0">{cartItem.licor.name}</h5>
                 </div>
                 <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
                   <button className="btn px-2 yellow"><i className="fas fa-minus"></i></button>
-                  <input value={producto.cantidad} className="form-control form-control-sm" />
+                  <input value={cartItem.quantity}className="form-control form-control-sm" />
                   <button className="btn px-2 yellow"><i className="fas fa-plus"></i></button>
                 </div>
                 <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                  <h5 className="mb-0">{producto.precio * producto.cantidad}$</h5>
+                  <h5 className="mb-0">{cartItem.licor.price} * {cartItem.quantity}</h5>
                 </div>
                 <div className="col-md-1 col-lg-1 col-xl-1 text-end">
                   <button className="btn  px-2 yellow"><i className="fas fa-times"></i></button>

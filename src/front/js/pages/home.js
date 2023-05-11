@@ -24,14 +24,14 @@ export const Home = () => {
 			</div>
 			<h3 className="yellow ms-4">Nuestra mejor seleccion de tipo:</h3>
 			<div className="row">
-				{ejemplo.map(() => {
+				{store.products.map((product) => {
 					return (
-							<div className="col-12-justify col-sm-6 col-md-4 col-lg-3">
+							<div key={`product${product.id}`} className="col-12-justify col-sm-6 col-md-4 col-lg-3">
 								<div className="card border-product m-3">
-									<img src={whisky} className="card-img-top" alt="..."></img>
+									<img src={product.category} className="card-img-top" alt="..."></img>
 									<div className="card-body ">
-										<h5 className="card-title ">Old Parr 0.75Lts</h5>
-										<p className="card-text">26.99$</p>
+										<h5 className="card-title ">{product.name}</h5>
+										<p className="card-text">{product.price}$</p>
 										<span className="d-flex justify-content-around gap-2">
 											<button className="btn btn-warning yellow blue" onClick={() => { navigate("/details") }}>Detalles <i className="fas fa-info-circle"></i></button>
 											<button className="btn btn-warning yellow blue">Agregar al  <i className="fas fa-shopping-cart"></i></button>

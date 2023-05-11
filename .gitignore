@@ -17,6 +17,9 @@ php_errorlog
 !render.yml
 !.render-buildpacks.json
 
+
+firebase.json
+
 # track webpack configs (i.e. do NOT ignore it)
 !composer.json
 !webpack.config.js

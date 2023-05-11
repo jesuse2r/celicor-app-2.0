@@ -22,6 +22,10 @@ const injectContext = (PassedComponent) => {
     );
 
     useEffect(() => {
+      state.actions.getAllLiquors()
+      if (state.store.token){
+        state.actions.getCartItems()
+      }
       /**
        * EDIT THIS!
        * This function is the equivalent to "window.onLoad", it only runs once on the entire application lifetime

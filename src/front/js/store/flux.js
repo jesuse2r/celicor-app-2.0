@@ -4,6 +4,8 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       token: localStorage.getItem("token") || "",
+      products:[],
+      cartItems:[],
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -32,6 +34,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         setStore({ ...store, token: data.access_token });
         JSON.stringify(localStorage.setItem("token", data.access_token));
+        const actions = getActions();
+        actions.getCartItems();
         return true;
 
       },
@@ -104,7 +108,20 @@ const getState = ({ getStore, getActions, setStore }) => {
         JSON.stringify(localStorage.setItem("token", data.access_token));
         return true;
       },
-
+      getAllLiquors: async () => {
+        const response = await fetch(`${process.env.BACKEND_URL}/api/licores`);
+        const data = await response.json()
+        const store = getStore();
+        console.log(data)
+        setStore({...store, products: data.data})
+      },
+      getCartItems: async ()=> {
+        const store = getStore();
+        const response = await fetch(`${process.env.BACKEND_URL}/api/cartitem`,{headers:{authorization:`Bearer ${store.token}`}});
+        const data = await response.json()
+        console.log(data)
+        setStore({...store, cartItems: data.data})
+      },
 
 
 
