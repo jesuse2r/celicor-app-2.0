@@ -3,6 +3,11 @@ import enum
 
 db = SQLAlchemy()
 
+class Role(enum.Enum):
+   admin = "admin"
+   buyer = "buyer"
+
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name= db.Column(db.String(50),nullable= False)
@@ -11,6 +16,7 @@ class User(db.Model):
     address= db.Column(db.String(120), nullable= False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(260), unique=False, nullable=False)    
+    role = db.Column(db.Enum(Role), nullable=False , default="buyer")
     cart = db.relationship("Cart")
 
     def __repr__(self):

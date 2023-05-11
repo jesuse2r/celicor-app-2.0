@@ -16,6 +16,7 @@ export const Register = () => {
   const [document_id, setDocument_id] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [role, setRole] = useState("");
 
   const navigate = useNavigate();
 
@@ -27,7 +28,8 @@ export const Register = () => {
       name,
       document_id,
       phone,
-      address
+      address,
+      role
     );
     if (response == true) {
       navigate("/");
@@ -109,6 +111,18 @@ export const Register = () => {
               />
               <label htmlFor="exampleInputEmail1" className="form_label">
                 Direccion
+              </label>
+              <span className="form_line"></span>
+            </div>
+            <div className="form_group">
+              <input
+                className="form-control form_input"
+                value={role}
+                placeholder="  "
+                onChange={(event) => setRole(event.target.value)}
+              />
+              <label htmlFor="exampleInputEmail1" className="form_label">
+                Rol
               </label>
               <span className="form_line"></span>
             </div>
