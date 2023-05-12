@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Licores, Cart, Cartitem
+from api.models import db, User, Licores, Cart, Cartitem, Role
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -21,8 +21,11 @@ def register():
     address = body.get('address', None)
     document_id = body.get('document_id', None)
     phone = body.get('phone', None)   
+    role = body.get ('role', None)
     if email is None or password is None or name is None or  address is None or document_id is None or phone is None:
         return{"error": "todos los campos son requeridos"}, 400    
+    if role not in  Role.__members__:
+        return{"error": f"{role} No existe en los roles"}, 400
     user = User.query.filter_by(email = email).one_or_none()
     if user is not None:
         return{"error": "Este correo ya esta registrado"}, 400
@@ -255,7 +258,7 @@ def change_password():
     update_user.email = new_email
     try:
         db.session.commit()
-        return jsonify({"msg":"cambiando contrase;a o correo" }) 
+        return jsonify({"msg":"cambiando contraseña o correo" }) 
     except Exception as error:    
         db.session.rollback()    
         return {"error": error}, 500  

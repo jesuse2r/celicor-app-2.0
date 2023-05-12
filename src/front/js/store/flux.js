@@ -48,6 +48,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         document_id,
         phone,
         address,
+        role
       ) => {
         const opts = {
           method: "POST",
@@ -60,7 +61,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             name: name,
             document_id: document_id,
             phone: phone,
-            address: address
+            address: address,
+            role: role
           }),
         };
         const response = await fetch(
@@ -83,6 +85,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       handleChange_Password: async (
         email,
+        new_email,
         password
       ) => {
         const opts = {
@@ -92,6 +95,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           },
           body: JSON.stringify({
             email: email,
+            new_email: new_email,
             password: password
           }),
         };
@@ -100,15 +104,14 @@ const getState = ({ getStore, getActions, setStore }) => {
           opts
         );
         if (!response.ok) {
-          alert("error con el cambio de la contraña o el password");
+          alert("error con el cambio de la contraseña o el password");
           return false;
         }
-        const data = await response.json();
-        const store = getStore();
-        setStore({ ...store, token: data.access_token });
-        JSON.stringify(localStorage.setItem("token", data.access_token));
-        return true;
+        const actions = getActions();
+        const login = await actions.handleLogin(new_email, password);
+        return true
       },
+
       getAllLiquors: async () => {
         const response = await fetch(`${process.env.BACKEND_URL}/api/licores`);
         const data = await response.json()

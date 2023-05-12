@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/login.css";
 import user from "../../img/user.jpg";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
@@ -60,7 +60,7 @@ export const Login = () => {
             <div>
               <button
                 type="button"
-                className="btn btn-outline-primary border border-0 "
+                className="btn btn-outline-light yellow border border-0 "
                 onClick={() => {
                   Navigate("/register");
                 }}
@@ -71,7 +71,7 @@ export const Login = () => {
           </form>
           <button
             type="button"
-            className="btn btn-outline-primary border border-0 "
+            className="btn btn-outline-light yellow border border-0 "
             onClick={() => {
               Navigate("/");
             }}
