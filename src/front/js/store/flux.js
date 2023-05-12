@@ -1,4 +1,5 @@
 import { redirect } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 const getState = ({ getStore, getActions, setStore }) => {
   return {
@@ -26,7 +27,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           opts
         );
         if (!response.ok) {
-          alert("Faltan Datos Requeridos");
+          toast.error("Los datos agregados son incorrectos o no estas registrado!");
           return false;
         }
         const data = await response.json();
@@ -36,6 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         JSON.stringify(localStorage.setItem("token", data.access_token));
         const actions = getActions();
         actions.getCartItems();
+        toast.success("Usuario logueado con exito!")
         return true;
 
       },
@@ -47,6 +49,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         document_id,
         phone,
         address,
+        role
       ) => {
         const opts = {
           method: "POST",
@@ -59,29 +62,35 @@ const getState = ({ getStore, getActions, setStore }) => {
             name: name,
             document_id: document_id,
             phone: phone,
-            address: address
+            address: address,
+            role: role
           }),
         };
         const response = await fetch(
           `${process.env.BACKEND_URL}/api/user`,
           opts
         );
+        
         if (!response.ok) {
-          alert("error con la solicitud");
+          toast.error("Error al crear el usuario!");
           return false
         }
         const actions = getActions();
         const login = await actions.handleLogin(email, password);
+        toast.success("Usuario registrado con exito!")
         return true
+        
       },
 
       handleLogout: () => {
         localStorage.removeItem("token");
         setStore({ token: "" });
+        toast.warning("Haz hecho logout de tu sesion para realizar alguna compra vuelve a loguearte!")
       },
 
       handleChange_Password: async (
         email,
+        new_email,
         password
       ) => {
         const opts = {
@@ -91,6 +100,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           },
           body: JSON.stringify({
             email: email,
+            new_email: new_email,
             password: password
           }),
         };
@@ -99,15 +109,15 @@ const getState = ({ getStore, getActions, setStore }) => {
           opts
         );
         if (!response.ok) {
-          alert("error con el cambio de la contraña o el password");
+          toast.error("Error al modificar el usuario");
           return false;
         }
-        const data = await response.json();
-        const store = getStore();
-        setStore({ ...store, token: data.access_token });
-        JSON.stringify(localStorage.setItem("token", data.access_token));
-        return true;
+        const actions = getActions();
+        const login = await actions.handleLogin(new_email, password);
+        toast.success("Usuario modificado con exito!")
+        return true
       },
+
       getAllLiquors: async () => {
         const response = await fetch(`${process.env.BACKEND_URL}/api/licores`);
         const data = await response.json()
@@ -121,6 +131,32 @@ const getState = ({ getStore, getActions, setStore }) => {
         const data = await response.json()
         console.log(data)
         setStore({ ...store, cartItems: data.data })
+
+      },
+      addToCart: async (licores_id) => {
+        const store = getStore();
+        const actions = getActions();
+        const opts = {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            "authorization": `Bearer ${store.token}`,
+          },
+          body: JSON.stringify({
+            licores_id,
+            quantity: 1
+          }),
+        };
+        const response = await fetch(`${process.env.BACKEND_URL}/api/cartitem`,
+          opts)
+        console.log(response)
+        if (response.status == 400) {
+          toast.warning("Este producto ya esta en su carrito, escoja la cantidad en su carrito!")
+          return
+        }
+        toast.success("Producto agregado a tu carrito con exito!")
+        actions.getCartItems()
+
       },
 
 

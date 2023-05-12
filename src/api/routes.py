@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Licores, Cart, Cartitem
+from api.models import db, User, Licores, Cart, Cartitem, Role
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -21,8 +21,11 @@ def register():
     address = body.get('address', None)
     document_id = body.get('document_id', None)
     phone = body.get('phone', None)   
+    role = body.get ('role', None)
     if email is None or password is None or name is None or  address is None or document_id is None or phone is None:
         return{"error": "todos los campos son requeridos"}, 400    
+    if role not in  Role.__members__:
+        return{"error": f"{role} No existe en los roles"}, 400
     user = User.query.filter_by(email = email).one_or_none()
     if user is not None:
         return{"error": "Este correo ya esta registrado"}, 400
@@ -108,16 +111,21 @@ def delete_cart_licores( licores_id,cart_id):
 @jwt_required()
 def create_cartitem():
     body = request.json
-    body_cart_id = body.get('cart_id', None)
+    # body_cart_id = body.get('cart_id', None)
+    user = get_jwt_identity()
+    cart = Cart.query.filter_by(user_id = user["id"]).first()
+    if cart is None:
+        cart = Cart(user_id = user["id"])
+        db.session.add(cart)
     body_licores_id = body.get('licores_id', None)
     body_quantity= body.get('quantity', None)
 
-    if body_cart_id is None or body_licores_id is None or body_quantity  is None:
+    if cart is None or body_licores_id is None or body_quantity  is None:
         return {"error": "Todos los campos requeridos"}, 400
-    cart_item_exists = Cartitem.query.filter_by(cart_id=body_cart_id, licores_id=body_licores_id).first()
+    cart_item_exists = Cartitem.query.filter_by(cart_id=cart.id, licores_id=body_licores_id).first()
     if cart_item_exists:
         return {"error": f"ya existe un licor con el id: {body_licores_id}"}, 400
-    new_cart_item = Cartitem(cart_id=body_cart_id, licores_id=body_licores_id,  quantity=body_quantity)
+    new_cart_item = Cartitem(cart_id=cart.id, licores_id=body_licores_id,  quantity=body_quantity)
     db.session.add(new_cart_item) 
     try:
         db.session.commit()
@@ -251,7 +259,7 @@ def change_password():
     update_user.email = new_email
     try:
         db.session.commit()
-        return jsonify({"msg":"cambiando contrase;a o correo" }) 
+        return jsonify({"msg":"cambiando contraseña o correo" }) 
     except Exception as error:    
         db.session.rollback()    
         return {"error": error}, 500  

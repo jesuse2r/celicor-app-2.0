@@ -7,29 +7,65 @@ import user from "../../img/user.jpg";
 export const Profile = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [new_email, setNew_email] = useState("");
+  const [password, setPassword] = useState("");
+  const Navigate = useNavigate();
+
+  const handleRedirect = async (event) => {
+    event.preventDefault();
+    const response = await actions.handleChange_Password(
+      email,
+      new_email,
+      password
+    );
+    if (response == true) {
+      Navigate("/");
+    }
+  };
 
   return (
     <div className="container col-4">
       <div className="card body1 d-flex justify-content-center">
         <img src={user} className="img2"></img>
         <div className="mt-5 ">
-          <h1>Actualizacion de Usuario</h1>
+          <h1 className="yellow">Actualizacion de Usuario</h1>
           <form className="form_containe">
-            <div className="form_grou">
-              <h3 className="mt-4 yellow">Cambio de Email</h3>
+            <div className="form_group">
               <input
-                className="form-control form_inpu"
+                className="form-control form_input"
+                placeholder="  "
+                value={email}
                 onChange={(event) => setEmail(event.target.value)}
               />
-              <span className="form_lin"></span>
+              <label htmlFor="exampleInputEmail1" className="form_label">
+                Email
+              </label>
+              <span className="form_line"></span>
             </div>
-            <div className="form_grou">
-              <h3 className="mt-1 yellow">Cambio de Password</h3>
+            <div className="form_group">
               <input
-                className="form-control form_inpu"
+                className="form-control form_input"
+                placeholder="  "
+                value={new_email}
+                onChange={(event) => setNew_email(event.target.value)}
+              />
+              <label htmlFor="exampleInputEmail1" className="form_label">
+                Nuevo email
+              </label>
+              <span className="form_line"></span>
+            </div>
+            <div className="form_group">
+              <input
+                className="form-control form_input"
+                placeholder="  "
+                value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
-              <span className="form_lin"></span>
+              <label htmlFor="exampleInputEmail1" className="form_label">
+                Password
+              </label>
+              <span className="form_line"></span>
             </div>
           </form>
           <button
@@ -40,7 +76,7 @@ export const Profile = () => {
           </button>
           <button
             type="button"
-            className="btn btn-outline-primary border border-0 "
+            className="btn btn-outline-light yellow border border-0 "
             onClick={() => {
               navigate("/");
             }}

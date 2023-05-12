@@ -14,6 +14,9 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import ViewFormPay from "./pages/ViewFormPay";
 import CartView from "./pages/CartView";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 //create your first component
@@ -28,13 +31,14 @@ const Layout = () => {
         <div>
             <BrowserRouter basename={basename}>
                 <ScrollToTop>
+                    <ToastContainer />
                     <Navbar />
                     <Routes>
                         <Route element={<Login />} path="/login" />
                         <Route element={<Register />} path="/register" />
                         <Route element={<Home />} path="/" />
                         <Route element={<Profile />} path="/profile" />
-                        <Route element={<Details />} path="/details" />
+                        <Route element={<Details />} path="/details/:id" />
                         <Route element={<ViewFormPay />} path="/viewpay" />
                         <Route element={<CartView />} path="cartview" />
                         <Route element={<h1>Not found!</h1>} />
