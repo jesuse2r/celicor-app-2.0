@@ -4,7 +4,7 @@ cred = credentials.Certificate("firebase.json")
 default_app = initialize_app(
     cred,
     {
-        "storageBucket": "celicor.appspot.com",
+        "storageBucket": "celicorimagen.appspot.com",
     },
 )
 

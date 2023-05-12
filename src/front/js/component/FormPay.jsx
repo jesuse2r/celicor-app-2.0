@@ -1,4 +1,4 @@
-import React, { useState, useContext} from "react";
+import React, { useState, useContext, useEffect} from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import whisky from "../../img/oldparr.png";
@@ -18,7 +18,12 @@ const FormPay = (props) => {
   const handlePay = (e) => {
     props.setHandleCredit({ ...setValue, [metodoPago]: true });
   }
-  if (store.cartItems.length == 0){
+  useEffect(()=>{
+    actions.getCartItems()
+  
+  },[])
+  console.log(store.cartItems)
+  if (store?.cartItems.length == 0){
     return(
       <h2>no tienes elementos en el carrito</h2>
     )
@@ -44,15 +49,18 @@ const FormPay = (props) => {
                   <h5 className="text-black mb-0">{cartItem.licor.name}</h5>
                 </div>
                 <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                  <button className="btn px-2 yellow"><i className="fas fa-minus"></i></button>
+                  <button onClick={()=>(actions.updateCartItems(cartItem.cart_id, cartItem.quantity-1, cartItem.licores_id))}
+                  className="btn px-2 yellow"><i className="fas fa-minus"></i></button>
                   <input value={cartItem.quantity}className="form-control form-control-sm" />
-                  <button className="btn px-2 yellow"><i className="fas fa-plus"></i></button>
+                  <button onClick={()=>(actions.updateCartItems(cartItem.cart_id, cartItem.quantity+1, cartItem.licores_id))}
+                  className="btn px-2 yellow"><i className="fas fa-plus"></i></button>
                 </div>
                 <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                   <h5 className="mb-0">{cartItem.licor.price} * {cartItem.quantity}</h5>
                 </div>
                 <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                  <button className="btn  px-2 yellow"><i className="fas fa-times"></i></button>
+                  <button onClick={()=>(actions.deleteCartItem(cartItem.licores_id,cartItem.cart_id))}
+                  className="btn  px-2 yellow"><i className="fas fa-times"></i></button>
                 </div>
               </div>
             </div>

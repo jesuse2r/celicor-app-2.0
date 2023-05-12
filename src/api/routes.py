@@ -94,17 +94,18 @@ def add_all_cart(id):
 #borrar del carrito
 @api.route('/cartitem/<int:licores_id>/<int:cart_id>', methods=['DELETE'])
 @jwt_required()
-def delete_cart_licores(cart_id, licores_id):
+def delete_cart_licores( licores_id,cart_id):
         cartitem_delete = Cartitem.query.filter_by(cart_id=cart_id, licores_id=licores_id).first()
+        print(cartitem_delete,licores_id,cart_id)
         if not cartitem_delete:
-            return {"msg": "no existe un licor con este id"}
+            return {"msg": "no existe un licor con este id"}, 400
         db.session.delete(cartitem_delete)
         try:
             db.session.commit()
-            return "licor elminado con exito"
+            return jsonify({"msg":"licor elminado con exito"}), 200
         except Exception as error:
             db.session.rollback()
-            return {"error": error}, 500
+            return {"error": error}, 404
 #agregar al cartitem
 @api.route('/cartitem', methods=['POST'])
 @jwt_required()
