@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-
+import "../../styles/about.css";
 
 
 export const Footer = () => {
@@ -24,8 +24,8 @@ export const Footer = () => {
 						<p>Chacao</p>
 					</div>
 					<div className="col-6 col-sm-4 col-lg-2 text-center">
-						<p className="fs-3 fw-bold">De Interes</p>
-						<p onClick={() => navigate("/about")}>Nosotros</p>
+						<p className="fs-3 fw-bold ">De Interes</p>
+						<p onClick={() => navigate("/about")} className="pointer">Nosotros</p>
 					</div>
 					<div className="col-6 col-sm-4 col-lg-2 text-center">
 						<p className="fs-3 fw-bold">Delivery</p>

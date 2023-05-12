@@ -10,7 +10,7 @@ export const About = () => {
   return (
     <div className="container col-4">
       <div className="d-flex align-items-center rounded body3 ">
-        <div className="card rounded-3 ">
+        <div className="card rounded-3 yellow">
           <img src={logo} className="top" alt="logo" />
           <div className="card-body d-flex justify-content- center">
             <img src={sede} alt="sede" className="m-2 letf rounded-2" />
@@ -26,7 +26,7 @@ export const About = () => {
           </div>
           <button
             type="button"
-            className="btn btn-outline-light yellow border border-0 m-4 "
+            className="btn btn-outline-light yellow border border-0 m-4  fs-4"
             onClick={() => {
               navigate("/");
             }}
