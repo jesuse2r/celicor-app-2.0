@@ -1,11 +1,12 @@
 import { redirect } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       token: localStorage.getItem("token") || "",
-      products:[],
-      cartItems:[],
+      products: [],
+      cartItems: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -113,14 +114,38 @@ const getState = ({ getStore, getActions, setStore }) => {
         const data = await response.json()
         const store = getStore();
         console.log(data)
-        setStore({...store, products: data.data})
+        setStore({ ...store, products: data.data })
       },
-      getCartItems: async ()=> {
+      getCartItems: async () => {
         const store = getStore();
-        const response = await fetch(`${process.env.BACKEND_URL}/api/cartitem`,{headers:{authorization:`Bearer ${store.token}`}});
+        const response = await fetch(`${process.env.BACKEND_URL}/api/cartitem`, { headers: { authorization: `Bearer ${store.token}` } });
         const data = await response.json()
         console.log(data)
-        setStore({...store, cartItems: data.data})
+        setStore({ ...store, cartItems: data.data })
+      },
+      addToCart: async (licores_id) => {
+        const store = getStore();
+        const actions = getActions();
+        const opts = {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            "authorization": `Bearer ${store.token}`,
+          },
+          body: JSON.stringify({
+            licores_id,
+            quantity: 1
+          }),
+        };
+        const response = await fetch(`${process.env.BACKEND_URL}/api/cartitem`,
+          opts)
+        console.log(response)
+        if (response.status == 400) {
+          toast.warning("Este producto ya esta en su carrito, escoja la cantidad en su carrito!")
+          return
+        }
+        toast.success("Producto agregado a tu carrito con exito!")
+        actions.getCartItems()
       },
 
 
