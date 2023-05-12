@@ -4,6 +4,7 @@ import "../../styles/login.css";
 import user from "../../img/user.jpg";
 import { useNavigate } from "react-router-dom";
 
+
 export const Login = () => {
   const { store, actions } = useContext(Context);
   const [email, setEmail] = useState("");

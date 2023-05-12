@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import "../../styles/register.css";
 import { useNavigate } from "react-router-dom";
 
+
 const initialvalue = {
   email: "",
   password: "",

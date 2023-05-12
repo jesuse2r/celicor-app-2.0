@@ -71,6 +71,7 @@ export const Profile = () => {
           <button
             className="buton mt-3"
             onClick={(event) => handleRedirect(event)}
+            
           >
             Register
           </button>
