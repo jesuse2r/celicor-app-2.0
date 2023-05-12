@@ -27,7 +27,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           opts
         );
         if (!response.ok) {
-          alert("Faltan Datos Requeridos");
+          toast.error("Los datos agregados son incorrectos o no estas registrado!");
           return false;
         }
         const data = await response.json();
@@ -37,6 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         JSON.stringify(localStorage.setItem("token", data.access_token));
         const actions = getActions();
         actions.getCartItems();
+        toast.success("Usuario logueado con exito!")
         return true;
 
       },
@@ -69,18 +70,22 @@ const getState = ({ getStore, getActions, setStore }) => {
           `${process.env.BACKEND_URL}/api/user`,
           opts
         );
+        
         if (!response.ok) {
-          alert("error con la solicitud");
+          toast.error("Error al crear el usuario!");
           return false
         }
         const actions = getActions();
         const login = await actions.handleLogin(email, password);
+        toast.success("Usuario registrado con exito!")
         return true
+        
       },
 
       handleLogout: () => {
         localStorage.removeItem("token");
         setStore({ token: "" });
+        toast.warning("Haz hecho logout de tu sesion para realizar alguna compra vuelve a loguearte!")
       },
 
       handleChange_Password: async (
@@ -104,11 +109,12 @@ const getState = ({ getStore, getActions, setStore }) => {
           opts
         );
         if (!response.ok) {
-          alert("error con el cambio de la contraseña o el password");
+          toast.error("Error al modificar el usuario");
           return false;
         }
         const actions = getActions();
         const login = await actions.handleLogin(new_email, password);
+        toast.success("Usuario modificado con exito!")
         return true
       },
 
