@@ -4,8 +4,8 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       token: localStorage.getItem("token") || "",
-      products:[],
-      cartItems:[],
+      products: [],
+      cartItems: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -113,14 +113,14 @@ const getState = ({ getStore, getActions, setStore }) => {
         const data = await response.json()
         const store = getStore();
         console.log(data)
-        setStore({...store, products: data.data})
+        setStore({ ...store, products: data.data })
       },
-      getCartItems: async ()=> {
+      getCartItems: async () => {
         const store = getStore();
-        const response = await fetch(`${process.env.BACKEND_URL}/api/cartitem`,{headers:{authorization:`Bearer ${store.token}`}});
+        const response = await fetch(`${process.env.BACKEND_URL}/api/cartitem`, { headers: { authorization: `Bearer ${store.token}` } });
         const data = await response.json()
         console.log(data)
-        setStore({...store, cartItems: data.data})
+        setStore({ ...store, cartItems: data.data })
       },
 
 
@@ -142,6 +142,82 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         //reset the global store
         setStore({ demo: demo });
+
+      },
+      updateCartItems: async (
+        cartId, quantity, licoresId
+        
+      ) => {
+        const actions = getActions()
+        const store = getStore()
+        console.log(cartId, quantity, licoresId)
+        const opts = {
+          method: "PUT",
+          headers: {
+            "Content-type": "application/json",
+            authorization: `Bearer ${store.token}`
+          
+          },
+          body: JSON.stringify({
+            quantity: quantity,
+            licores_id:licoresId
+          }),
+        };
+        const response = await fetch(
+          `${process.env.BACKEND_URL}/api/cartitem/${cartId}`,
+          opts
+        );
+        if (!response.ok) {
+          alert("no tiene suficiente stock");
+          return false;
+        }
+        actions.getCartItems()
+        
+        return true;
+      },
+      deleteCartItem: async (
+        licoresId,  cartId
+        
+        
+      ) => {
+        const actions = getActions()
+        const store = getStore()
+        console.log(cartId, licoresId)
+        const opts = {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json",
+            authorization: `Bearer ${store.token}`
+          
+          },
+          
+        };
+        try {
+          const response = await fetch(
+            `${process.env.BACKEND_URL}/api/cartitem/${licoresId}/${cartId}`,
+            opts
+          );
+          const data = await response.json()
+          console.log(data)
+          if (response.ok) {
+            
+            console.log("licor eliminado");
+            actions.getCartItems()
+          
+            
+          
+  
+            return true;
+          }
+          
+          
+          return false;
+          
+        } catch (error) {
+          console.log(error)
+          
+        }
+        
       },
     },
   };
