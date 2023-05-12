@@ -110,16 +110,21 @@ def delete_cart_licores(cart_id, licores_id):
 @jwt_required()
 def create_cartitem():
     body = request.json
-    body_cart_id = body.get('cart_id', None)
+    # body_cart_id = body.get('cart_id', None)
+    user = get_jwt_identity()
+    cart = Cart.query.filter_by(user_id = user["id"]).first()
+    if cart is None:
+        cart = Cart(user_id = user["id"])
+        db.session.add(cart)
     body_licores_id = body.get('licores_id', None)
     body_quantity= body.get('quantity', None)
 
-    if body_cart_id is None or body_licores_id is None or body_quantity  is None:
+    if cart is None or body_licores_id is None or body_quantity  is None:
         return {"error": "Todos los campos requeridos"}, 400
-    cart_item_exists = Cartitem.query.filter_by(cart_id=body_cart_id, licores_id=body_licores_id).first()
+    cart_item_exists = Cartitem.query.filter_by(cart_id=cart.id, licores_id=body_licores_id).first()
     if cart_item_exists:
         return {"error": f"ya existe un licor con el id: {body_licores_id}"}, 400
-    new_cart_item = Cartitem(cart_id=body_cart_id, licores_id=body_licores_id,  quantity=body_quantity)
+    new_cart_item = Cartitem(cart_id=cart.id, licores_id=body_licores_id,  quantity=body_quantity)
     db.session.add(new_cart_item) 
     try:
         db.session.commit()

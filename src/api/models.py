@@ -38,9 +38,9 @@ class Licores(db.Model):
     quantity= db.Column(db.Integer, nullable = False)
     types= db.Column(db.String(50),nullable= False)
     marca= db.Column(db.String(50),nullable= False)
-    price= db.Column(db.Integer,nullable= False)
+    price= db.Column(db.String,nullable= False)
     origen= db.Column(db.String(50),nullable= False)
-    litres= db.Column(db.Integer,nullable= False)
+    litres= db.Column(db.String,nullable= False)
     style= db.Column(db.String(50),nullable= False)
     old =db.Column(db.String(50),nullable= False)
 
