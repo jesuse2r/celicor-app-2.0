@@ -15,8 +15,10 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import ViewFormPay from "./pages/ViewFormPay";
 import CartView from "./pages/CartView";
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ViewFacture from "./pages/ViewFacture";
 
 
 
@@ -42,6 +44,7 @@ const Layout = () => {
                         <Route element={<Details />} path="/details/:id" />
                         <Route element={<ViewFormPay />} path="/viewpay" />
                         <Route element={<CartView />} path="cartview" />
+                        <Route element={<ViewFacture />} path="viewfacture" />
                         <Route element={<About />} path="/about" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>

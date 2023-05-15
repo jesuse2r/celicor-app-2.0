@@ -255,8 +255,40 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
         
       },
+      addFactura: async (total) => {
+        const store = getStore();
+        const actions = getActions();
+        const opts = {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            "authorization": `Bearer ${store.token}`,
+          },
+          body: JSON.stringify({
+  
+       
+           
+            total: total
+          }),
+        };
+        const response = await fetch(`${process.env.BACKEND_URL}/api/factura`,
+          opts)
+        console.log(response)
+        if (!response.ok) {
+          toast.warning("ya existe una factura para este usuario!")
+          return false;
+        }
+        toast.success("factura nueva lista!")
+        return true;
+       
+
+      },
+
+      
     },
   };
 };
+
+
 
 export default getState;

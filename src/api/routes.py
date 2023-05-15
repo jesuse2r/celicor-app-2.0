@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Licores, Cart, Cartitem, Role
+from api.models import db, User, Licores, Cart, Cartitem, Role, Factura
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -266,6 +266,42 @@ def change_password():
 
 
 
+@api.route('/factura', methods=['POST'])
+@jwt_required()
+def create_factura():
+    body = request.json
+    
+ 
+    body_direccion = "Av Fuerzas Armadas, frente al mercado de las flores."
+    body_total = body.get('total', None)
+    user = get_jwt_identity()
+    
+    if body_direccion is None or body_total is None:
+        return {"error": "Todos los campos requeridos"}, 400
+    factura = Factura.query.filter_by(user_id = user["id"]).first()
+    if factura is None:
+        factura = Factura(user_id = user["id"],  direccion=body_direccion, total=body_total)
+        db.session.add(factura)
+
+
+        try:
+            db.session.commit()
+            return jsonify({"msg": "factura creado con exito!"}), 201
+        except Exception as error:
+            db.session.rollback()
+            return jsonify ({"error": error.args}), 500 
+    else: 
+        return jsonify({"msg":"se encontro factura"}), 404
+
+@api.route("/factura", methods=['GET'])
+@jwt_required()
+def get_factura():
+    id=get_jwt_identity()
+    user_id= id["id"]
+    factura = Factura.query.filter_by(user_id=user_id).first()
+    print(factura)
+
+    return jsonify({"data": factura.serialize()})
 
 
 
