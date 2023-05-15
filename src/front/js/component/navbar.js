@@ -18,7 +18,7 @@ export const Navbar = () => {
 	};
 
 	return (
-		<nav className="navigationbar">
+		<nav className="navigationbar ">
 			<div className="d-flex justify-content-between ">
 				<Link to="/">
 					<img src={logo} className="logo"></img>

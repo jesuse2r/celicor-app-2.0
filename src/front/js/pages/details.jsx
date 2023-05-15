@@ -14,16 +14,16 @@ export const Details = props => {
 	})
 	console.log(product)
 	return (
-		<div className="d-flex justify-content-center align-items-center">
+		<div className="d-flex justify-content-center align-items-center bg-light vh-100 ">
 			<img className="w-25" src={whisky}></img>
-			<div className="border-product p-3 card">
+			<div className="">
 				<h2 className="yellow">Detalles:</h2>
 				<h5>Nombre: {product?.name}</h5>
 				<h5>Tamano: {product?.litres}</h5>
 				<h5>Origen: {product?.origen}</h5>
 				<h5>Anejamineto: {product?.old}</h5>
 				<h5>Precio: {product?.price} $</h5>
-				<span className="d-flex gap-3">
+				<span className="d-flex gap-3 mb-5">
 					<button type="button" className="btn btn-warning yellow blue" onClick={() => { navigate("/") }}>Volver a la tienda!</button>
 					<button className="btn btn-warning yellow blue" onClick={()=> actions.addToCart(product.id)}>Agregar al  <i className="fas fa-shopping-cart"></i></button>
 				</span>

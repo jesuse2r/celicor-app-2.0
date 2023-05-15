@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 import enum
+import datetime
 
 db = SQLAlchemy()
 
@@ -99,7 +100,28 @@ class Cart(db.Model):
             "user_id": self.user_id,
         }
 
+class Factura(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    
+    fecha= db.Column(db.DateTime, default=datetime.datetime.now)
+    direccion= db.Column(db.String(150), nullable= False, unique=True)
+    total= db.Column(db.String(50), nullable= False, unique=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user = db.relationship("User")
+  
 
+    def __repr__(self):
+        return f'<Factura {self.id}>'
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "fecha": self.fecha,
+            "direccion": self.direccion,
+            "total": self.total,
+            "user_id": self.user_id,
+           
+        }
 
 
 

@@ -1,11 +1,12 @@
 import React from "react";
 import banescoLogo from "../../img/banesco.png"
 import logo from "../../img/logo.png"
+import ButtonPagar from "./ButtonPagar.jsx";
 
 const PagomovilView = () => {
     return (
         <>
-        <div className="bg-light m-5 w-25 h-75" >
+        <div className="bg-light m-5 w-100 h-75" >
         <div className="card-body">
         <div className="justify-content-between d-flex">
         <img src={logo} className="card-img-top celicores" alt="..."/>
@@ -19,6 +20,7 @@ const PagomovilView = () => {
           <p>Por favor enviar captura de pantalla.</p>
           <div className="display-6">
           <a href="https://api.whatsapp.com/send/?phone=4142776795&text&type=phone_number&app_absent=" className="card-link text-success "><i className="fab fa-whatsapp"></i></a>
+          <ButtonPagar/>
           </div>
         </div>
       </div>

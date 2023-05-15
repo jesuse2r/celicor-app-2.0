@@ -2,9 +2,16 @@
     General Styles used on every website (Don't Repeat Yourself)
 */
 
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    background-color: #272B51;
+     background-color: #272B51; 
     font-family: 'Rajdhani', sans-serif;
 }
 

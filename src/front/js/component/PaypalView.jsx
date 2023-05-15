@@ -1,6 +1,7 @@
 import React from "react";
 import paypalLogo from "../../img/paypal.png"
 import logo from "../../img/logo.png"
+import ButtonPagar from "./ButtonPagar.jsx";
 
 const PaypalView = () => {
     return (
@@ -17,6 +18,7 @@ const PaypalView = () => {
           <p>Por favor enviar captura de pantalla.</p>
         <div className="display-6">
           <a href="https://api.whatsapp.com/send/?phone=4142776795&text&type=phone_number&app_absent=" className="card-link text-success"><i className="fab fa-whatsapp"></i></a>
+          <ButtonPagar/>
           </div>
         </div>
       </div>

@@ -1,6 +1,8 @@
 import React from "react";
 import visaLogo from "../../img/visa.png"
 import logo from "../../img/logo.png"
+import ButtonPagar from "./ButtonPagar.jsx";
+
 
 const CreditView = () => {
     return (
@@ -35,7 +37,9 @@ const CreditView = () => {
                     <p>Por favor enviar captura de pantalla.</p>
                     <div className=" display-6">
                         <a href="https://api.whatsapp.com/send/?phone=4142776795&text&type=phone_number&app_absent=" className="card-link text-success  "><i className=" whatssapLogo  fab fa-whatsapp"></i></a>
+                        <ButtonPagar/>
                     </div>
+
                 </div>
             </div>
         </>

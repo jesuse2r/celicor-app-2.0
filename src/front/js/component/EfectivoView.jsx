@@ -2,6 +2,7 @@ import React from "react";
 import efectivoLogo from "../../img/efectivo.png"
 import "../../styles/home.css";
 import logo from "../../img/logo.png"
+import ButtonPagar from "./ButtonPagar.jsx";
 
 
 const EfectivoView = () => {
@@ -18,6 +19,7 @@ const EfectivoView = () => {
         <p>Por favor enviar captura de pantalla.</p>
         <div className="display-6">
         <a href="https://api.whatsapp.com/send/?phone=4142776795&text&type=phone_number&app_absent=" className="card-link text-success "><i className="fab fa-whatsapp"></i></a>
+        <ButtonPagar/>
         </div>
       </div>
     </div>

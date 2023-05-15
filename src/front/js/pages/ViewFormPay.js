@@ -6,7 +6,7 @@ import ZelleView from "../component/ZelleView.jsx";
 import TransferenciaView from "../component/TransferenciaView.jsx";
 import PagomovilView from "../component/PagomovilView.jsx";
 import EfectivoView from "../component/EfectivoView.jsx";
-import FacturaView from "../component/FacturaView.jsx";
+
 
 
 
@@ -22,7 +22,7 @@ const ViewFormPay = () => {
         efectivo: false
     })
 
-    return <div className="d-flex bg-light">
+    return <div className="d-flex flex-column bg-light ">
 
         <FormPay setHandleCredit={setHandleCredit} handleCredit={handleCredit} />
         {handleCredit.tarjetaDeCredito ? <CreditView /> : null}
@@ -31,7 +31,7 @@ const ViewFormPay = () => {
         {handleCredit.transferencia ? <TransferenciaView /> : null}
         {handleCredit.pagomovil ? <PagomovilView /> : null}
         {handleCredit.efectivo ? <EfectivoView /> : null}
-        <FacturaView />
+       
     </div>
 }
 

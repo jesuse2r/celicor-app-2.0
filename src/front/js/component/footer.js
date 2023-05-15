@@ -7,7 +7,7 @@ export const Footer = () => {
 
 	const navigate = useNavigate();
 	return (
-		<div className="bg-warning text-blue">
+		<div className="bg-warning text-blue ">
 		<footer className="footer  fs-6">
 			<div>
 				<div className="row d-flex justify-content-center p-2">
