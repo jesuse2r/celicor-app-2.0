@@ -5,7 +5,7 @@ import logo from "../../img/logo.png"
 const TransferenciaView = () => {
     return (
         <>
-        <div className="card m-5 w-25 h-75 border-product">
+        <div className="m-5 w-25 h-75 ">
         <div className="card-body w-100">
         <div className="justify-content-between d-flex">
         <img src={logo} className="card-img-top celicores" alt="..." />

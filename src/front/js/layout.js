@@ -15,6 +15,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import ViewFormPay from "./pages/ViewFormPay";
 import CartView from "./pages/CartView";
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

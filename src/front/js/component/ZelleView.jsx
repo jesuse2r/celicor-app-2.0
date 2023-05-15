@@ -5,7 +5,7 @@ import logo from "../../img/logo.png"
 const ZelleView = () => {
   return (
     <>
-      <div className="card  m-5 w-25 h-100 border-product" >
+      <div className="  m-5 w-25 h-100 " >
         <div className="card-body ">
           <div className="justify-content-between d-flex">
           <img src={logo} className="card-img-top  celicores" alt="..." />

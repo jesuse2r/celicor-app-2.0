@@ -5,7 +5,7 @@ import logo from "../../img/logo.png"
 const PaypalView = () => {
     return (
         <>
-        <div className=" card m-5 w-25 h-75 border-product">
+        <div className=" bg-light m-5 w-25 h-75 ">
         <div className="justify-content-between d-flex">
         <img src={logo} className="card-img-top celicores m-2" alt="..." />
         <img src={paypalLogo} className="card-img-top celicores" alt="..."/>

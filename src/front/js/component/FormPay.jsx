@@ -29,9 +29,9 @@ const FormPay = (props) => {
     )
   }
   return (
-    <div className="text-center">
-      <div className="m-5 border-product p-4 card w-75 text-center">
-        <div className="yellow">
+    <div className="text-center bg-light ">
+      <div className="m-4  p-4 bg-light w-100 text-center ">
+        <div className="yellow ">
           <h1 className="text-center">Resumen del pedido</h1>
         </div>
         {store.cartItems.length == 0 && (
@@ -66,7 +66,7 @@ const FormPay = (props) => {
             </div>
           );
         })}
-        <div className="row mb-4 d-flex justify-content-between align-items-center">
+        <div className="row mb-4 d-flex justify-content-between align-items-center ">
           <div className="col-4">
             <select className="form-select mb-4" required aria-label="select example" value={metodoPago} onChange={(e) => setMetodoPago(e.target.value)}>
               <option value="">Método de pago </option>
@@ -84,13 +84,13 @@ const FormPay = (props) => {
                 <span className="input-group-text bg-warning">Aplicar</span>
             </div>
           </div>
-          <div className="col-4">
-            <ul className="list-group text-start border-none">
-              <li className="list-group-item border-none"><h5>Subtotal: 129.97$</h5></li>
-              <li className="list-group-item border-none"><h5>I.V.A (16%): {129.97 * 0.16}$</h5></li>
-              <li className="list-group-item border-none"><h5>Cupon: 5% off</h5></li>
-              <li className="list-group-item border-none"><h5>Total $: {129.97 + 129.97 * 0.16}$</h5></li>
-              <li className="list-group-item border-none"><h5>Total BS: 123123 bs</h5></li>
+          <div className="col-4 ">
+            <ul className="list-group text-start">
+              <li className="list-group-item border-border-bottom-0 border-secondary"><h5>Subtotal: 129.97$</h5></li>
+              <li className="list-group-item border-border-bottom-0 border-secondary"><h5>I.V.A (16%): {129.97 * 0.16}$</h5></li>
+              <li className="list-group-item border-border-bottom-0 border-secondary"><h5>Cupon: 5% off</h5></li>
+              <li className="list-group-item border-border-bottom-0 border-secondary"><h5>Total $: {129.97 + 129.97 * 0.16}$</h5></li>
+              <li className="list-group-item border-border-bottom-0 border-secondary"><h5>Total BS: 123123 bs</h5></li>
             </ul>
           </div>
         </div>

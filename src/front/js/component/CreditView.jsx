@@ -5,7 +5,7 @@ import logo from "../../img/logo.png"
 const CreditView = () => {
     return (
         <>
-            <div className="card m-5 w-25 h-75 border-product" >
+            <div className="bg-light m-5 w-25 h-75 " >
                 <div className="card-body ">
                     <div className="justify-content-between d-flex " >
                         <img src={logo} className="card-img-top celicor " alt="..." />
