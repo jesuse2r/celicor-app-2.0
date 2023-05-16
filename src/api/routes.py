@@ -249,17 +249,19 @@ def change_password():
     email = body.get('email', None)
     new_email = body.get('new_email', None)
     password = body.get('password', None)
+    new_password = body.get ('new_password', None)
     if not email or not password:
         return{"error":"Todos los campos son necesarios"}
     update_user = User.query.filter_by(email=email).first()
     if not update_user:
         return {"error":"usuario no encontrado"}, 404    
-    hash_password= generate_password_hash(password)
+    hash_password= generate_password_hash(password, new_password)
     update_user.password = hash_password
+    update_user.new_password = hash_password
     update_user.email = new_email
     try:
         db.session.commit()
-        return jsonify({"msg":"cambiando contraseña o correo" }) 
+        return jsonify({"msg":"cambiando contraseña y correo" }) 
     except Exception as error:    
         db.session.rollback()    
         return {"error": error}, 500  
