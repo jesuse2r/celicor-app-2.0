@@ -31,7 +31,7 @@ const Layout = () => {
     if (!process.env.BACKEND_URL || process.env.BACKEND_URL == "") return <BackendURL />;
 
     return (
-        <div>
+        <>
             <BrowserRouter basename={basename}>
                 <ScrollToTop>
                     <ToastContainer />
@@ -46,12 +46,13 @@ const Layout = () => {
                         <Route element={<CartView />} path="cartview" />
                         <Route element={<ViewFacture />} path="viewfacture" />
                         <Route element={<About />} path="/about" />
-                        <Route element={<h1>Not found!</h1>} />
+                        <Route element={<h1>N+
+                            ot found!</h1>} />
                     </Routes>
                     <Footer />
                 </ScrollToTop>
             </BrowserRouter>
-        </div>
+        </>
     );
 };
 
