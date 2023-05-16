@@ -255,9 +255,8 @@ def change_password():
     update_user = User.query.filter_by(email=email).first()
     if not update_user:
         return {"error":"usuario no encontrado"}, 404    
-    hash_password= generate_password_hash(password, new_password)
-    update_user.password = hash_password
-    update_user.new_password = hash_password
+    hash_password= generate_password_hash(new_password)
+    update_user.password = hash_password    
     update_user.email = new_email
     try:
         db.session.commit()
