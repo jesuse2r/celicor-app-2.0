@@ -129,8 +129,11 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
         const response = await fetch(`${process.env.BACKEND_URL}/api/cartitem`, { headers: { authorization: `Bearer ${store.token}` } });
         const data = await response.json()
+        const sortedArray = data.data.sort((a,b) => {
+          return a.id - b.id
+        })
         console.log(data)
-        setStore({ ...store, cartItems: data.data })
+        setStore({ ...store, cartItems: sortedArray })
 
       },
       addToCart: async (licores_id) => {
