@@ -250,7 +250,7 @@ def change_password():
     new_email = body.get('new_email', None)
     password = body.get('password', None)
     new_password = body.get ('new_password', None)
-    if not email or not password:
+    if email is None or new_password is None or password is None or new_password is None:
         return{"error":"Todos los campos son necesarios"}
     update_user = User.query.filter_by(email=email).first()
     if not update_user:
