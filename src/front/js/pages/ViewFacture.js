@@ -9,6 +9,7 @@ import FormFacture from "../component/FormFacture.jsx";
 
 const ViewFacture = () => {
   
+    
 
     return <div className="bg-light"><FormFacture/></div>
    
