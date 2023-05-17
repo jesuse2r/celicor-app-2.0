@@ -1,6 +1,6 @@
 import React from "react";
-import paypalLogo from "../../img/paypal.png"
-import logo from "../../img/logo.png"
+import paypalLogo from "../../img/paypal.png";
+import logo from "../../img/logo.png";
 import ButtonPagar from "./ButtonPagar.jsx";
 
 const PaypalView = () => {
@@ -34,5 +34,4 @@ const PaypalView = () => {
 }
 
 
-
-export default PaypalView
+export default PaypalView;

@@ -1,12 +1,9 @@
 import React from "react";
-
 import visaLogo from "../../img/visa.png"
 import logo from "../../img/logo.png"
 import ButtonPagar from "./ButtonPagar.jsx";
 
-
 const CreditView = () => {
-
     return (
         <div className="text-center">
             <div className="bg-light m-5 w-100 h-75" >
@@ -47,6 +44,22 @@ const CreditView = () => {
                     </span>
 
                 </div>
+                <div className="col-12 mt-3 justify-content-center d-flex">
+                  <button className="btn btn-primary " type="submit">
+                    Pagar
+                  </button>
+                </div>
+              </form>
+              <p>Por favor enviar captura de pantalla.</p>
+              <div className=" display-6  d-flex gap-5">
+                <a
+                  href="https://api.whatsapp.com/send/?phone=4142776795&text&type=phone_number&app_absent="
+                  className="card-link text-success  "
+                >
+                  <i className=" whatssapLogo  fab fa-whatsapp"></i>
+                </a>
+                <ButtonPagar />
+              </div>
             </div>
         </div>
     )
@@ -54,3 +67,4 @@ const CreditView = () => {
 
 
 export default CreditView
+

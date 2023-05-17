@@ -70,7 +70,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           `${process.env.BACKEND_URL}/api/user`,
           opts
         );
-        
+
         if (!response.ok) {
           toast.error("Error al crear el usuario!");
           return false
@@ -79,7 +79,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const login = await actions.handleLogin(email, password);
         toast.success("Usuario registrado con exito!")
         return true
-        
+
       },
 
       handleLogout: () => {
@@ -91,7 +91,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       handleChange_Password: async (
         email,
         new_email,
-        password
+        password,
+        new_password
       ) => {
         const opts = {
           method: "PUT",
@@ -101,7 +102,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           body: JSON.stringify({
             email: email,
             new_email: new_email,
-            password: password
+            password: password,
+            new_password: new_password
           }),
         };
         const response = await fetch(
@@ -113,7 +115,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           return false;
         }
         const actions = getActions();
-        const login = await actions.handleLogin(new_email, password);
+        const login = await actions.handleLogin(new_email, new_password);
         toast.success("Usuario modificado con exito!")
         return true
       },
@@ -129,7 +131,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
         const response = await fetch(`${process.env.BACKEND_URL}/api/cartitem`, { headers: { authorization: `Bearer ${store.token}` } });
         const data = await response.json()
-        const sortedArray = data.data.sort((a,b) => {
+        const sortedArray = data.data.sort((a, b) => {
           return a.id - b.id
         })
         console.log(data)
@@ -185,7 +187,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       updateCartItems: async (
         cartId, quantity, licoresId
-        
+
       ) => {
         const actions = getActions()
         const store = getStore()
@@ -195,11 +197,11 @@ const getState = ({ getStore, getActions, setStore }) => {
           headers: {
             "Content-type": "application/json",
             authorization: `Bearer ${store.token}`
-          
+
           },
           body: JSON.stringify({
             quantity: quantity,
-            licores_id:licoresId
+            licores_id: licoresId
           }),
         };
         const response = await fetch(
@@ -211,13 +213,13 @@ const getState = ({ getStore, getActions, setStore }) => {
           return false;
         }
         actions.getCartItems()
-        
+
         return true;
       },
       deleteCartItem: async (
-        licoresId,  cartId
-        
-        
+        licoresId, cartId
+
+
       ) => {
         const actions = getActions()
         const store = getStore()
@@ -227,9 +229,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           headers: {
             "Content-type": "application/json",
             authorization: `Bearer ${store.token}`
-          
+
           },
-          
+
         };
         try {
           const response = await fetch(
@@ -239,24 +241,24 @@ const getState = ({ getStore, getActions, setStore }) => {
           const data = await response.json()
           console.log(data)
           if (response.ok) {
-            
+
             console.log("licor eliminado");
             actions.getCartItems()
-          
-            
-          
-  
+
+
+
+
             return true;
           }
-          
-          
+
+
           return false;
-          
+
         } catch (error) {
           console.log(error)
-          
+
         }
-        
+
       },
       addFactura: async (total) => {
         const store = getStore();
@@ -268,9 +270,9 @@ const getState = ({ getStore, getActions, setStore }) => {
             "authorization": `Bearer ${store.token}`,
           },
           body: JSON.stringify({
-  
-       
-           
+
+
+
             total: total
           }),
         };
@@ -283,11 +285,11 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
         toast.success("factura nueva lista!")
         return true;
-       
+
 
       },
 
-      
+
     },
   };
 };

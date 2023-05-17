@@ -10,6 +10,7 @@ export const Profile = () => {
   const [email, setEmail] = useState("");
   const [new_email, setNew_email] = useState("");
   const [password, setPassword] = useState("");
+  const [new_password, setNew_password] = useState("");
   const Navigate = useNavigate();
 
   const handleRedirect = async (event) => {
@@ -17,7 +18,8 @@ export const Profile = () => {
     const response = await actions.handleChange_Password(
       email,
       new_email,
-      password
+      password,
+      new_password
     );
     if (response == true) {
       Navigate("/");
@@ -63,7 +65,19 @@ export const Profile = () => {
                 onChange={(event) => setPassword(event.target.value)}
               />
               <label htmlFor="exampleInputEmail1" className="form_label">
-                Password
+                Contraseña
+              </label>
+              <span className="form_line"></span>
+            </div>
+            <div className="form_group">
+              <input
+                className="form-control form_input"
+                placeholder="  "
+                value={new_password}
+                onChange={(event) => setNew_password(event.target.value)}
+              />
+              <label htmlFor="exampleInputEmail1" className="form_label">
+                Nueva Contraseña
               </label>
               <span className="form_line"></span>
             </div>
@@ -71,9 +85,8 @@ export const Profile = () => {
           <button
             className="buton mt-3"
             onClick={(event) => handleRedirect(event)}
-            
           >
-            Register
+            Actualizar Datos
           </button>
           <button
             type="button"

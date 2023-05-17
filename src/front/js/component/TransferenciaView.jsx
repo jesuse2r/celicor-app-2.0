@@ -1,6 +1,6 @@
 import React from "react";
-import banescoLogo from "../../img/banesco.png"
-import logo from "../../img/logo.png"
+import banescoLogo from "../../img/banesco.png";
+import logo from "../../img/logo.png";
 import ButtonPagar from "./ButtonPagar.jsx";
 
 const TransferenciaView = () => {
@@ -24,6 +24,7 @@ const TransferenciaView = () => {
               </span>
               <div className="display-6 d-flex justify-content-between">
                 <a href="https://api.whatsapp.com/send/?phone=4142776795&text&type=phone_number&app_absent=" className="card-link text-success "><i className="fab fa-whatsapp"></i></a>
+
                 <ButtonPagar />
               </div>
             </div>
@@ -35,4 +36,4 @@ const TransferenciaView = () => {
 }
 
 
-export default TransferenciaView
+export default TransferenciaView;

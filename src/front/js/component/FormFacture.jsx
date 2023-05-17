@@ -21,7 +21,7 @@ const FormFacture = (props) => {
   return (
     <>
       <div className="card bg-light vh-100  ">
-        <h5 className="card-header">Factura</h5>
+        <h5 className="card-header text-center">Factura</h5>
         <div className="card-body">
           <h5 className="card-title">Orden</h5>
           <p className="card-text">
