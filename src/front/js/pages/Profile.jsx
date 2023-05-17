@@ -86,7 +86,7 @@ export const Profile = () => {
             className="buton mt-3"
             onClick={(event) => handleRedirect(event)}
           >
-            Register
+            Actualizar Datos
           </button>
           <button
             type="button"

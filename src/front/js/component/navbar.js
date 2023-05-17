@@ -32,19 +32,19 @@ export const Navbar = () => {
 								</button>
 							</Link>
 							<button className="btn btn-warning" onClick={navigateToProfile}>
-								Profile
+								Datos
 							</button>
 							<button className="btn btn-warning " onClick={() => { actions.handleLogout() }}>
-								Loguot
+								Salir
 							</button>
 						</span>
 					) : (
 						<span className="d-flex gap-2">
 							<button className="btn btn-warning" onClick={navigateToLogin}>
-								Login
+								Acceder
 							</button>
 							<button className="btn btn-warning " onClick={navigateToRegister}>
-								Register
+								Registrarte
 							</button>
 						</span>
 					)}

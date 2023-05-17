@@ -115,7 +115,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           return false;
         }
         const actions = getActions();
-        const login = await actions.handleLogin(new_email, password);
+        const login = await actions.handleLogin(new_email, new_password);
         toast.success("Usuario modificado con exito!")
         return true
       },
