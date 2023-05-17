@@ -55,7 +55,7 @@ export const Login = () => {
                 className="boton"
                 onClick={(event) => handleRedirect(event)}
               >
-                Login
+                Acceder
               </button>
             </div>
             <div>

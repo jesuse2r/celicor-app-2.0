@@ -3,7 +3,6 @@ import { Context } from "../store/appContext";
 import "../../styles/register.css";
 import { useNavigate } from "react-router-dom";
 
-
 const initialvalue = {
   email: "",
   password: "",
@@ -133,7 +132,7 @@ export const Register = () => {
               className="boton my-2"
               onClick={(event) => handleRedirect(event)}
             >
-              Register
+              Registrate
             </button>
             <button
               type="button"
