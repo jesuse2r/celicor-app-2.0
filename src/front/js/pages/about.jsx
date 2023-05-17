@@ -11,7 +11,7 @@ export const About = () => {
     <div>
       <div className="container d-flex justify-content-center">
         <div className="d-flex align-items-center rounded body3 ">
-          <div className="card rounded-3 yellow">
+          <div className="blue rounded-3 yellow">
             <img src={logo} className="top" alt="logo" />
             <div className="card-body d-flex justify-content- center">
               <img src={sede} alt="sede" className="m-2 letf rounded-2" />

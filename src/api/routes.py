@@ -279,27 +279,23 @@ def create_factura():
     
     if body_direccion is None or body_total is None:
         return {"error": "Todos los campos requeridos"}, 400
-    factura = Factura.query.filter_by(user_id = user["id"]).first()
-    if factura is None:
-        factura = Factura(user_id = user["id"],  direccion=body_direccion, total=body_total)
-        db.session.add(factura)
-
-
-        try:
-            db.session.commit()
-            return jsonify({"msg": "factura creado con exito!"}), 201
-        except Exception as error:
+    factura = Factura(user_id = user["id"],  direccion=body_direccion, total=body_total)
+ 
+    db.session.add(factura)
+    try:
+        db.session.commit()
+        return jsonify({"msg": "factura creado con exito!"}), 201
+    except Exception as error:
             db.session.rollback()
             return jsonify ({"error": error.args}), 500 
-    else: 
-        return jsonify({"msg":"se encontro factura"}), 404
+ 
 
-@api.route("/factura", methods=['GET'])
+@api.route("/factura/<int:id>", methods=['GET'])
 @jwt_required()
-def get_factura():
+def get_factura(id):
     id=get_jwt_identity()
-    user_id= id["id"]
-    factura = Factura.query.filter_by(user_id=user_id).first()
+
+    factura = Factura.query.filter_by(id=id).first()
     print(factura)
 
     return jsonify({"data": factura.serialize()})

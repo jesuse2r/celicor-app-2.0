@@ -24,7 +24,7 @@ export const Home = () => {
 				<p onClick={() => setType("otros")}><a href="#">Otros</a></p>
 			</div>
 			<h3 className="yellow ms-4">Nuestra mejor seleccion de {type}:</h3>
-			<div className="row">
+			<div className="row w-100">
 				{
 					type == "todos" ?
 						store.products.map((product) => {
