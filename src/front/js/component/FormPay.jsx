@@ -8,6 +8,7 @@ const FormPay = (props) => {
   const navigate = useNavigate();
   const { store, actions } = useContext(Context);
   const [metodoPago, setMetodoPago] = useState("");
+
   
   const setValue = {
     pagomovil: false,
@@ -29,7 +30,9 @@ const FormPay = (props) => {
     return total
   }
 
-  
+  const totalIva = getTotal() * 0.16
+  const totalMasIva= getTotal() * 1.16 
+  const totalBolivares=  totalMasIva * 25.12
   useEffect(()=>{
 
     actions.getCartItems()
@@ -131,10 +134,10 @@ const FormPay = (props) => {
             <span ><h5 className="fw-bold fs-5">Total BS:</h5></span>
           </div>
           <div className="list-item col-4 bg-light fw-bold fs-5">
-            <span ><h5 className="fs-4">{getTotal()}  $</h5></span>
-            <span><h5 className="fs-4">{getTotal() * 0.16}$</h5></span>
-            <span><h5 className="fs-4">{getTotal() * 1.16}$</h5></span>
-            <span ><h5 className="fs-4">{getTotal() * 25.12} BS</h5></span>
+            <span ><h5 className="fs-4">{getTotal().toFixed(2)}  $</h5></span>
+            <span><h5 className="fs-4">{totalIva.toFixed(2)}$</h5></span>
+            <span><h5 className="fs-4">{totalMasIva.toFixed(2)}$</h5></span>
+            <span ><h5 className="fs-4">{totalBolivares.toFixed(2)} BS</h5></span>
           </div>
         </div>
         <div className="text-center ">
