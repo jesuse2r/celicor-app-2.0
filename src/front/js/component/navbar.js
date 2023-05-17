@@ -18,8 +18,8 @@ export const Navbar = () => {
 	};
 
 	return (
-		<nav className="navigationbar ">
-			<div className="d-flex justify-content-between ">
+		<nav className="navigationbar px-2">
+			<div className="d-flex justify-content-between w-100">
 				<Link to="/">
 					<img src={logo} className="logo"></img>
 				</Link>

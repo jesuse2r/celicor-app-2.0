@@ -39,15 +39,16 @@ export const Footer = () => {
 						<p><a  href="https://api.whatsapp.com/send/?phone=4142776795&text&type=phone_number&app_absent= " className="card-link text-success "><i className=" fab fa-whatsapp"> </i>+ 58 4142776795</a></p>
 					
 
-		
-						
-					
 
-					<p>Atencionalcliente@celicor.com</p>
+
+
+
+
+							<p>Atencionalcliente@celicor.com</p>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-		</footer >
+			</footer >
 		</div>
 	)
 };

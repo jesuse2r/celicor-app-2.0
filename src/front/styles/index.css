@@ -11,7 +11,7 @@
 }
 
 body {
-     background-color: #272B51; 
+    background-color: #272B51;
     font-family: 'Rajdhani', sans-serif;
 }
 
@@ -36,7 +36,6 @@ body {
 
 .navigationbar {
     background-color: #272B51;
-    width: 100%;
 }
 
 .scrollmenu {
@@ -51,17 +50,21 @@ body {
     padding: 14px;
     padding-inline: 30px;
 }
+
 p a {
     color: #ebaa15;
     text-decoration: none;
 
 }
+
 p a:hover {
     color: #ad7a02;
 }
+
 .border-none {
     border: none;
 }
-.details-foto{
+
+.details-foto {
     width: 350px;
 }

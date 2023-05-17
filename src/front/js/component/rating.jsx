@@ -27,7 +27,7 @@ const Rating = () => {
     const [value, setValue] = useState(0);
     const navigate = useNavigate()
     const handleRate = () => {
-        toast.success("gracias por su calificacion")
+        toast.success("Gracias por su calificación")
         navigate("/")
     }
   return (
