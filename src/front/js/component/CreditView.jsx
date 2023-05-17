@@ -1,10 +1,12 @@
 import React from "react";
+
 import visaLogo from "../../img/visa.png"
 import logo from "../../img/logo.png"
 import ButtonPagar from "./ButtonPagar.jsx";
 
 
 const CreditView = () => {
+
     return (
         <div className="text-center">
             <div className="bg-light m-5 w-100 h-75" >
@@ -41,7 +43,9 @@ const CreditView = () => {
                                 <ButtonPagar />
                             </div>
                         </div>
+
                     </span>
+
                 </div>
             </div>
         </div>

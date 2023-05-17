@@ -104,8 +104,8 @@ class Factura(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     
     fecha= db.Column(db.DateTime, default=datetime.datetime.now)
-    direccion= db.Column(db.String(150), nullable= False, unique=True)
-    total= db.Column(db.String(50), nullable= False, unique=True)
+    direccion= db.Column(db.String(150), nullable= False)
+    total= db.Column(db.String(50), nullable= False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     user = db.relationship("User")
   

@@ -8,6 +8,7 @@ const FormPay = (props) => {
   const navigate = useNavigate();
   const { store, actions } = useContext(Context);
   const [metodoPago, setMetodoPago] = useState("");
+  
   const setValue = {
     pagomovil: false,
     tarjetaDeCredito: false,
@@ -27,7 +28,10 @@ const FormPay = (props) => {
     }
     return total
   }
-  useEffect(() => {
+
+  
+  useEffect(()=>{
+
     actions.getCartItems()
 
   }, [])
