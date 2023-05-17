@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React,{useState, useContext} from "react";
 import { Context } from "../store/appContext";
-
-
+import Rating from "./rating.jsx";
 
 const FormFacture = (props) => {
   const { store, actions } = useContext(Context);
@@ -21,6 +20,7 @@ const FormFacture = (props) => {
           <h5 className="card-title">Orden</h5>
           <p className="card-text"> <i className="fas fa-calendar-week"></i>  Fecha </p>
           <p className="card-text"> <i className="fas fa-map-marker-alt"></i>  Direccion </p>
+
           <p className="d-flex gap-3">  <i className="fas fa-info-circle"></i>
             <span >
               <span ><h5 >Subtotal: {getTotal()}  $</h5></span>
@@ -35,10 +35,5 @@ const FormFacture = (props) => {
     </>
   )
 }
-
-
-
-
-
 
 export default FormFacture

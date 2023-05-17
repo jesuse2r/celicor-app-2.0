@@ -27,27 +27,28 @@ export const Footer = () => {
 					<div className="col-6 col-sm-4 col-lg-2 text-center">
 						<p className="fs-3 fw-bold ">De Interés</p>
 						<p onClick={() => navigate("/about")} className="pointer">Nosotros como empresa</p>
-						<p>Terminos y Condiciones</p>
+						<p onClick={()=> navigate("/terminoscondiciones")} className="pointer">Terminos y Condiciones</p>
 					</div>
 					<div className="col-6 col-sm-4 col-lg-2 text-center">
 						<p className="fs-3 fw-bold">Delivery</p>
 						<p>Lunes a Sábado de 8:00 am a 6:00 pm (entregas inmediatas, para pedidos pagados antes de las 5:30 pm.)</p>
 					</div>
-					<div className="col-6 col-sm-4 col-lg-2 text-center">
+					<div className="col-6 col-sm-4 col-lg-2 text-center ">
 						<p className="fs-3 fw-bold">Atención al cliente</p>
 						<p>Número de contacto</p>
 						<p><a  href="https://api.whatsapp.com/send/?phone=4142776795&text&type=phone_number&app_absent= " className="card-link text-success "><i className=" fab fa-whatsapp"> </i>+ 58 4142776795</a></p>
 					
 
-		
-						
-					
 
-					<p>Atencionalcliente@celicor.com</p>
+
+
+
+
+							<p>Atencionalcliente@celicor.com</p>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-		</footer >
+			</footer >
 		</div>
 	)
 };

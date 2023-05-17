@@ -19,6 +19,7 @@ import CartView from "./pages/CartView";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ViewFacture from "./pages/ViewFacture";
+import TerminoCondiciones from "./pages/TerminoCondiciones";
 
 
 
@@ -31,7 +32,7 @@ const Layout = () => {
     if (!process.env.BACKEND_URL || process.env.BACKEND_URL == "") return <BackendURL />;
 
     return (
-        <div>
+        <>
             <BrowserRouter basename={basename}>
                 <ScrollToTop>
                     <ToastContainer />
@@ -46,12 +47,13 @@ const Layout = () => {
                         <Route element={<CartView />} path="cartview" />
                         <Route element={<ViewFacture />} path="viewfacture" />
                         <Route element={<About />} path="/about" />
+                        <Route element={<TerminoCondiciones />} path="/terminoscondiciones" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />
                 </ScrollToTop>
             </BrowserRouter>
-        </div>
+        </>
     );
 };
 
