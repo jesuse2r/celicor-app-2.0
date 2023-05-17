@@ -8,10 +8,10 @@ import FormFacture from "../component/FormFacture.jsx";
 
 
 const ViewFacture = () => {
-  
 
-    return <div className="bg-light"><FormFacture/></div>
-   
+
+    return <div className="bg-light">Hola como estas <FormFacture /></div>
+
 }
 
 export default ViewFacture
