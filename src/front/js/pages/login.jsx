@@ -2,19 +2,20 @@ import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/login.css";
 import user from "../../img/user.jpg";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
 
   const handleRedirect = async (event) => {
     event.preventDefault();
     const response = await actions.handleLogin(email, password);
     if (response == true) {
-      navigate("/");
+      Navigate("/");
     }
   };
 
@@ -54,17 +55,30 @@ export const Login = () => {
                 className="boton"
                 onClick={(event) => handleRedirect(event)}
               >
-                Login
+                Acceder
               </button>
             </div>
             <div>
-              <NavLink to="/demo">Perdiste tu Contraseña?</NavLink>
-            </div>
-            <div>
-              <NavLink to="/register">Registrate</NavLink>
+              <button
+                type="button"
+                className="btn btn-outline-light yellow border border-0 "
+                onClick={() => {
+                  Navigate("/register");
+                }}
+              >
+                Registrate
+              </button>
             </div>
           </form>
-          <NavLink to="/">Volver</NavLink>
+          <button
+            type="button"
+            className="btn btn-outline-light yellow border border-0 "
+            onClick={() => {
+              Navigate("/");
+            }}
+          >
+            Volver
+          </button>
         </div>
       </div>
     </div>

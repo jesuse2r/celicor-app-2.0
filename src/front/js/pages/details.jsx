@@ -9,29 +9,23 @@ export const Details = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	const navigate = useNavigate();
-	const Whisky = {
-		"nombre": "Old Parr",
-		"tipo": "Whisky",
-		"tamaño": "0.75 lts",
-		"origen": "Escocia",
-		"precio": "25.99$",
-		"añejamiento": "De luxe"
-	}
-
+	const product = store.products.find((product)=> {
+		return (product.id == params.id)
+	})
+	console.log(product)
 	return (
-		<div className="d-flex justify-content-center align-items-center">
+		<div className="d-flex justify-content-center align-items-center bg-light vh-100 ">
 			<img className="w-25" src={whisky}></img>
-			<div className="border-product p-3 card">
+			<div className="">
 				<h2 className="yellow">Detalles:</h2>
-				<h5>Nombre: {Whisky.nombre}</h5>
-				<h5>Tipo: {Whisky.tipo}</h5>
-				<h5>Tamano: {Whisky.tamaño}</h5>
-				<h5>Origen: {Whisky.origen}</h5>
-				<h5>Anejamineto: {Whisky.añejamiento}</h5>
-				<h5>Precio: {Whisky.precio}</h5>
-				<span className="d-flex gap-3">
+				<h5>Nombre: {product?.name}</h5>
+				<h5>Tamano: {product?.litres}</h5>
+				<h5>Origen: {product?.origen}</h5>
+				<h5>Anejamineto: {product?.old}</h5>
+				<h5>Precio: {product?.price} $</h5>
+				<span className="d-flex gap-3 mb-5">
 					<button type="button" className="btn btn-warning yellow blue" onClick={() => { navigate("/") }}>Volver a la tienda!</button>
-					<button className="btn btn-warning yellow blue">Agregar al  <i className="fas fa-shopping-cart"></i></button>
+					<button className="btn btn-warning yellow blue" onClick={()=> actions.addToCart(product.id)}>Agregar al  <i className="fas fa-shopping-cart"></i></button>
 				</span>
 			</div>
 		</div>

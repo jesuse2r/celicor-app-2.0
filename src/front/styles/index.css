@@ -2,6 +2,13 @@
     General Styles used on every website (Don't Repeat Yourself)
 */
 
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     background-color: #272B51;
@@ -23,13 +30,22 @@ body {
     border: 3px solid #ebaa15;
 }
 
+.border-cart {
+    border-radius: 33px 33px 33px 33px;
+    -moz-border-radius: 33px 33px 33px 33px;
+    -webkit-border-radius: 33px 33px 33px 33px;
+    border: 3px solid #ebaa15;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
 .logo {
     height: 10vh;
 }
 
 .navigationbar {
     background-color: #272B51;
-    width: 100%;
 }
 
 .scrollmenu {
@@ -44,17 +60,25 @@ body {
     padding: 14px;
     padding-inline: 30px;
 }
+
 p a {
     color: #ebaa15;
     text-decoration: none;
 
 }
+
 p a:hover {
     color: #ad7a02;
 }
+
 .border-none {
     border: none;
 }
-.details-foto{
+
+.details-foto {
     width: 350px;
+}
+
+.carrito-foto {
+    width: 200px;
 }
