@@ -31,8 +31,6 @@ const EfectivoView = () => {
     </>
   );
 };
-  )
-}
 
 export default EfectivoView
 

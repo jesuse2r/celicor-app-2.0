@@ -1,10 +1,10 @@
 from firebase_admin import credentials, initialize_app, firestore, storage
-
-cred = credentials.Certificate("firebase.json")
+import os
+cred = credentials.Certificate(os.environ.get("FIREBASE_URL"))
 default_app = initialize_app(
     cred,
     {
-        "storageBucket": "celicorimagen.appspot.com",
+        "storageBucket": os.environ.get("FIREBASE_BUCKET")
     },
 )
 

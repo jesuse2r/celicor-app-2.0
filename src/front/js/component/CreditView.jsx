@@ -40,26 +40,13 @@ const CreditView = () => {
                                 <ButtonPagar />
                             </div>
                         </div>
-
                     </span>
-
                 </div>
                 <div className="col-12 mt-3 justify-content-center d-flex">
-                  <button className="btn btn-primary " type="submit">
-                    Pagar
-                  </button>
+                    <button className="btn btn-primary " type="submit">
+                        Pagar
+                    </button>
                 </div>
-              </form>
-              <p>Por favor enviar captura de pantalla.</p>
-              <div className=" display-6  d-flex gap-5">
-                <a
-                  href="https://api.whatsapp.com/send/?phone=4142776795&text&type=phone_number&app_absent="
-                  className="card-link text-success  "
-                >
-                  <i className=" whatssapLogo  fab fa-whatsapp"></i>
-                </a>
-                <ButtonPagar />
-              </div>
             </div>
         </div>
     )

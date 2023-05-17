@@ -27,7 +27,7 @@ export const Profile = () => {
   };
 
   return (
-    <div className="container col-4">
+    <div className="container col-4 ">
       <div className="card body1 d-flex justify-content-center">
         <img src={user} className="img2"></img>
         <div className="mt-5 ">
@@ -90,7 +90,7 @@ export const Profile = () => {
           </button>
           <button
             type="button"
-            className="btn btn-outline-light yellow border border-0 "
+            className="btn btn-outline-light yellow border border-0"
             onClick={() => {
               navigate("/");
             }}
