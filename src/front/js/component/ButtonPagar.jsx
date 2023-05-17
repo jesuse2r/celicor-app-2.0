@@ -13,8 +13,7 @@ const handleFactura = async() =>  {
 }
 
 return (
-    <button onClick={()=>(handleFactura())} className="btn btn-success">hola amigo</button>
-           
+    <button onClick={()=>(handleFactura())} className="btn btn-success">Ver factura!</button>
     )
 }
 
