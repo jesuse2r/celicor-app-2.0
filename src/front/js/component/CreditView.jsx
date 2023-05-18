@@ -42,11 +42,6 @@ const CreditView = () => {
                         </div>
                     </span>
                 </div>
-                <div className="col-12 mt-3 justify-content-center d-flex">
-                    <button className="btn btn-primary " type="submit">
-                        Pagar
-                    </button>
-                </div>
             </div>
         </div>
     )
