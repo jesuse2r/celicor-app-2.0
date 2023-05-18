@@ -8,7 +8,7 @@ import { Login } from "./pages/login.jsx";
 import { Register } from "./pages/Register.jsx";
 import { Profile } from "./pages/Profile.jsx";
 import { Details } from "./pages/details.jsx";
-import { About } from "./pages/about.jsx";
+import  About  from "./pages/about.jsx";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
