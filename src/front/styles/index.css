@@ -82,3 +82,6 @@ p a:hover {
 .carrito-foto {
     width: 200px;
 }
+.imagen {
+    border-radius: 6% 6% 0 0;
+}
