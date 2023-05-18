@@ -83,12 +83,12 @@ Mi nombre es    Raúl Álvarez soy de San Antonio de los Altos, estado Miranda, 
                                         </div>
                                         <div className="card-footer">
                                             <small className="text-body-secondary"> Para este proyecto se utlizó: HTML, CSS, Bootstrap, Python, React Js, Flask, Postgressql, Firebase. </small> 
-                                       <p>Gracias por todo !! <i class="far fa-laugh-beam"></i></p> 
+                                    <p>Gracias por todo !! <i class="far fa-laugh-beam"></i></p> 
                                         </div>
                                         
                                     </div>
                                     
-                                 
+                              
                                 </div>
                                 
                             </div>
