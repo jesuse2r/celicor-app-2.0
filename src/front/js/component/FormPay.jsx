@@ -25,7 +25,6 @@ const FormPay = (props) => {
     let total = 0
     for (let item of store.cartItems) {
       total = total + (item.licor.price * item.quantity)
-      console.log(total)
     }
     return total
   }
@@ -33,12 +32,12 @@ const FormPay = (props) => {
   const totalIva = getTotal() * 0.16
   const totalMasIva= getTotal() * 1.16 
   const totalBolivares=  totalMasIva * 25.12
+
   useEffect(()=>{
 
     actions.getCartItems()
 
   }, [])
-  console.log(store.cartItems)
   if (store?.cartItems.length == 0) {
     return (
       <div className="d-flex justify-content-center gap-5 align-items-center bg-light vh-100 ">
@@ -50,7 +49,6 @@ const FormPay = (props) => {
       </div>
     )
   }
-  console.log(store.cartItems[0].licor.price)
   return (
     <div className="text-center bg-light fs-5">
       <div className="m-4  p-4 ">
@@ -62,18 +60,19 @@ const FormPay = (props) => {
           <h2>No tienes elementos en el carrito</h2>
         )}
         {store.cartItems?.map((cartItem) => {
+          
           return (
             <div key={`cartitems${cartItem.id}`} className="">
               <div className="row mb-4 d-flex justify-content-between align-items-center">
                 <div className="col-md-2 col-lg-2 col-xl-2">
                   <img
-                    src={whisky}
+                    src={cartItem.licor.category}
                     className="img-fluid rounded-3"
                     alt="foto producto"
                   ></img>
                 </div>
                 <div className="col-md-3 col-lg-3 col-xl-3">
-                  <h4 className="text-muted fs-2">{cartItem.licor.category}</h4>
+                  <h4 className="text-muted fs-2">{cartItem.licor.types}</h4>
                   <h5 className="text-black mb-0 fs-3">{cartItem.licor.name}</h5>
                 </div>
                 <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
@@ -84,7 +83,7 @@ const FormPay = (props) => {
                     className="btn px-2 yellow"><i className="fas fa-plus"></i></button>
                 </div>
                 <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                  <h5 className="mb-0 fs-3 border-cart blue yellow">{`${parseInt(cartItem.licor.price) * cartItem.quantity}`}$</h5>
+                  <h5 className="mb-0 fs-3 border-cart blue yellow">{`${((cartItem.licor.price) * cartItem.quantity).toFixed(2)}`}$</h5>
                 </div>
                 <div className="col-md-1 col-lg-1 col-xl-1 text-end">
                   <button

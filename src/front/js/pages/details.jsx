@@ -14,9 +14,9 @@ export const Details = props => {
 	})
 	console.log(product)
 	return (
-		<div className="d-flex justify-content-center align-items-center bg-light vh-100 ">
-			<img className="w-25" src={whisky}></img>
-			<div className="">
+		<div className="d-flex justify-content-center align-items-center blue vh-100 ">
+			<img className="w-25" src={product?.category}></img>
+			<div className="border-product p-5 bg-light">
 				<h2 className="yellow">Detalles:</h2>
 				<h5>Nombre: {product?.name}</h5>
 				<h5>Tamano: {product?.litres}</h5>

@@ -31,7 +31,7 @@ export const Home = () => {
 							return (
 								<div key={`product${product.id}`} className="col-12-justify col-sm-6 col-md-4 col-lg-3">
 									<div className="card border-product m-3">
-										<img src={whisky} className="card-img-top" alt="..."></img>
+										<img src={product.category} className="card-img-top" alt="..."></img>
 										<div className="card-body ">
 											<h5 className="card-title ">{product.name}</h5>
 											<p className="card-text">{product.price}$</p>
@@ -48,7 +48,7 @@ export const Home = () => {
 							return (
 								<div key={`product${product.id}`} className="col-12-justify col-sm-6 col-md-4 col-lg-3">
 									<div className="card border-product m-3">
-										<img src={whisky} className="card-img-top" alt="..."></img>
+										<img src={product.category} className="card-img-top" alt="..."></img>
 										<div className="card-body ">
 											<h5 className="card-title ">{product.name}</h5>
 											<p className="card-text">{product.price}$</p>

@@ -36,7 +36,7 @@ const ViewFacture = () => {
                     <div className="container">
                         <div className="col-md-12">
                             <div className="text-center">
-                                <img src={logo}></img>
+                                <img className="blue" src={logo}></img>
                                 <p className="pt-0">www.Celicor.co.ve</p>
                             </div>
                         </div>
@@ -79,8 +79,8 @@ const ViewFacture = () => {
                                             <th scope="row">1</th>
                                             <td>{product.licor.name}</td>
                                             <td>{product.quantity}</td>
-                                            <td>{product.licor.price}</td>
-                                            <td>{(product.quantity * product.licor.price).toFixed(2)}</td>
+                                            <td>{product.licor.price} $</td>
+                                            <td>{(product.quantity * product.licor.price).toFixed(2)} $</td>
                                         </tr>
                                     ))}
                                 </tbody>
