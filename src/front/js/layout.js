@@ -4,14 +4,14 @@ import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/home";
-import { Login } from "./pages/login.jsx";
-import { Register } from "./pages/Register.jsx";
+import  Logindos  from "./pages/Logindos.jsx";
+import Registerdos  from "./pages/Registerdos.jsx";
 import { Profile } from "./pages/Profile.jsx";
 import { Details } from "./pages/details.jsx";
 import  About  from "./pages/about.jsx";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
+import  Navbardos  from "./component/navbardos";
 import { Footer } from "./component/footer";
 import ViewFormPay from "./pages/ViewFormPay";
 import CartView from "./pages/CartView";
@@ -20,6 +20,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ViewFacture from "./pages/ViewFacture";
 import TerminoCondiciones from "./pages/TerminoCondiciones";
+
 
 
 
@@ -36,10 +37,10 @@ const Layout = () => {
             <BrowserRouter basename={basename}>
                 <ScrollToTop>
                     <ToastContainer />
-                    <Navbar />
+                    <Navbardos />
                     <Routes>
-                        <Route element={<Login />} path="/login" />
-                        <Route element={<Register />} path="/register" />
+                        <Route element={<Logindos />} path="/login" />
+                        <Route element={<Registerdos />} path="/register" />
                         <Route element={<Home />} path="/" />
                         <Route element={<Profile />} path="/profile" />
                         <Route element={<Details />} path="/details/:id" />

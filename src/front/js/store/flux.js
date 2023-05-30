@@ -11,16 +11,13 @@ const getState = ({ getStore, getActions, setStore }) => {
     actions: {
       // Use getActions to call a function within a fuction
 
-      handleLogin: async (email, password) => {
+      handleLogin: async (user) => {
         const opts = {
           method: "POST",
           headers: {
             "Content-type": "application/json",
           },
-          body: JSON.stringify({
-            email: email,
-            password: password,
-          }),
+          body: JSON.stringify(user),
         };
         const response = await fetch(
           `${process.env.BACKEND_URL}/api/user/login`,
@@ -42,29 +39,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       },
 
-      handleRegister: async (
-        email,
-        password,
-        name,
-        document_id,
-        phone,
-        address,
-        role
-      ) => {
+      handleRegister: async (user) => {
+        console.log(user)
         const opts = {
           method: "POST",
           headers: {
             "Content-type": "application/json",
           },
-          body: JSON.stringify({
-            email: email,
-            password: password,
-            name: name,
-            document_id: document_id,
-            phone: phone,
-            address: address,
-            role: role
-          }),
+          body: JSON.stringify(user),
+            
+          
         };
         const response = await fetch(
           `${process.env.BACKEND_URL}/api/user`,
@@ -76,7 +60,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           return false
         }
         const actions = getActions();
-        const login = await actions.handleLogin(email, password);
+        const login = await actions.handleLogin({email:user.email, password: user.password});
         toast.success("Usuario registrado con exito!")
         return true
 
