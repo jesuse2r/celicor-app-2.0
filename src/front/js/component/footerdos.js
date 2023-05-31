@@ -27,11 +27,9 @@ const Footerdos = () => {
             </ul>
         </div>
         <div>
-            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"></h2>
+            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Ubicación</h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                <li className="mb-4">
-                    <a href="#" className="hover:underline">Ubicación</a>
-                </li>
+               
                 <li className="mb-4">
                     <a href="#" className="hover:underline">Avenida Fuerzas Armadas</a>
                 </li>
@@ -51,20 +49,18 @@ const Footerdos = () => {
             </ul>
         </div>
         <div>
-            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Download</h2>
+            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Atencion al Cliente</h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
-                    <a href="#" className="hover:underline">iOS</a>
+                    <a href="#" className="hover:underline">Delivery: Lunes a Sábado de 8:00 am a 6:00 pm (entregas inmediatas, para pedidos pagados antes de las 5:30 pm.)</a>
                 </li>
                 <li className="mb-4">
-                    <a href="#" className="hover:underline">Android</a>
+                    <a href="#" className="hover:underline"></a>
                 </li>
                 <li className="mb-4">
-                    <a href="#" className="hover:underline">Windows</a>
+                    <a href="#" className="hover:underline">Número de contacto: 0414-2776795</a>
                 </li>
-                <li className="mb-4">
-                    <a href="#" className="hover:underline">MacOS</a>
-                </li>
+               
             </ul>
         </div>
     </div>

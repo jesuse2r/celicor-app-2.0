@@ -5,7 +5,17 @@ import logo from "../../img/logo.jpg";
 const Navbardos = () => {
     return (
         <>
+             <div className="bg-white antialiased bg-no-repeat text-black ">
+<p className="justify-center items-center flex">  ENTREGAS DE LUNES A SABADO DE 11 AM A 6 PM</p>
+<div>
+    
+</div>
+             </div>
+
+
+
             <div className="bg-black antialiased bg-no-repeat text-white ">
+                
 
 
                 <div className="container mx-auto px-4 py-6 flex items-center justify-between">
@@ -465,11 +475,21 @@ const Navbardos = () => {
 
                             </li>
                            
+                           
                         </ul>
                     </nav>
+                  
+                      
                     <nav>
                         <ul className="flex gap-2">
+                       <li className="rounded-full px-3 py-2 font-semibold bg-white bg-opacity-10 flex items-center group">
+                       <Link to="/viewpay"> <i className="fas fa-shopping-cart"></i>
+                       </Link>
+                        </li>
+                       
                             <li>
+                         
+                                
                                 <Link to="/login" className="rounded-full px-3 py-2 font-semibold bg-white bg-opacity-10 flex items-center group ">
                                     <span className="mr-2"> Login
 
@@ -485,7 +505,7 @@ const Navbardos = () => {
                                     </svg>
                                 </Link>
                             </li>
-                        
+                    
                         </ul>
                     </nav>
 

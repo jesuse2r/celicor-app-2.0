@@ -8,7 +8,7 @@ import  Logindos  from "./pages/Logindos.jsx";
 import Registerdos  from "./pages/Registerdos.jsx";
 import { Profile } from "./pages/Profile.jsx";
 import { Details } from "./pages/details.jsx";
-import  About  from "./pages/about.jsx";
+import  Aboutdos  from "./pages/aboutdos.jsx";
 import injectContext from "./store/appContext";
 
 import  Navbardos  from "./component/navbardos";
@@ -48,7 +48,7 @@ const Layout = () => {
                         <Route element={<ViewFormPay />} path="/viewpay" />
                         <Route element={<CartView />} path="cartview" />
                         <Route element={<ViewFacture />} path="viewfacture" />
-                        <Route element={<About />} path="/about" />
+                        <Route element={<Aboutdos />} path="/about" />
                         <Route element={<TerminoCondiciones />} path="/terminoscondiciones" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>

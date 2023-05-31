@@ -27,9 +27,9 @@ export const Navbar = () => {
 					{store.token ? (
 						<span className="d-flex gap-2">
 							<Link to="/viewpay">
-								<button className="btn btn-warning">
+								
 									<i className="fas fa-shopping-cart"></i>
-								</button>
+								
 							</Link>
 							<button className="btn btn-warning" onClick={navigateToProfile}>
 								Datos
