@@ -12,7 +12,7 @@ import  About  from "./pages/about.jsx";
 import injectContext from "./store/appContext";
 
 import  Navbardos  from "./component/navbardos";
-import { Footer } from "./component/footer";
+import  Footerdos  from "./component/footerdos";
 import ViewFormPay from "./pages/ViewFormPay";
 import CartView from "./pages/CartView";
 
@@ -20,6 +20,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ViewFacture from "./pages/ViewFacture";
 import TerminoCondiciones from "./pages/TerminoCondiciones";
+import Homedos from "./pages/Homedos";
 
 
 
@@ -41,7 +42,7 @@ const Layout = () => {
                     <Routes>
                         <Route element={<Logindos />} path="/login" />
                         <Route element={<Registerdos />} path="/register" />
-                        <Route element={<Home />} path="/" />
+                        <Route element={<Homedos />} path="/" />
                         <Route element={<Profile />} path="/profile" />
                         <Route element={<Details />} path="/details/:id" />
                         <Route element={<ViewFormPay />} path="/viewpay" />
@@ -51,7 +52,7 @@ const Layout = () => {
                         <Route element={<TerminoCondiciones />} path="/terminoscondiciones" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
-                    <Footer />
+                    <Footerdos />
                 </ScrollToTop>
             </BrowserRouter>
         </>
