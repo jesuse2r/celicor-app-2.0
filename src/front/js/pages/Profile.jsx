@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
-import "../../styles/profile.css";
+
 import user from "../../img/user.jpg";
 
 export const Profile = () => {

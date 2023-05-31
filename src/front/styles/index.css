@@ -11,17 +11,13 @@
 }
 
 body {
-    background-color: #272B51;
+
     font-family: 'Rajdhani', sans-serif;
 }
 
-.blue {
-    background-color: #272B51;
-}
 
-.yellow {
-    color: #ebaa15;
-}
+
+
 
 .border-product {
     border-radius: 33px 33px 33px 33px;
@@ -85,3 +81,4 @@ p a:hover {
 .imagen {
     border-radius: 6% 6% 0 0;
 }
+
