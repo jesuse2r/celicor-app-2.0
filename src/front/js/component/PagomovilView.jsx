@@ -1,6 +1,6 @@
 import React from "react";
 import banescoLogo from "../../img/banesco.png"
-import logo from "../../img/logo.png"
+import logo from "../../img/logo.jpg"
 import ButtonPagar from "./ButtonPagar.jsx";
 
 const PagomovilView = () => {

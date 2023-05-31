@@ -1,7 +1,7 @@
 import React from "react";
 import efectivoLogo from "../../img/efectivo.png";
 import "../../styles/home.css";
-import logo from "../../img/logo.png";
+import logo from "../../img/logo.jpg";
 import ButtonPagar from "./ButtonPagar.jsx";
 
 const EfectivoView = () => {

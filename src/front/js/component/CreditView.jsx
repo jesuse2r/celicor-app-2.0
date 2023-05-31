@@ -1,6 +1,6 @@
 import React from "react";
 import visaLogo from "../../img/visa.png"
-import logo from "../../img/logo.png"
+import logo from "../../img/logo.jpg"
 import ButtonPagar from "./ButtonPagar.jsx";
 
 const CreditView = () => {

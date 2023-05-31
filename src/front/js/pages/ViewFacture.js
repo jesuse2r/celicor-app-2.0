@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import FormFacture from "../component/FormFacture.jsx";
-import logo from "../../img/logo.png";
+import logo from "../../img/logo.jpg";
 import Rating from "../component/rating.jsx";
 
 const ViewFacture = () => {

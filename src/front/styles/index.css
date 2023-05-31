@@ -37,18 +37,13 @@ body {
 }
 
 .logo {
-    height: 10vh;
+  height: 10vh;
+    
+    
 }
 
-.navigationbar {
-    background-color: #272B51;
-}
 
-.scrollmenu {
-    background-color: #272B51;
-    overflow: auto;
-    white-space: nowrap;
-}
+
 
 .scrollmenu p {
     display: inline-block;
@@ -58,15 +53,14 @@ body {
 }
 
 p a {
-    color: #ebaa15;
+    color: #6d6c6b;
     text-decoration: none;
 
 }
 
 p a:hover {
-    color: #ad7a02;
+    color:#6d6c6b;
 }
-
 .border-none {
     border: none;
 }
