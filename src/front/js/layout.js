@@ -19,7 +19,7 @@ import CartView from "./pages/CartView";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ViewFacture from "./pages/ViewFacture";
-import TerminoCondiciones from "./pages/TerminoCondiciones";
+import TerminosCondicionesdos from "./pages/TerminosCondicionesdos";
 import Homedos from "./pages/Homedos";
 
 
@@ -49,7 +49,7 @@ const Layout = () => {
                         <Route element={<CartView />} path="cartview" />
                         <Route element={<ViewFacture />} path="viewfacture" />
                         <Route element={<Aboutdos />} path="/about" />
-                        <Route element={<TerminoCondiciones />} path="/terminoscondiciones" />
+                        <Route element={<TerminosCondicionesdos />} path="/terminoscondiciones" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footerdos />

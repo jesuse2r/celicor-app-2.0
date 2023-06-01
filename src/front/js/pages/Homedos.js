@@ -54,11 +54,11 @@ return (
       ></div>
       {/* Left Arrow */}
       <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-        <div onClick={prevSlide} size={30}> <i class="fas fa-arrow-left"></i> </div>
+        <div onClick={prevSlide} size={30}> <i className="fas fa-arrow-left"></i> </div>
       </div>
       {/* Right Arrow */}
       <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-      <div onClick={nextSlide} size={30}> <i class="fas fa-arrow-right"></i> </div>
+      <div onClick={nextSlide} size={30}> <i className="fas fa-arrow-right"></i> </div>
       </div>
       <div className='flex top-4 justify-center py-2'>
         {slides.map((slide, slideIndex) => (
@@ -102,6 +102,7 @@ return (
           </div>
           <h3 className="mt-4 text-md text-black-700 font-extrabold justify-center flex items-center"> Grand Old parr 12 anos</h3>
           <p className="mt-1 text-lg font-medium text-white-900 justify-center flex items-center">$48</p>
+         
         </a>
         <a href="#" className="group">
           <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg  xl:aspect-h-8 xl:aspect-w-7">
@@ -153,7 +154,6 @@ return (
           <p className="mt-1 text-lg font-medium text-gray-900">$35</p>
         </a>
   
-       
       </div>
     </div>
   </div>
