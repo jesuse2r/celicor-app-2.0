@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FormPay from "../component/FormPay.jsx";
+import FormPaydos from "../component/FormPaydos.jsx";
 import CreditView from "../component/CreditView.jsx";
 import PaypalView from "../component/PaypalView.jsx";
 import ZelleView from "../component/ZelleView.jsx";
@@ -24,7 +24,7 @@ const ViewFormPay = () => {
 
     return <div className="d-flex flex-column bg-light ">
 
-        <FormPay setHandleCredit={setHandleCredit} handleCredit={handleCredit} />
+        <FormPaydos setHandleCredit={setHandleCredit} handleCredit={handleCredit} />
         {handleCredit.tarjetaDeCredito ? <CreditView /> : null}
         {handleCredit.paypal ? <PaypalView /> : null}
         {handleCredit.zelle ? <ZelleView /> : null}

@@ -61,8 +61,8 @@ const FormPay = (props) => {
         )}
         {store.cartItems?.map((cartItem) => {
           
-          return (
-            <div key={`cartitems${cartItem.id}`} className="">
+          return ( <div key={`cartitems${cartItem.id}`} className="">
+           
               <div className="row mb-4 d-flex justify-content-between align-items-center">
                 <div className="col-md-2 col-lg-2 col-xl-2">
                   <img
