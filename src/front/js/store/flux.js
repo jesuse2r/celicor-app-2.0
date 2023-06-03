@@ -111,6 +111,20 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log(data)
         setStore({ ...store, products: data.data })
       },
+      getAllLiquorsTypes: async (type) => {
+        const response = await fetch(`${process.env.BACKEND_URL}/api/licores/${type}`);
+        const data = await response.json()
+        const store = getStore();
+        console.log(data)
+        setStore({ ...store, products: data.data })
+      },
+      getAllLiquorsMarca: async (type, marca) => {
+        const response = await fetch(`${process.env.BACKEND_URL}/api/licores/${type}/${marca}`);
+        const data = await response.json()
+        const store = getStore();
+        console.log(data)
+        setStore({ ...store, products: data.data })
+      },
       getCartItems: async () => {
         const store = getStore();
         const response = await fetch(`${process.env.BACKEND_URL}/api/cartitem`, { headers: { authorization: `Bearer ${store.token}` } });

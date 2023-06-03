@@ -21,7 +21,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import ViewFacture from "./pages/ViewFacture";
 import TerminosCondicionesdos from "./pages/TerminosCondicionesdos";
 import Homedos from "./pages/Homedos";
-
+import Licores from "./pages/Licores";
+import MarcaView from "./pages/MarcaView";
 
 
 
@@ -47,6 +48,8 @@ const Layout = () => {
                         <Route element={<Details />} path="/details/:id" />
                         <Route element={<ViewFormPay />} path="/viewpay" />
                         <Route element={<CartView />} path="cartview" />
+                        <Route element={<Licores />} path="licor/:type" />
+                        <Route element={<MarcaView />} path="licor/:type/:marca" />
                         <Route element={<ViewFacture />} path="viewfacture" />
                         <Route element={<Aboutdos />} path="/about" />
                         <Route element={<TerminosCondicionesdos />} path="/terminoscondiciones" />

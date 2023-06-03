@@ -188,14 +188,23 @@ def get_licores(id):
         return {"mensaje" : "no existe un licor con este id"}    
     return jsonify({"data": licores.serialize()})
 #traer categoria de licores por ejemp whisky, ron etc.
-@api.route('/licores/<category>', methods=['GET'])
-def get_category(category):
-    licores_list = Licores.query.filter_by(category=category).all()
+@api.route('/licores/<types>', methods=['GET'])
+def get_types(types):
+    licores_list = Licores.query.filter_by(types=types).all()
     serialized_licores = [licores.serialize() for licores in licores_list]
     if not licores_list:
-        return {"mensaje" : "no existe un licor con este id"}    
+        return {"mensaje" : "no existe un licor de este tipo"}    
     return jsonify({"data": serialized_licores})
 #agregar licores
+
+@api.route('/licores/<types>/<marca>', methods=['GET'])
+def get_marca(types, marca):
+    licores_list = Licores.query.filter_by(types=types,marca=marca).all()
+    serialized_licores = [licores.serialize() for licores in licores_list]
+    if not licores_list:
+        return {"mensaje" : "no existe un licor con esa marca"}    
+    return jsonify({"data": serialized_licores})
+
 @api.route('/licores', methods=['POST'])
 def create_licores():
     form = request.form
