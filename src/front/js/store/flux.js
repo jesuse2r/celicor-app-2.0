@@ -7,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       token: localStorage.getItem("token") || "",
       products: [],
       cartItems: [],
+      showCart: false,
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -69,7 +70,10 @@ const getState = ({ getStore, getActions, setStore }) => {
       handleLogout: () => {
         localStorage.removeItem("token");
         setStore({ token: "" });
-        toast.warning("Haz hecho logout de tu sesion para realizar alguna compra vuelve a loguearte!")
+        toast.warning ("Haz hecho logout de tu sesion para realizar alguna compra vuelve a loguearte!")
+      },
+      toggleCart: (types) => {
+setStore({showCart: types})
       },
 
       handleChange_Password: async (

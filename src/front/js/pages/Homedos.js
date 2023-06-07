@@ -99,21 +99,71 @@ return (
     
     
    
-    <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 ">
+    <div className="mx-auto max-w-2xl px-4 py-2 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8 w-50">
       <h2 className="">Products</h2>
   
-      <div className="flex overflow-x-scroll ">
+      <div className="flex overflow-x-scroll gap-3">
         {store.products.map((product)=>{
-          return (  <a href="#" className="">
-          <div className=" w-500">
-            <img src={product.category} alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." className="w-500 object-cover object-center group-hover:opacity-75"/>
+          return (  <div className="flex flex-col flex-shrink-0 gap-3">
+          <div className=" w-40  ">
+            <img src={product.category} alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." className="w-25 object-cover object-center group-hover:opacity-75"/>
+          </div>
+          <h3 className="mt-4 text-md text-black-700 font-extrabold justify-center flex items-center"> {product.name}</h3>
+          <p className="mt-1 text-lg font-medium text-white-900 justify-center flex items-center">{product.price}</p>
+        <div className="flex justify-center ">
+         <button onClick={() => actions.addToCart(product.id)}className="bg-black text-white  px-3 py-2">Agregar al carro</button>
+         </div>
+        </div>)
+        })}
+      
+     
+      
+        
+      
+     
+  
+      </div>
+    </div>
+    <div className="mx-auto max-w-2xl px-4 py-2 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8 w-50">
+      <h2 className="">Products</h2>
+  
+      <div className="flex overflow-x-scroll gap-3">
+        {store.products.map((product)=>{
+          return (  <div className="flex flex-col flex-shrink-0 gap-3">
+          <div className=" w-40  ">
+            <img src={product.category} alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." className="w-25 object-cover object-center group-hover:opacity-75"/>
           </div>
           <h3 className="mt-4 text-md text-black-700 font-extrabold justify-center flex items-center"> {product.name}</h3>
           <p className="mt-1 text-lg font-medium text-white-900 justify-center flex items-center">{product.price}</p>
         <div className="flex justify-center ">
          <button className="bg-black text-white  px-3 py-2">Agregar al carro</button>
          </div>
-        </a>)
+        </div>)
+        })}
+      
+     
+      
+        
+      
+     
+  
+      </div>
+    </div>
+    <div className="mx-auto max-w-2xl px-4 py-2 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8 w-50">
+      <h2 className="">Products</h2>
+  
+      <div className="flex overflow-x-scroll gap-3">
+        {store.products.map((product)=>{
+          return (  <div className="flex flex-col flex-shrink-0 gap-3">
+          <div className=" w-40  ">
+            <img src={product.category} alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." className="w-25 object-cover object-center group-hover:opacity-75"/>
+          </div>
+          <h3 className="mt-4 text-md text-black-700 font-extrabold justify-center flex items-center"> {product.name}</h3>
+          <p className="mt-1 text-lg font-medium text-white-900 justify-center flex items-center">{product.price}</p>
+        <div className="flex justify-center ">
+         <button onClick={() => actions.addToCart(product.id)} className="bg-black text-white  px-3 py-2 btn">Agregar al carro</button>
+         </div>
+        </div>)
         })}
       
      

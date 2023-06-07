@@ -10,6 +10,11 @@ import carritoVacio from "../../img/carritoVacio.png";
 const FormPaydos = () => {
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
+    const redirectToPay = () => {
+      actions.toggleCart(false)
+navigate("/viewpay") 
+
+    }
   
   
     
@@ -39,12 +44,7 @@ const FormPaydos = () => {
               <div className="flex items-start justify-between">
                 <h2 className="text-lg font-medium text-gray-900" id="slide-over-title">Shopping cart</h2>
                 <div className="ml-3 flex h-7 items-center">
-                  <button t  onClick={() =>
-                      actions.deleteCartItem(
-                        cartItem.licores_id,
-                        cartItem.cart_id
-                      )
-                    } className="-m-2 p-2 text-gray-400 hover:text-gray-500">
+                  <button  onClick={() => actions.toggleCart(false)} className="-m-2 p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Close panel</span>
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -58,7 +58,7 @@ const FormPaydos = () => {
                   <ul role="list" className="-my-6 divide-y divide-gray-200">
                   {store.cartItems?.map((cartItem) => {
                     return (
-                      <li className="flex py-6">
+                      <li  className="flex py-6">
                       <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                         
                         <img src={whisky} alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." className="h-full w-full object-cover object-center"/>
@@ -107,13 +107,13 @@ const FormPaydos = () => {
               </div>
               <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
               <div className="mt-6">
-                <a href="#" className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
+                <button onClick={redirectToPay} className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</button>
               </div>
               <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                 <p>
                   or
-                  <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
-                    Continue Shopping
+                  <button  onClick={() => actions.toggleCart(false)}  type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
+                    Continuar comprando
                     <span aria-hidden="true"> &rarr;</span>
                   </button>
                 </p>

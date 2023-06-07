@@ -1,10 +1,13 @@
-import React, {useContext} from "react";
+import React, {useContext,useState} from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo.jpg";
 import { Context } from "../store/appContext";
+import FormPaydos from "./FormPaydos.jsx";
 
 const Navbardos = () => {
     const { store, actions } = useContext(Context);
+   
+
     return (
         <>
              <div className="bg-white antialiased bg-no-repeat text-black ">
@@ -480,9 +483,11 @@ const Navbardos = () => {
                     <nav>
                         <ul className="flex gap-2">
                        <li className="rounded-full px-3 py-2 font-semibold bg-white bg-opacity-10 flex items-center group">
-                       <Linkigt to="/viewpay"> <i className="fas fa-shopping-cart"></i>
+                       <button
+
+                        onClick={()=>actions.toggleCart(true)}> <i className="fas fa-shopping-cart"></i>
                        <span className="p-3">{store.cartItems.length}</span>
-                       </Linkig>
+                       </button>
                         </li>
                         
                        
@@ -507,6 +512,7 @@ const Navbardos = () => {
                     
                         </ul>
                     </nav>
+                    {store.showCart && <FormPaydos/>}
 
                 </div>
 
