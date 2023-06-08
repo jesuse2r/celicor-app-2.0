@@ -1,4 +1,4 @@
-import React, {useContext,useState} from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo.jpg";
 import { Context } from "../store/appContext";
@@ -6,21 +6,21 @@ import FormPaydos from "./FormPaydos.jsx";
 
 const Navbardos = () => {
     const { store, actions } = useContext(Context);
-   
+
 
     return (
         <>
-             <div className="bg-white antialiased bg-no-repeat text-black ">
-<p className="justify-center items-center flex">  ENTREGAS DE LUNES A SABADO DE 11 AM A 6 PM</p>
-<div>
-    
-</div>
-             </div>
+            <div className="bg-white antialiased bg-no-repeat text-black ">
+                <p className="justify-center items-center flex">  ENTREGAS DE LUNES A SABADO DE 11 AM A 6 PM</p>
+                <div>
+
+                </div>
+            </div>
 
 
 
             <div className="bg-black antialiased bg-no-repeat text-white ">
-                
+
 
 
                 <div className="container mx-auto px-4 py-6 flex items-center justify-between">
@@ -103,7 +103,7 @@ const Navbardos = () => {
 
                             </li>
                             <li className="relative group px-3 py-2">
-                                  <Link to="licor/rones"className="hover:opacity-50
+                                <Link to="licor/rones" className="hover:opacity-50
 								cursor-default text-[20px]">Rones</Link>
                                 <div className="absolute top-0 -left-48 transition
 								group-hover:translate-y-5 translate-y-0 
@@ -128,13 +128,13 @@ const Navbardos = () => {
                                                             </Link>
                                                         </li>
                                                         <li>
-                                                        <Link to="/licor/rones/cacique"className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/rones/cacique" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Cacique
                                                                 <p className="text-gray-500 font-normal">0.75</p>
                                                             </Link>
                                                         </li>
                                                         <li>
-                                                        <Link to="/licor/rones/pampero"className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/rones/pampero" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Pampero
                                                                 <p className="text-gray-500 font-normal">0.75</p>
                                                             </Link>
@@ -145,19 +145,19 @@ const Navbardos = () => {
                                                     <p className="uppercase tracking-wider text-gray-500 font-medium text-13px]">licores de ron</p>
                                                     <ul className="mt-3 text-[15px]">
                                                         <li>
-                                                        <Link to="/licor/rones/santateresa"className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/rones/santateresa" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Record
                                                                 <p className="text-gray-500 font-normal">2.0 litros</p>
                                                             </Link>
                                                         </li>
                                                         <li>
-                                                        <Link to="/licor/rones/pajarito"className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/rones/pajarito" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Ry
                                                                 <p className="text-gray-500 font-normal">2.0 litros</p>
                                                             </Link>
                                                         </li>
                                                         <li>
-                                                        <Link to="/licor/rones/pajarito" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/rones/pajarito" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Pajarito
                                                                 <p className="text-gray-500 font-normal">2</p>
                                                             </Link>
@@ -195,19 +195,19 @@ const Navbardos = () => {
                                                     <p className="uppercase tracking-wider text-gray-500 font-medium text-13px]">Special</p>
                                                     <ul className="mt-3 text-[15px]">
                                                         <li>
-                                                        <Link to="/licor/vodkas/stolichnaya" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/vodkas/stolichnaya" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Stolichnaya
                                                                 <p className="text-gray-500 font-normal">12 anos</p>
                                                             </Link>
                                                         </li>
                                                         <li>
-                                                        <Link to="/licor/vodkas/greygouse"className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/vodkas/greygouse" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Grey Gouse
                                                                 <p className="text-gray-500 font-normal">0.75</p>
                                                             </Link>
                                                         </li>
                                                         <li>
-                                                        <Link to="/licor/vodkas/absolute"className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/vodkas/absolute" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Absolute
                                                                 <p className="text-gray-500 font-normal">0.75</p>
                                                             </Link>
@@ -218,19 +218,19 @@ const Navbardos = () => {
                                                     <p className="uppercase tracking-wider text-gray-500 font-medium text-13px]">Vodkas Baratos</p>
                                                     <ul className="mt-3 text-[15px]">
                                                         <li>
-                                                        <Link to="/licor/vodkas/vodka" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/vodkas/vodka" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Vodka
                                                                 <p className="text-gray-500 font-normal">10</p>
                                                             </Link>
                                                         </li>
                                                         <li>
-                                                        <Link to="/licor/vodkas/glacial" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/vodkas/glacial" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Glacial
                                                                 <p className="text-gray-500 font-normal">10</p>
                                                             </Link>
                                                         </li>
                                                         <li>
-                                                        <Link to="/licor/vodkas/gordons"className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/vodkas/gordons" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-blue-50 transition ease-in-out duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Gordons
                                                                 <p className="text-gray-500 font-normal">2</p>
                                                             </Link>
@@ -322,7 +322,7 @@ const Navbardos = () => {
 
                             </li>
 
-                        
+
                             <li
                                 className="relative group px-3 py-2 ">
                                 <button className="hover:opacity-50
@@ -396,7 +396,7 @@ const Navbardos = () => {
                                                                 </a>
                                                             </li>
 
-                                                            
+
                                                         </ul>
 
 
@@ -474,53 +474,54 @@ const Navbardos = () => {
 
 
                             </li>
-                           
-                           
+
+
                         </ul>
                     </nav>
-                  
-                      
+
+
                     <nav>
-                        
+
                         <ul className="flex gap-2">
-                        <li className="rounded-full px-0 py-0 font-semibold bg-white bg-opacity-10 flex items-center group ">
-                            
-<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="text-white bg-black-700 hover:bg-black-800 focus:ring-4 focus:outline-none focus:ring-black-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-black-600 dark:hover:bg-black-700 dark:focus:ring-black-800" type="button"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Venezuela.svg/2560px-Flag_of_Venezuela.svg.png" alt="" className="block h-auto w-5 flex-shrink-0 "/><svg className="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg></button>
-
-<div id="dropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-    <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-      <li>
-        <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"> <img src=" https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/2880px-Flag_of_the_United_States.svg.png" alt="" className="block h-auto w-5 flex-shrink-0 "/></a>
-      </li>
-   
-     
-    </ul>
-</div>
-
-                            </li>
-                            
-                        <li className="rounded-full px-0 py-0 font-semibold bg-white bg-opacity-10 flex items-center group">
-                            <div className="flex lg:ml-6">
-              <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
-                <span className="sr-only">Search</span>
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                </svg>
-              </a>
-            </div>
-                            </li>
-                       <li className="rounded-full px-3 py-2 font-semibold bg-white bg-opacity-10 flex items-center group">
-                       <button
-
-                        onClick={()=>actions.toggleCart(true)}> <i className="fas fa-shopping-cart"></i>
-                       <span className="p-3">{store.cartItems.length}</span>
-                       </button>
-                        </li>
-                        
                        
+                            <li className="rounded-full px-0 py-0 font-semibold bg-white bg-opacity-10 flex items-center group ">
+
+                                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="text-white bg-black-700 hover:bg-black-800 focus:ring-4 focus:outline-none focus:ring-black-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-black-600 dark:hover:bg-black-700 dark:focus:ring-black-800" type="button"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Venezuela.svg/2560px-Flag_of_Venezuela.svg.png" alt="" className="block h-auto w-5 flex-shrink-0 " /><svg className="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg></button>
+
+                                <div id="dropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                    <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                        <li>
+                                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"> <img src=" https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/2880px-Flag_of_the_United_States.svg.png" alt="" className="block h-auto w-5 flex-shrink-0 " /></a>
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+
+                            </li>
+
+                            <li className="rounded-full px-0 py-0 font-semibold bg-white bg-opacity-10 flex items-center group">
+                                <div className="flex lg:ml-6">
+                                    <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
+                                        <span className="sr-only">Search</span>
+                                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </li>
+                            <li className="rounded-full px-3 py-2 font-semibold bg-white bg-opacity-10 flex items-center group">
+                                <button
+
+                                    onClick={() => actions.toggleCart(true)}> <i className="fas fa-shopping-cart"></i>
+                                    <span className="p-3">{store.cartItems.length}</span>
+                                </button>
+                            </li>
+
+
                             <li>
-                         
-                                
+
+
                                 <Link to="/login" className="rounded-full px-3 py-2 font-semibold bg-white bg-opacity-10 flex items-center group ">
                                     <span className="mr-2"> Login
 
@@ -536,10 +537,10 @@ const Navbardos = () => {
                                     </svg>
                                 </Link>
                             </li>
-                    
+
                         </ul>
                     </nav>
-                    {store.showCart && <FormPaydos/>}
+                    {store.showCart && <FormPaydos />}
 
                 </div>
 

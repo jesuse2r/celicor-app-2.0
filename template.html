@@ -21,7 +21,12 @@
       <script src="https://cdn.tailwindcss.com"></script>
       <script>
           tailwind.config = {
+            plugins: [
+     
+      require('@tailwindcss/forms'),
+    ],
             theme: {
+              
               extend: {
                 colors:
                  {
@@ -35,6 +40,7 @@
               @layer utilities {
                 .content-auto {
                   content-visibility: auto;
+                  
                 }
               }
             </style>
