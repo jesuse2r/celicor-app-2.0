@@ -18,7 +18,7 @@ function FormPayNew(props) {
     const totalMasIva = getTotal() * 1.16
     const totalBolivares = totalMasIva * 25.12
     let today = new Date()
-   
+
     useEffect(() => {
 
         actions.getCartItems()
@@ -63,8 +63,8 @@ function FormPayNew(props) {
                     <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
                         <h1 className="text-4xl  tracking-tight text-gray-900">Metodo de Pago</h1>
                         <div className=""><span
-                                        className="justify-end flex">Fecha:</span>{today.toLocaleDateString()}</div>
-                                    
+                            className="justify-end flex">Fecha:</span>{today.toLocaleDateString()}</div>
+
                     </div>
 
 
@@ -77,116 +77,266 @@ function FormPayNew(props) {
 
                             <form className="hidden lg:block">
                                 <h3 className="sr-only">Categories</h3>
-                                <ul className="flex">
-                                    <li className="flex-1 mr-2">
-                                        <a className="text-center block border border-black-500 rounded py-2 px-4 bg-gray-500 hover:bg-black-700 text-black" href="#">Juridico</a>
-                                    </li>
-                                    <li className="flex-1 mr-2">
-                                        <a className="text-center block border border-black rounded hover:border-black-200 text-black-500 hover:bg-black-200 py-2 px-4" href="#">Natural</a>
-                                    </li>
+                                <ul>
+                                    <li
+                                        className=" mt-5 relative group px-3 py-2">
+                                        <button className="hover:opacity-50
+								cursor-default text-[20px] ">Tipo de persona</button>
+                                        <div className="absolute top-0 left-0 transition 
+								">
+                                            <div className="absolute top-0 -left-2 transition
+								group-hover:translate-y-5 translate-y-0 
+								opacity-0 invisible group-hover:opacity-100 
+								group-hover:visible duration-500 ease-in-out 
+								group-hover:transform z-50 min-w-[260px] 
+								transform">
 
+                                                <div className="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full">
+                                                    <div className="w-10 h-10 bg-white transform 
+										rotate-45 absolute top-0 z-0 
+										-translate-x-4 transition-transform 
+										group-hover:translate-x-3
+										 duration-500 ease-in-out rounded-sm"></div>
+
+                                                    <div className="relative z-10">
+
+
+
+
+                                                        <ul className="mt-3 text-[15px]">
+                                                            <li>
+
+                                                                <a href="https://instagram.com/celicorfuerzasarmadas1?igshid=NTc4MTIwNjQ2YQ==" className="bg-transparent
+                                                        
+												bg-clip-text text-transparent
+												bg-gradient-to-br from-indigo-400
+												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block ">  <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Natural</label></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="https://twitter.com/celicor_oficial?s=11&t=14xfkczfoNch4q92RX0vBw" className="bg-transparent
+												bg-clip-text text-transparent
+												bg-gradient-to-br from-indigo-400
+												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block"> <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-black-600 focus:ring-black-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Juridica</label></a>
+                                                            </li>
+
+
+
+                                                        </ul>
+                                                    </div>
+
+
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+
+
+
+
+                                    </li>
                                 </ul>
 
-                                <div className="border-b border-gray-200 py-6">
-                                    <h3 className="-my-3 flow-root">
+                                <ul>
+                                    <li
+                                        className=" mt-5 relative group px-3 py-2">
+                                        <button className="hover:opacity-50
+								cursor-default text-[20px] ">Metodo de pago</button>
+                                        <div className="absolute top-0 left-0 transition 
+								">
+                                            <div className="absolute top-0 -left-2 transition
+								group-hover:translate-y-5 translate-y-0 
+								opacity-0 invisible group-hover:opacity-100 
+								group-hover:visible duration-500 ease-in-out 
+								group-hover:transform z-50 min-w-[260px] 
+								transform">
 
-                                        <button type="button" className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-2" aria-expanded="false">
-                                            <span className="font-medium text-gray-900">Metodo de Envio</span>
-                                            <span className="ml-6 flex items-center">
+                                                <div className="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full">
+                                                    <div className="w-10 h-10 bg-white transform 
+										rotate-45 absolute top-0 z-0 
+										-translate-x-4 transition-transform 
+										group-hover:translate-x-3
+										 duration-500 ease-in-out rounded-sm"></div>
 
-                                                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
-                                                </svg>
+                                                    <div className="relative z-10">
 
-                                                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path fillRule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clipRule="evenodd" />
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </h3>
 
-                                    <div className="pt-6" id="filter-section-0">
-                                        <div className="space-y-4">
-                                            <div className="flex items-center">
-                                                <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-                                                <label htmlFor="filter-color-0" className="ml-3 text-sm text-gray-600">Envio a su direccion</label>
+
+
+                                                        <ul className="mt-3 text-[15px]">
+                                                            <li>
+
+                                                                <a href="https://instagram.com/celicorfuerzasarmadas1?igshid=NTc4MTIwNjQ2YQ==" className="bg-transparent
+                                                        
+												bg-clip-text text-transparent
+												bg-gradient-to-br from-indigo-400
+												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block ">  <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Zelle</label></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="https://twitter.com/celicor_oficial?s=11&t=14xfkczfoNch4q92RX0vBw" className="bg-transparent
+												bg-clip-text text-transparent
+												bg-gradient-to-br from-indigo-400
+												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block"> <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-black-600 focus:ring-black-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Efectivo y/o Pago Móvil</label></a>
+                                                            </li>
+
+
+
+                                                        </ul>
+                                                    </div>
+
+
+                                                </div>
+
+
                                             </div>
-                                            <div className="flex items-center">
-                                                <input id="filter-color-1" name="color[]" value="beige" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-                                                <label htmlFor="filter-color-1" className="ml-3 text-sm text-gray-600">Retiro en tienda</label>
-                                            </div>
-
-
-
 
                                         </div>
-                                    </div>
-                                </div>
-                                <div className="border-b border-gray-200 py-6">
-                                    <h3 className="-my-3 flow-root">
 
-                                        <button type="button" className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-1" aria-expanded="false">
-                                            <span className="font-medium text-gray-900">Direccion de Envio</span>
-                                            <span className="ml-6 flex items-center">
 
-                                                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
-                                                </svg>
 
-                                                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path fillRule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clipRule="evenodd" />
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </h3>
 
-                                    <div className="pt-6" id="filter-section-1">
-                                        <div className="space-y-4">
-                                            <div className="flex items-center">
-                                                <input id="filter-category-0" name="category[]" value="new-arrivals" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-                                                <label htmlFor="filter-category-0" className="ml-3 text-sm text-gray-600">New Arrivals</label>
+                                    </li>
+                                </ul>
+
+
+
+
+
+                                <ul>
+                                    <li
+                                        className=" mt-5 relative group px-3 py-2">
+                                        <button className="hover:opacity-50
+								cursor-default text-[20px] ">Metodo de envio</button>
+                                        <div className="absolute top-0 left-0 transition 
+								">
+                                            <div className="absolute top-0 -left-2 transition
+								group-hover:translate-y-5 translate-y-0 
+								opacity-0 invisible group-hover:opacity-100 
+								group-hover:visible duration-500 ease-in-out 
+								group-hover:transform z-50 min-w-[260px] 
+								transform">
+
+                                                <div className="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full">
+                                                    <div className="w-10 h-10 bg-white transform 
+										rotate-45 absolute top-0 z-0 
+										-translate-x-4 transition-transform 
+										group-hover:translate-x-3
+										 duration-500 ease-in-out rounded-sm"></div>
+
+                                                    <div className="relative z-10">
+
+
+
+
+                                                        <ul className="mt-3 text-[15px]">
+                                                            <li>
+
+                                                                <a href="https://instagram.com/celicorfuerzasarmadas1?igshid=NTc4MTIwNjQ2YQ==" className="bg-transparent
+                                                        
+												bg-clip-text text-transparent
+												bg-gradient-to-br from-indigo-400
+												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block ">  <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Envio a Domocilio</label></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="https://twitter.com/celicor_oficial?s=11&t=14xfkczfoNch4q92RX0vBw" className="bg-transparent
+												bg-clip-text text-transparent
+												bg-gradient-to-br from-indigo-400
+												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block"> <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-black-600 focus:ring-black-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Pick-up Gratis</label></a>
+                                                            </li>
+
+
+
+                                                        </ul>
+                                                    </div>
+
+
+                                                </div>
+
+
                                             </div>
-
-
 
                                         </div>
-                                    </div>
-                                </div>
-                                <div className="border-b border-gray-200 py-6">
-                                    <h3 className="-my-3 flow-root">
 
-                                        <button type="button" className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-2" aria-expanded="false">
-                                            <span className="font-medium text-gray-900">Metodo de Pago</span>
-                                            <span className="ml-6 flex items-center">
 
-                                                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
-                                                </svg>
 
-                                                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path fillRule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clipRule="evenodd" />
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </h3>
 
-                                    <div className="pt-6" id="filter-section-2">
-                                        <div className="space-y-4">
-                                            <div className="flex items-center">
-                                                <input id="filter-size-0" name="size[]" value="2l" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-                                                <label htmlFor="filter-size-0" className="ml-3 text-sm text-gray-600">Zelle</label>
+                                    </li>
+                                </ul>
+
+
+                                <ul>
+                                    <li
+                                        className=" mt-5 relative group px-3 py-2">
+                                        <button className="hover:opacity-50
+								cursor-default text-[20px] ">Direccion de envio</button>
+                                        <div className="absolute top-0 left-0 transition 
+								">
+                                            <div className="absolute top-0 -left-2 transition
+								group-hover:translate-y-5 translate-y-0 
+								opacity-0 invisible group-hover:opacity-100 
+								group-hover:visible duration-500 ease-in-out 
+								group-hover:transform z-50 min-w-[260px] 
+								transform">
+
+                                                <div className="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full">
+                                                    <div className="w-10 h-10 bg-white transform 
+										rotate-45 absolute top-0 z-0 
+										-translate-x-4 transition-transform 
+										group-hover:translate-x-3
+										 duration-500 ease-in-out rounded-sm"></div>
+
+                                                    <div className="relative z-10">
+
+
+
+
+                                                        <ul className="mt-3 text-[15px]">
+                                                            <li>
+
+                                                                <a href="https://instagram.com/celicorfuerzasarmadas1?igshid=NTc4MTIwNjQ2YQ==" className="bg-transparent
+                                                        
+												bg-clip-text text-transparent
+												bg-gradient-to-br from-indigo-400
+												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block ">  <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Zelle</label></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="https://twitter.com/celicor_oficial?s=11&t=14xfkczfoNch4q92RX0vBw" className="bg-transparent
+												bg-clip-text text-transparent
+												bg-gradient-to-br from-indigo-400
+												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block"> <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-black-600 focus:ring-black-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Envio a su direccion</label></a>
+                                                            </li>
+
+
+
+                                                        </ul>
+                                                    </div>
+
+
+                                                </div>
+
+
                                             </div>
-                                            <div className="flex items-center">
-                                                <input id="filter-size-1" name="size[]" value="6l" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-                                                <label htmlFor="filter-size-1" className="ml-3 text-sm text-gray-600"> Efectivo y/o Pago Móvil</label>
-                                            </div>
-
-
-
 
                                         </div>
-                                    </div>
-                                </div>
+
+
+
+
+                                    </li>
+                                </ul>
+
+
+
+
+
+
+
+
+
+
+
+
                             </form>
 
 
@@ -205,20 +355,20 @@ function FormPayNew(props) {
                                                         <li><div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                                             <img src={cartItem.licor.category} alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." className="h-30 w-24 object-cover object-center" />
 
-                                                           
+
                                                             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 justify-end flex">{cartItem.licor.name}</dd>
                                                             <button onClick={() => (actions.updateCartItems(cartItem.cart_id, cartItem.quantity - 1, cartItem.licores_id))}
-                                                                    className="btn px-6 "><i className=" fas fa-minus"></i></button>
+                                                                className="btn px-6 "><i className=" fas fa-minus"></i></button>
 
-                                                                <span className="text-center ">{cartItem.quantity}</span>
-                                                                <button onClick={() => (actions.updateCartItems(cartItem.cart_id, cartItem.quantity + 1, cartItem.licores_id))}
-                                                                    className="btn px-6  "><i className="fas fa-plus"></i></button>
+                                                            <span className="text-center ">{cartItem.quantity}</span>
+                                                            <button onClick={() => (actions.updateCartItems(cartItem.cart_id, cartItem.quantity + 1, cartItem.licores_id))}
+                                                                className="btn px-6  "><i className="fas fa-plus"></i></button>
 
 
                                                         </div>
 
                                                         </li>
-                                                        
+
                                                         <li>
                                                             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                                                 <dt className="text-sm font-medium leading-6 text-gray-900">Envio</dt>

@@ -104,8 +104,73 @@ const ViewFacture = () => {
                             <div className="col-xl-10">
                                 <p>Gracias por su Compra</p>
                             </div>
+                            <ul>
+                            <li
+                                className="relative group px-3 py-2">
+                                <button className="hover:opacity-50
+								cursor-default text-[20px] ">redes sociales</button>
+                                <div className="absolute top-0 left-0 transition 
+								">
+                                    <div className="absolute top-0 -left-2 transition
+								group-hover:translate-y-5 translate-y-0 
+								opacity-0 invisible group-hover:opacity-100 
+								group-hover:visible duration-500 ease-in-out 
+								group-hover:transform z-50 min-w-[260px] 
+								transform">
+
+                                        <div className="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full">
+                                            <div className="w-10 h-10 bg-white transform 
+										rotate-45 absolute top-0 z-0 
+										-translate-x-4 transition-transform 
+										group-hover:translate-x-3
+										 duration-500 ease-in-out rounded-sm"></div>
+                                            <div className="relative z-10">
+                                                <p className="uppercase tracking-wider text-gray-500 font-medium text-[13px]"
+                                                >@celicor</p>
+
+
+
+                                                <ul className="mt-3 text-[15px]">
+                                                    <li>
+                                                        <a href="https://instagram.com/celicorfuerzasarmadas1?igshid=NTc4MTIwNjQ2YQ==" className="bg-transparent
+												bg-clip-text text-transparent
+												bg-gradient-to-br from-indigo-400
+												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block">Instagram</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://twitter.com/celicor_oficial?s=11&t=14xfkczfoNch4q92RX0vBw" className="bg-transparent
+												bg-clip-text text-transparent
+												bg-gradient-to-br from-indigo-400
+												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block">Twitter</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="https://www.facebook.com/profile.php?id=100074430510278&mibextid=LQQJ4d" className="bg-transparent
+												bg-clip-text text-transparent
+												bg-gradient-to-br from-indigo-400
+												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block">Facebook</a>
+                                                    </li>
+
+
+                                                </ul>
+                                            </div>
+
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+
+
+
+                            </li>
+                            </ul>
+
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
