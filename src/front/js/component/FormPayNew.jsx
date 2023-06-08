@@ -77,6 +77,7 @@ function FormPayNew(props) {
 
                             <form className="hidden lg:block">
                                 <h3 className="sr-only">Categories</h3>
+                                <div class=" px-4 py-6">
                                 <ul>
                                     <li
                                         className=" mt-5 relative group px-3 py-2">
@@ -137,7 +138,8 @@ function FormPayNew(props) {
 
                                     </li>
                                 </ul>
-
+                                </div>
+                                <div class="border-t border-gray-200 px-4 py-6">
                                 <ul>
                                     <li
                                         className=" mt-5 relative group px-3 py-2">
@@ -198,10 +200,11 @@ function FormPayNew(props) {
 
                                     </li>
                                 </ul>
+                                </div>
 
 
 
-
+                                <div class="border-t border-gray-200 px-4 py-6">
 
                                 <ul>
                                     <li
@@ -263,7 +266,8 @@ function FormPayNew(props) {
 
                                     </li>
                                 </ul>
-
+                                </div>
+                                <div class="border-t border-gray-200 px-4 py-6">
 
                                 <ul>
                                     <li
@@ -326,7 +330,7 @@ function FormPayNew(props) {
                                     </li>
                                 </ul>
 
-
+</div>
 
 
 
@@ -351,8 +355,11 @@ function FormPayNew(props) {
                                         <dl className="divide-y divide-gray-100">
                                             {store.cartItems?.map((cartItem) => {
                                                 return (
+                                                    
                                                     <ul>
-                                                        <li><div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                                        <li>
+                                                            
+                                                            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                                             <img src={cartItem.licor.category} alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." className="h-30 w-24 object-cover object-center" />
 
 
