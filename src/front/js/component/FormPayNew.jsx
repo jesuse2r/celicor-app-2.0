@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
+import PagomovilView from "./PagomovilView.jsx";
 
 function FormPayNew(props) {
     const navigate = useNavigate();
@@ -82,7 +83,7 @@ function FormPayNew(props) {
                                     <li
                                         className=" mt-5 relative group px-3 py-2">
                                         <button className="hover:opacity-50
-								cursor-default text-[20px] ">Tipo de persona</button>
+								cursor-default text-[20px] "><i class="far fa-user-circle"></i> Tipo de persona</button>
                                         <div className="absolute top-0 left-0 transition 
 								">
                                             <div className="absolute top-0 -left-2 transition
@@ -111,7 +112,7 @@ function FormPayNew(props) {
                                                         
 												bg-clip-text text-transparent
 												bg-gradient-to-br from-indigo-400
-												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block ">  <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Natural</label></a>
+												font-semibold hover:from-black-600 hover:to-black-600 hover:via-pink-400 py-1 block ">  <input id="filter-color-2" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded-full border-gray-300 text-black-600 focus:ring-black-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Natural</label></a>
                                                             </li>
                                                             <li>
                                                                 <a href="https://twitter.com/celicor_oficial?s=11&t=14xfkczfoNch4q92RX0vBw" className="bg-transparent
@@ -144,7 +145,7 @@ function FormPayNew(props) {
                                     <li
                                         className=" mt-5 relative group px-3 py-2">
                                         <button className="hover:opacity-50
-								cursor-default text-[20px] ">Metodo de pago</button>
+								cursor-default text-[20px] "><i class="fa-regular fa-credit-card"></i> Metodo de pago</button>
                                         <div className="absolute top-0 left-0 transition 
 								">
                                             <div className="absolute top-0 -left-2 transition
@@ -169,7 +170,7 @@ function FormPayNew(props) {
                                                         <ul className="mt-3 text-[15px]">
                                                             <li>
 
-                                                                <a href="https://instagram.com/celicorfuerzasarmadas1?igshid=NTc4MTIwNjQ2YQ==" className="bg-transparent
+                                                                <a  className="bg-transparent
                                                         
 												bg-clip-text text-transparent
 												bg-gradient-to-br from-indigo-400
@@ -210,7 +211,7 @@ function FormPayNew(props) {
                                     <li
                                         className=" mt-5 relative group px-3 py-2">
                                         <button className="hover:opacity-50
-								cursor-default text-[20px] ">Metodo de envio</button>
+								cursor-default text-[20px] "><i class="fas fa-box"></i> Metodo de envio</button>
                                         <div className="absolute top-0 left-0 transition 
 								">
                                             <div className="absolute top-0 -left-2 transition
@@ -273,7 +274,7 @@ function FormPayNew(props) {
                                     <li
                                         className=" mt-5 relative group px-3 py-2">
                                         <button className="hover:opacity-50
-								cursor-default text-[20px] ">Direccion de envio</button>
+								cursor-default text-[20px] "><i class="fas fa-map-marker-alt"></i> Direccion de envio</button>
                                         <div className="absolute top-0 left-0 transition 
 								">
                                             <div className="absolute top-0 -left-2 transition
