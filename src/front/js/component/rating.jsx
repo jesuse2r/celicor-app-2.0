@@ -12,14 +12,24 @@ const Star = (props) => {
       <div className="Rating">
         {ratingArr.map((rating, index) =>
           rating ? (
-            <i className="fas fa-star text-warning display-6" onClick={() => setValue(index + 1)}></i>
+            <i className="fas fa-star h-5 text-yellow-300" onClick={() => setValue(index + 1)}></i>
           ) : (
-            <i className="far fa-star text-blue display-6" onClick={() => setValue(index + 1)}></i>
+            <i className="far fa-star w-5 h-5 text-yellow-300" onClick={() => setValue(index + 1)}></i>
+            
           )
+          
         )}
+          <span class="bg-white-100 text-neutral-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-neutral-200 dark:text-neutral-800 ml-3">5.0</span>
       </div>
       );
     };
+
+
+
+
+
+
+    
 
 
 const Rating = () => {
@@ -33,25 +43,19 @@ const Rating = () => {
   return (
     
    <>
-    <button type="button" className="btn btn-warning text-blue" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Califica tu compra
-    </button>
-    
+
  
     <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
-            <h1 className="modal-title" id="exampleModalLabel">Califica tu compra</h1>
+         
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div className="modal-body text-center">
             <Star value={value} setValue={setValue}/>
           </div>
-          <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button onClick={handleRate} type="button" className="btn btn-primary " data-bs-dismiss="modal">Calificar</button>
-          </div>
+        
         </div>
       </div>
     </div>

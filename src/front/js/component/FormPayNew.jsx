@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
-import PagomovilView from "./PagomovilView.jsx";
+
 
 
 
@@ -9,6 +9,21 @@ function FormPayNew(props) {
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
     const [metodoPago, setMetodoPago] = useState("");
+   
+   
+   
+    const setValue = {
+        pagomovil: false,
+    
+        zelle: false,
+     
+        transferencia: false,
+        efectivo: false,
+      };
+      const handlePay = (e) => {
+        props.setHandleCredit({ ...setValue, [metodoPago]: true });
+      }
+   
     const getTotal = () => {
         let total = 0;
         for (let item of store.cartItems) {
@@ -172,17 +187,18 @@ function FormPayNew(props) {
                                                             <ul className="mt-3 text-[15px]">
                                                                 <li>
 
-                                                                    <a className="bg-transparent
+                                                                    <a   value={metodoPago}
+              onChange={(e) => setMetodoPago(e.target.value)} className="bg-transparent
                                                         
 												bg-clip-text text-transparent
 												bg-gradient-to-br from-indigo-400
-												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block ">  <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Zelle</label></a>
+												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block ">  <input id="filter-color-0" name="color[]" value="white" type="checkbox"  onClick={handlePay} className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />  <button onClick={handlePay}  htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Zelle</button></a>
                                                                 </li>
                                                                 <li>
                                                                     <a href="https://twitter.com/celicor_oficial?s=11&t=14xfkczfoNch4q92RX0vBw" className="bg-transparent
 												bg-clip-text text-transparent
 												bg-gradient-to-br from-indigo-400
-												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block"> <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-black-600 focus:ring-black-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Efectivo y/o Pago Móvil</label></a>
+												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block"> <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-black-600 focus:ring-black-500" />  <button htmlFor="filter-color-0"  onClick={handlePay} className="ml-3 text-md text-gray-600">Efectivo y/o Pago Móvil</button></a>
                                                                 </li>
 
 
