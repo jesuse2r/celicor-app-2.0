@@ -38,6 +38,7 @@ const Navbardos = () => {
 								group-hover:visible duration-500 ease-in-out 
 								group-hover:transform z-50 min-w-[560px] 
 								transform">
+                                    
 
                                     <div className="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full">
                                         <div className="w-10 h-10 bg-white transform rotate-45 absolute top-0 z-0 translate-x-0 transition-transform group-hover:translate-x-[12rem] duration-500 ease-in-out rounded-sm">
@@ -483,24 +484,67 @@ const Navbardos = () => {
                     <nav>
 
                         <ul className="flex gap-2">
-                       
+
+
                             <li className="rounded-full px-0 py-0 font-semibold bg-white bg-opacity-10 flex items-center group ">
 
-                                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="text-white bg-black-700 hover:bg-black-800 focus:ring-4 focus:outline-none focus:ring-black-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-black-600 dark:hover:bg-black-700 dark:focus:ring-black-800" type="button"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Venezuela.svg/2560px-Flag_of_Venezuela.svg.png" alt="" className="block h-auto w-5 flex-shrink-0 " /><svg className="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                               
+                                <div class=" relative group px-1 py-1">
+                                    <ul>
+                                        <li
+                                            className=" ">
+                                            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className=" relative text-white bg-black-700 hover:bg-black-800 focus:ring-4 focus:outline-none focus:ring-black-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-black-600 dark:hover:bg-black-700 dark:focus:ring-black-800" type="button"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Venezuela.svg/2560px-Flag_of_Venezuela.svg.png" alt="" className="block h-auto w-5 flex-shrink-0 " /><svg className="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                                            <div className="absolute top-0 left-0 transition 
+								">
+                                                <div className="absolute top-0 -left-2 transition
+								group-hover:translate-y-5 translate-y-0 
+								opacity-0 invisible group-hover:opacity-100 
+								group-hover:visible duration-500 ease-in-out 
+								group-hover:transform z-50 min-w-[80px] 
+								transform  ">
 
-                                <div id="dropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                    <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                                        <li>
-                                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"> <img src=" https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/2880px-Flag_of_the_United_States.svg.png" alt="" className="block h-auto w-5 flex-shrink-0 " /></a>
+                                                    <div className="relative top-7 rounded-full px-0 py-0 font-semibold bg-white bg-opacity-10 flex justify-center group hover:opacity-50
+								cursor-default text-[20px]">
+                                                        
+
+                                                        <div className="relative z-10  ">
+
+
+
+
+                                                            <ul className="mt-3 mb-3 p-1 ">
+                                                                <li>
+
+                                                                    <img src=" https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/2880px-Flag_of_the_United_States.svg.png" alt="" className="block h-4 w-6 flex items-center group" />
+                                                                </li>
+                                                                
+
+
+
+                                                            </ul>
+                                                        </div>
+
+
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+
+
+
+
                                         </li>
-
-
                                     </ul>
                                 </div>
 
                             </li>
 
-                          
+
+
+
+
                             <li className="rounded-full px-3 py-2 font-semibold bg-white bg-opacity-10 flex items-center group">
                                 <button
 
@@ -529,26 +573,26 @@ const Navbardos = () => {
                                 </Link>
                             </li>
                             <li>
-                                
+
                             </li>
 
                         </ul>
                     </nav>
                     {store.showCart && <FormPaydos />}
-                    <form>   
-    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Buscar</label>
-    <div class="relative">
-        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-        </div>
-        <input type="search" id="default-search" class="  rounded-full px-3 py-3 font-semibold bg-white bg-opacity-10 flex items-center group  p-4 pl-10 text-sm text-gray-900     dark:placeholder-gray-400 dark:text-neutral " placeholder="Buscar licores..." required/>
-        
-    </div>
-</form>
+                    <form>
+                        <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Buscar</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            </div>
+                            <input type="search" id="default-search" class="  rounded-full px-3 py-3 font-semibold bg-white bg-opacity-10 flex items-center group  p-4 pl-10 text-sm text-gray-900     dark:placeholder-gray-400 dark:text-neutral " placeholder="Buscar licores..." required />
+
+                        </div>
+                    </form>
 
                 </div>
 
-   
+
 
             </div>
         </>
