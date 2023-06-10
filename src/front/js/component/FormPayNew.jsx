@@ -363,16 +363,19 @@ function FormPayNew(props) {
                                                         <li>
 
                                                             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                                                <img src={cartItem.licor.category} alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." className="h-30 w-24 object-cover object-center" />
-
-
-                                                                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 justify-end flex">{cartItem.licor.name}</dd>
-                                                                <button onClick={() => (actions.updateCartItems(cartItem.cart_id, cartItem.quantity - 1, cartItem.licores_id))}
+                                                            <button onClick={() => (actions.updateCartItems(cartItem.cart_id, cartItem.quantity - 1, cartItem.licores_id))}
                                                                     className="btn px-6 "><i className=" fas fa-minus"></i></button>
 
                                                                 <span className="text-center ">{cartItem.quantity}</span>
                                                                 <button onClick={() => (actions.updateCartItems(cartItem.cart_id, cartItem.quantity + 1, cartItem.licores_id))}
                                                                     className="btn px-6  "><i className="fas fa-plus"></i></button>
+
+                                                                
+                                                                <img src={cartItem.licor.category} alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." className="h-16 w-16 object-cover object-center" />
+
+
+                                                                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 justify-end flex">{cartItem.licor.name}</dd>
+                                                              
 
 
                                                             </div>

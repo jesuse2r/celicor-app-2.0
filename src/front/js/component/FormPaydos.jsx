@@ -75,6 +75,7 @@ let today = new Date()
                       <ul role="list" className="-my-6 divide-y divide-gray-200">
                         {store.cartItems?.map((cartItem) => {
                           return (
+                            
                             <li className="flex py-6">
                               
                               <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -104,6 +105,7 @@ let today = new Date()
                                   </div>
                                   <p className="mt-1 text-sm text-gray-500">{cartItem.licor.name}</p>
                                 </div>
+                                
                                 <div className="flex flex-1 items-end justify-between text-sm">
                                   <p className="text-gray-500">{cartItem.licor.quantity}</p>
 
@@ -117,6 +119,7 @@ let today = new Date()
                                   </div>
                                 </div>
                               </div>
+                              
                             </li>
                             
 
@@ -155,8 +158,13 @@ let today = new Date()
             </div>
           </div>
         </div>
+     
       </div>
     </div>
+
+
+
+
 
 
   )
