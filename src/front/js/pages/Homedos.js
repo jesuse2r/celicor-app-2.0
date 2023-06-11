@@ -8,21 +8,23 @@ import Rating from "../component/rating.jsx";
 const Homedos = () => {
   const slides = [
     {
-      url: 'https://revistaelconocedor.com/wp-content/uploads/2020/12/Buchanans_ok_NHH3236.png',
+      url: 'https://www.roncarupano.com/wp-content/uploads/2023/01/ron-carupano-portada-v2.jpg',
     },
     {
       url: 'https://primicia.com.ve/wp-content/uploads/2022/09/SANTA-TERESA-1796-ARRASA-CON-DOS-MEDALLAS-DE-ORO-EN-ESTADOS-UNIDOS.png',
     },
     {
-      url: 'https://media.gq.com.mx/photos/61ae4c3f7083d8c4d9f9dfb9/4:3/w_2668,h_2001,c_limit/Johnnie-Walker-Blue-1.jpg',
+      url: 'https://cdn.bitlysdowssl-aws.com/wp-content/uploads/2022/12/Imagen-Nota-de-prensa-El-Nacional.jpg',
     },
 
     {
       url: 'https://www.royalsalute.com/wp-content/uploads/2021/05/FULL-RANGE.jpg',
     },
     {
-      url: 'https://1000marcas.net/wp-content/uploads/2022/12/Best-Vodka-Brands.png',
+      url: 'https://i.pinimg.com/originals/71/ca/f3/71caf3b094ae220c9f5fc37c3ffabc18.jpg',
     },
+   
+   
 
   ];
   const { actions, store } = useContext(Context)
