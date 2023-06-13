@@ -8,6 +8,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       products: [],
       cartItems: [],
       showCart: false,
+      searchValue: "",
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -163,6 +164,11 @@ setStore({showCart: types})
         }
         toast.success("Producto agregado a tu carrito con exito!")
         actions.getCartItems()
+
+      },
+      searchLiquours: (value) => {
+        setStore({searchValue:value})
+
 
       },
 

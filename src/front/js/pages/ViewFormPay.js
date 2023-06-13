@@ -23,7 +23,7 @@ const ViewFormPay = () => {
 
     return <div className="d-flex flex-column bg-light ">
 
-<FormPayNew/>
+
 
 
 <FormPayNew setHandleCredit={setHandleCredit} handleCredit={handleCredit} />

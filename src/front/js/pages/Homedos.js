@@ -23,9 +23,16 @@ const Homedos = () => {
     {
       url: 'https://i.pinimg.com/originals/71/ca/f3/71caf3b094ae220c9f5fc37c3ffabc18.jpg',
     },
+    {
+      url: 'https://static.wixstatic.com/media/526084_073f69f38f044f5faf414890aae407ff~mv2.png/v1/fill/w_1942,h_728,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/CVZ_2023_IMAGEN_BANNER-WEB_4000X1500.png'
    
-   
+    },
+    {
+      url: '  https://www.johnniewalker.com/media/8838/music_tastebuds_06sec_1440x600.mp4',
+    },
 
+  
+   
   ];
   const { actions, store } = useContext(Context)
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -57,7 +64,7 @@ const Homedos = () => {
 
         <div
           style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-          className='w-full h-full rounded-2xl bg-center bg-cover duration-1000 carrusel-img '
+          className='w-full h-full rounded-2xl bg-center bg-cover duration-100000 carrusel-img '
         ></div>
         {/* Left Arrow */}
         <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
