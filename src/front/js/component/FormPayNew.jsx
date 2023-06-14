@@ -1,5 +1,12 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { Fragment, useState, useContext, useEffect } from "react";
+import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
+
+import { XMarkIcon } from '@heroicons/react/24/outline'
+import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
+
+
 import { Context } from "../store/appContext";
+
 import { useNavigate } from "react-router-dom";
 
 
@@ -9,6 +16,63 @@ function FormPayNew(props) {
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
     const [metodoPago, setMetodoPago] = useState("");
+    const sortOptions = [
+        { name: 'Most Popular', href: '#', current: true },
+        { name: 'Best Rating', href: '#', current: false },
+        { name: 'Newest', href: '#', current: false },
+        { name: 'Price: Low to High', href: '#', current: false },
+        { name: 'Price: High to Low', href: '#', current: false },
+    ]
+    const subCategories = [
+        { name: 'Totes', href: '#' },
+        { name: 'Backpacks', href: '#' },
+        { name: 'Travel Bags', href: '#' },
+        { name: 'Hip Bags', href: '#' },
+        { name: 'Laptop Sleeves', href: '#' },
+    ]
+    const filters = [
+        {
+            id: 'color',
+            name: 'Metodo de pago',
+            options: [
+                { value: 'white', label: 'White', checked: false },
+                { value: 'beige', label: 'Beige', checked: false },
+                { value: 'blue', label: 'Blue', checked: true },
+                { value: 'brown', label: 'Brown', checked: false },
+                { value: 'green', label: 'Green', checked: false },
+                { value: 'purple', label: 'Purple', checked: false },
+            ],
+        },
+        {
+            id: 'category',
+            name: 'Metodo de envio',
+            options: [
+                { value: 'new-arrivals', label: 'New Arrivals', checked: false },
+                { value: 'sale', label: 'Sale', checked: false },
+                { value: 'travel', label: 'Travel', checked: true },
+                { value: 'organization', label: 'Organization', checked: false },
+                { value: 'accessories', label: 'Accessories', checked: false },
+            ],
+        },
+        {
+            id: 'size',
+            name: 'Direccion de envio',
+            options: [
+                { value: '2l', label: '2L', checked: false },
+                { value: '6l', label: '6L', checked: false },
+                { value: '12l', label: '12L', checked: false },
+                { value: '18l', label: '18L', checked: false },
+                { value: '20l', label: '20L', checked: false },
+                { value: '40l', label: '40L', checked: true },
+            ],
+        },
+    ]
+    function classNames(...classes) {
+        return classes.filter(Boolean).join(' ')
+    }
+
+
+
 
 
 
@@ -36,6 +100,7 @@ function FormPayNew(props) {
     const totalMasIva = getTotal() * 1.16
     const totalBolivares = totalMasIva * 25.12
     let today = new Date()
+    const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
 
     useEffect(() => {
 
@@ -45,397 +110,347 @@ function FormPayNew(props) {
     return (
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <div className="bg-white">
             <div>
-
-
-
-                <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
                     <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
                         <h1 className="text-4xl  tracking-tight text-gray-900">Metodo de Pago</h1>
                         <div className=""><span
                             className="justify-end flex">Fecha:</span>{today.toLocaleDateString()}</div>
 
+
+
                     </div>
 
 
 
-
                     <section aria-labelledby="products-heading" className="pb-24 pt-6">
-                        <h2 id="products-heading" className="sr-only">Products</h2>
-
-                        <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-
-                            <form className="hidden lg:block">
-                                <h3 className="sr-only">Categories</h3>
-                                <div class=" px-4 py-6">
-                                    <ul>
-                                        <li
-                                            className=" mt-5 relative group px-3 py-2">
-                                            <button className="hover:opacity-50
-								cursor-default text-[20px] "><i class="far fa-user-circle"></i> Tipo de persona</button>
-                                            <div className="absolute top-0 left-0 transition 
-								">
-                                                <div className="absolute top-0 -left-2 transition
-								group-hover:translate-y-5 translate-y-0 
-								opacity-0 invisible group-hover:opacity-100 
-								group-hover:visible duration-500 ease-in-out 
-								group-hover:transform z-50 min-w-[260px] 
-								transform">
-
-                                                    <div className="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full">
-                                                        <div className="w-10 h-10 bg-white transform 
-										rotate-45 absolute top-0 z-0 
-										-translate-x-4 transition-transform 
-										group-hover:translate-x-3
-										 duration-500 ease-in-out rounded-sm"></div>
-
-                                                        <div className="relative z-10">
 
 
+                        <div className="flex  gap-x-8 gap-y-10  ">
 
 
-                                                            <ul className="mt-3 text-[15px]">
-                                                                <li>
+                        <section aria-labelledby="products-heading" className="pb-24 pt-6">
+                            <h2 id="products-heading" className="sr-only">
+                                Products
+                            </h2>
 
-                                                                    <a href="https://instagram.com/celicorfuerzasarmadas1?igshid=NTc4MTIwNjQ2YQ==" className="bg-transparent
-                                                        
-												bg-clip-text text-transparent
-												bg-gradient-to-br from-indigo-400
-												font-semibold hover:from-black-600 hover:to-black-600 hover:via-pink-400 py-1 block ">  <input id="filter-color-2" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded-full border-gray-300 text-black-600 focus:ring-black-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Natural</label></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://twitter.com/celicor_oficial?s=11&t=14xfkczfoNch4q92RX0vBw" className="bg-transparent
-												bg-clip-text text-transparent
-												bg-gradient-to-br from-indigo-400
-												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block"> <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-black-600 focus:ring-black-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Juridica</label></a>
-                                                                </li>
+                            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+                               
+                                <form className=" lg:block">
+                                   
+                                    
+
+                                    {filters.map((section) => (
+                                        <Disclosure as="div" key={section.id} className="border-b border-gray-200 py-6">
+                                            {({ open }) => (
+                                                <>
+                                                    <h3 className="-my-3 flow-root">
+                                                        <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
+                                                            <span className="font-medium text-gray-900">{section.name}</span>
+                                                            <span className="ml-6 flex items-center">
+                                                                {open ? (
+                                                                    <MinusIcon className="h-5 w-5" aria-hidden="true" />
+                                                                ) : (
+                                                                    <PlusIcon className="h-5 w-5" aria-hidden="true" />
+                                                                )}
+                                                            </span>
+                                                        </Disclosure.Button>
+                                                    </h3>
+                                                    <Disclosure.Panel className="pt-6">
+                                                        <div className="space-y-4">
+                                                            {section.options.map((option, optionIdx) => (
+                                                                <div key={option.value} className="flex items-center">
+                                                                    <input
+                                                                        id={`filter-${section.id}-${optionIdx}`}
+                                                                        name={`${section.id}[]`}
+                                                                        defaultValue={option.value}
+                                                                        type="checkbox"
+                                                                        defaultChecked={option.checked}
+                                                                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                                                    />
+                                                                    <label
+                                                                        htmlFor={`filter-${section.id}-${optionIdx}`}
+                                                                        className="ml-3 text-sm text-gray-600"
+                                                                    >
+                                                                        {option.label}
+                                                                    </label>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    </Disclosure.Panel>
+                                                </>
+                                            )}
+                                        </Disclosure>
+                                    ))}
+                                </form>
+
+                                {/* Product grid */}
+                                <div className="lg:col-span-3">{/* Your content */}</div>
+                            </div>
+                        </section>
 
 
 
-                                                            </ul>
+
+
+                            <div className="lg:col-span-3 grow  ">
+
+
+                                <div className="mt-6 border-t border-gray-100">
+
+                                    <dl className="divide-y divide-gray-100">
+                                        <ul>
+                                            {store.cartItems?.map((cartItem) => {
+                                                return (
+
+
+                                                    <li key={cartItem.licor.id} className="flex py-6 ">
+
+                                                        <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+
+                                                            <img src={cartItem.licor.category} alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." className="h-full w-full object-cover object-center" />
                                                         </div>
 
-
-                                                    </div>
-
-
-                                                </div>
-
-                                            </div>
-
-
-
-
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="border-t border-gray-200 px-4 py-6">
-                                    <ul>
-                                        <li
-                                            className=" mt-5 relative group px-3 py-2">
-                                            <button className="hover:opacity-50
-								cursor-default text-[20px] "><i class="fa-regular fa-credit-card"></i> Metodo de pago</button>
-                                            <div className="absolute top-0 left-0 transition 
-								">
-                                                <div className="absolute top-0 -left-2 transition
-								group-hover:translate-y-5 translate-y-0 
-								opacity-0 invisible group-hover:opacity-100 
-								group-hover:visible duration-500 ease-in-out 
-								group-hover:transform z-50 min-w-[260px] 
-								transform">
-
-                                                    <div className="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full">
-                                                        <div className="w-10 h-10 bg-white transform 
-										rotate-45 absolute top-0 z-0 
-										-translate-x-4 transition-transform 
-										group-hover:translate-x-3
-										 duration-500 ease-in-out rounded-sm"></div>
-
-                                                        <div className="relative z-10">
-
-
-
-
-                                                            <ul className="mt-3 text-[15px]">
-                                                                <li>
-
-                                                                    <a
-                                                                        className="bg-transparent
-                                                        
-												bg-clip-text text-transparent
-												bg-gradient-to-br from-indigo-400
-												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block ">
-                                                                        <input id="filter-color-0" name="color[]" value="white" type="checkbox" onClick={() => setMetodoPago("zelle")}
-                                                                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-                                                                        <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Zelle</label></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://twitter.com/celicor_oficial?s=11&t=14xfkczfoNch4q92RX0vBw" className="bg-transparent
-												bg-clip-text text-transparent
-												bg-gradient-to-br from-indigo-400
-												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block"> <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-black-600 focus:ring-black-500" />  <button htmlFor="filter-color-0" onClick={handlePay} className="ml-3 text-md text-gray-600">Efectivo y/o Pago Móvil</button></a>
-                                                                </li>
-
-
-
-                                                            </ul>
-                                                        </div>
-
-
-                                                    </div>
-
-
-                                                </div>
-
-                                            </div>
-
-
-
-
-                                        </li>
-                                    </ul>
-                                </div>
-
-
-
-                                <div class="border-t border-gray-200 px-4 py-6">
-
-                                    <ul>
-                                        <li
-                                            className=" mt-5 relative group px-3 py-2">
-                                            <button className="hover:opacity-50
-								cursor-default text-[20px] "><i class="fas fa-box"></i> Metodo de envio</button>
-                                            <div className="absolute top-0 left-0 transition 
-								">
-                                                <div className="absolute top-0 -left-2 transition
-								group-hover:translate-y-5 translate-y-0 
-								opacity-0 invisible group-hover:opacity-100 
-								group-hover:visible duration-500 ease-in-out 
-								group-hover:transform z-50 min-w-[260px] 
-								transform">
-
-                                                    <div className="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full">
-                                                        <div className="w-10 h-10 bg-white transform 
-										rotate-45 absolute top-0 z-0 
-										-translate-x-4 transition-transform 
-										group-hover:translate-x-3
-										 duration-500 ease-in-out rounded-sm"></div>
-
-                                                        <div className="relative z-10">
-
-
-
-
-                                                            <ul className="mt-3 text-[15px]">
-                                                                <li>
-
-                                                                    <a href="https://instagram.com/celicorfuerzasarmadas1?igshid=NTc4MTIwNjQ2YQ==" className="bg-transparent
-                                                        
-												bg-clip-text text-transparent
-												bg-gradient-to-br from-indigo-400
-												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block ">  <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Envio a Domocilio</label></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://twitter.com/celicor_oficial?s=11&t=14xfkczfoNch4q92RX0vBw" className="bg-transparent
-												bg-clip-text text-transparent
-												bg-gradient-to-br from-indigo-400
-												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block"> <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-black-600 focus:ring-black-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Pick-up Gratis</label></a>
-                                                                </li>
-
-
-
-                                                            </ul>
-                                                        </div>
-
-
-                                                    </div>
-
-
-                                                </div>
-
-                                            </div>
-
-
-
-
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="border-t border-gray-200 px-4 py-6">
-
-                                    <ul>
-                                        <li
-                                            className=" mt-5 relative group px-3 py-2">
-                                            <button className="hover:opacity-50
-								cursor-default text-[20px] "><i class="fas fa-map-marker-alt"></i> Direccion de envio</button>
-                                            <div className="absolute top-0 left-0 transition 
-								">
-                                                <div className="absolute top-0 -left-2 transition
-								group-hover:translate-y-5 translate-y-0 
-								opacity-0 invisible group-hover:opacity-100 
-								group-hover:visible duration-500 ease-in-out 
-								group-hover:transform z-50 min-w-[260px] 
-								transform">
-
-                                                    <div className="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full">
-                                                        <div className="w-10 h-10 bg-white transform 
-										rotate-45 absolute top-0 z-0 
-										-translate-x-4 transition-transform 
-										group-hover:translate-x-3
-										 duration-500 ease-in-out rounded-sm"></div>
-
-                                                        <div className="relative z-10">
-
-
-
-
-                                                            <ul className="mt-3 text-[15px]">
-                                                                <li>
-
-                                                                    <a href="https://instagram.com/celicorfuerzasarmadas1?igshid=NTc4MTIwNjQ2YQ==" className="bg-transparent
-                                                        
-												bg-clip-text text-transparent
-												bg-gradient-to-br from-indigo-400
-												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block ">  <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Zelle</label></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="https://twitter.com/celicor_oficial?s=11&t=14xfkczfoNch4q92RX0vBw" className="bg-transparent
-												bg-clip-text text-transparent
-												bg-gradient-to-br from-indigo-400
-												font-semibold hover:from-blue-600 hover:to-indigo-600 hover:via-pink-400 py-1 block"> <input id="filter-color-0" name="color[]" value="white" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-black-600 focus:ring-black-500" />  <label htmlFor="filter-color-0" className="ml-3 text-md text-gray-600">Envio a su direccion</label></a>
-                                                                </li>
-
-
-
-                                                            </ul>
-                                                        </div>
-
-
-                                                    </div>
-
-
-                                                </div>
-
-                                            </div>
-
-
-
-
-                                        </li>
-                                    </ul>
-
-                                </div>
-
-
-
-
-
-
-
-
-
-
-                            </form>
-
-
-                            <div className="lg:col-span-3">
-                                <div>
-                                    <div className="px-4 sm:px-0">
-                                        <h3 className="text-base font-semibold leading-7 text-gray-900">Informacion de pago</h3>
-                                        <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Informacion personal</p>
-                                    </div>
-                                    <div className="mt-6 border-t border-gray-100">
-
-                                        <dl className="divide-y divide-gray-100">
-                                            <ul>
-                                                {store.cartItems?.map((cartItem) => {
-                                                    return (
-
-
-                                                        <li>
-
-                                                            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                                                <button onClick={() => (actions.updateCartItems(cartItem.cart_id, cartItem.quantity - 1, cartItem.licores_id))}
-                                                                    className="btn px-6 "><i className=" fas fa-minus"></i></button>
-
-                                                                <span className="text-center ">{cartItem.quantity}</span>
-                                                                <button onClick={() => (actions.updateCartItems(cartItem.cart_id, cartItem.quantity + 1, cartItem.licores_id))}
-                                                                    className="btn px-6  "><i className="fas fa-plus"></i></button>
-
-
-                                                                <img src={cartItem.licor.category} alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." className="h-16 w-16 object-cover object-center" />
-
-
-                                                                <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 justify-end flex">{cartItem.licor.name}</dd>
-
-
-
+                                                        <div className="ml-4 flex flex-1 flex-col">
+                                                            <div>
+                                                                <div className="flex justify-between text-base font-medium text-gray-900">
+
+                                                                    <h3>
+                                                                        <a href="#">{cartItem.licor.name}</a>
+                                                                    </h3>
+                                                                    <div className="flex  justify-items-center">
+
+                                                                        <button onClick={() => (actions.updateCartItems(cartItem.cart_id, cartItem.quantity - 1, cartItem.licores_id))}
+                                                                            className="btn px-6 "><i className=" fas fa-minus"></i></button>
+
+                                                                        <span className="text-center ">{cartItem.quantity}</span>
+                                                                        <button onClick={() => (actions.updateCartItems(cartItem.cart_id, cartItem.quantity + 1, cartItem.licores_id))}
+                                                                            className="btn px-6 "><i className="fas fa-plus"></i></button>
+                                                                        <p className="ml-4 ">{cartItem.licor.price}</p>
+                                                                    </div>
+
+
+                                                                </div>
+                                                                <p className="mt-1 text-sm text-gray-500">{cartItem.licor.name}</p>
                                                             </div>
 
-                                                        </li>
+                                                            <div className="flex flex-1 items-end justify-between text-sm">
+                                                                <p className="text-gray-500">{cartItem.licor.quantity}</p>
+
+                                                                <div className="flex">
+                                                                    <button onClick={() =>
+                                                                        actions.deleteCartItem(
+                                                                            product.licores_id,
+                                                                            product.cart_id
+                                                                        )
+                                                                    } className="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </li>
 
 
-                                                    )
-                                                })}
+                                                )
+                                            })}
 
-                                                <li>
-                                                    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                                        <dt className="text-sm font-medium leading-6 text-gray-900">Envio</dt>
-                                                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 justify-end flex"></dd>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                                        <dt className="text-sm font-medium leading-6 text-gray-900">Sub Total</dt>
-                                                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 justify-end flex">$ {getTotal().toFixed(2)}</dd>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                                        <dt className="text-sm font-medium leading-6 text-gray-900">Orden TotaL</dt>
-                                                        <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 justify-end flex">$ {totalMasIva.toFixed(2)} </dd>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                            <li>
+                                                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                                    <dt className="text-sm font-medium leading-6 text-gray-900">Envio</dt>
+                                                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 justify-end flex"></dd>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                                    <dt className="text-sm font-medium leading-6 text-gray-900">Sub Total</dt>
+                                                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 
+                                                sm:mt-0 justify-end flex">$ {getTotal().toFixed(2)}</dd>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                                    <dt className="text-sm font-medium leading-6 text-gray-900">Orden TotaL</dt>
+                                                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 
+                                                sm:mt-0 justify-end flex">$ {totalMasIva.toFixed(2)} </dd>
+                                                </div>
+                                            </li>
+                                        </ul>
 
-                                        </dl>
-                                    </div>
+                                    </dl>
+
                                 </div>
 
                             </div>
                         </div>
                     </section>
+
                 </main>
             </div>
+            <div className="bg-white">
+                <div>
+                    {/* Mobile filter dialog */}
+                    <Transition.Root show={mobileFiltersOpen} as={Fragment}>
+                        <Dialog as="div" className="relative z-40 lg:hidden" onClose={setMobileFiltersOpen}>
+                            <Transition.Child
+                                as={Fragment}
+                                enter="transition-opacity ease-linear duration-300"
+                                enterFrom="opacity-0"
+                                enterTo="opacity-100"
+                                leave="transition-opacity ease-linear duration-300"
+                                leaveFrom="opacity-100"
+                                leaveTo="opacity-0"
+                            >
+                                <div className="fixed inset-0 bg-black bg-opacity-25" />
+                            </Transition.Child>
+
+                            <div className="fixed inset-0 z-40 flex">
+                                <Transition.Child
+                                    as={Fragment}
+                                    enter="transition ease-in-out duration-300 transform"
+                                    enterFrom="translate-x-full"
+                                    enterTo="translate-x-0"
+                                    leave="transition ease-in-out duration-300 transform"
+                                    leaveFrom="translate-x-0"
+                                    leaveTo="translate-x-full"
+                                >
+                                    <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
+                                        <div className="flex items-center justify-between px-4">
+                                            <h2 className="text-lg font-medium text-gray-900">Filters</h2>
+                                            <button
+                                                type="button"
+                                                className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
+                                                onClick={() => setMobileFiltersOpen(false)}
+                                            >
+                                                <span className="sr-only">Close menu</span>
+                                                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                                            </button>
+                                        </div>
+
+                                        {/* Filters */}
+                                        <form className="mt-4 border-t border-gray-200">
+                                            <h3 className="sr-only">Categories</h3>
+                                            
+
+                                            {filters.map((section) => (
+                                                <Disclosure as="div" key={section.id} className="border-t border-gray-200 px-4 py-6">
+                                                    {({ open }) => (
+                                                        <>
+                                                            <h3 className="-mx-2 -my-3 flow-root">
+                                                                <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
+                                                                    <span className="font-medium text-gray-900">{section.name}</span>
+                                                                    <span className="ml-6 flex items-center">
+                                                                        {open ? (
+                                                                            <MinusIcon className="h-5 w-5" aria-hidden="true" />
+                                                                        ) : (
+                                                                            <PlusIcon className="h-5 w-5" aria-hidden="true" />
+                                                                        )}
+                                                                    </span>
+                                                                </Disclosure.Button>
+                                                            </h3>
+                                                            <Disclosure.Panel className="pt-6">
+                                                                <div className="space-y-6">
+                                                                    {section.options.map((option, optionIdx) => (
+                                                                        <div key={option.value} className="flex items-center">
+                                                                            <input
+                                                                                id={`filter-mobile-${section.id}-${optionIdx}`}
+                                                                                name={`${section.id}[]`}
+                                                                                defaultValue={option.value}
+                                                                                type="checkbox"
+                                                                                defaultChecked={option.checked}
+                                                                                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                                                            />
+                                                                            <label
+                                                                                htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
+                                                                                className="ml-3 min-w-0 flex-1 text-gray-500"
+                                                                            >
+                                                                                {option.label}
+                                                                            </label>
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            </Disclosure.Panel>
+                                                        </>
+                                                    )}
+                                                </Disclosure>
+                                            ))}
+                                        </form>
+                                    </Dialog.Panel>
+                                </Transition.Child>
+                            </div>
+                        </Dialog>
+                    </Transition.Root>
+
+                    <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
+                            <h1 className="text-4xl font-bold tracking-tight text-gray-900">New Arrivals</h1>
+
+                            <div className="flex items-center">
+                                <Menu as="div" className="relative inline-block text-left">
+                                    <div>
+                                        <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                                            Sort
+                                            <ChevronDownIcon
+                                                className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                                                aria-hidden="true"
+                                            />
+                                        </Menu.Button>
+                                    </div>
+
+                                    <Transition
+                                        as={Fragment}
+                                        enter="transition ease-out duration-100"
+                                        enterFrom="transform opacity-0 scale-95"
+                                        enterTo="transform opacity-100 scale-100"
+                                        leave="transition ease-in duration-75"
+                                        leaveFrom="transform opacity-100 scale-100"
+                                        leaveTo="transform opacity-0 scale-95"
+                                    >
+                                        <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                            <div className="py-1">
+                                                {sortOptions.map((option) => (
+                                                    <Menu.Item key={option.name}>
+                                                        {({ active }) => (
+                                                            <a
+                                                                href={option.href}
+                                                                className={classNames(
+                                                                    option.current ? 'font-medium text-gray-900' : 'text-gray-500',
+                                                                    active ? 'bg-gray-100' : '',
+                                                                    'block px-4 py-2 text-sm'
+                                                                )}
+                                                            >
+                                                                {option.name}
+                                                            </a>
+                                                        )}
+                                                    </Menu.Item>
+                                                ))}
+                                            </div>
+                                        </Menu.Items>
+                                    </Transition>
+                                </Menu>
+
+                                <button type="button" className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7">
+                                    <span className="sr-only">View grid</span>
+                                    <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
+                                </button>
+                                <button
+                                    type="button"
+                                    className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
+                                    onClick={() => setMobileFiltersOpen(true)}
+                                >
+                                    <span className="sr-only">Filters</span>
+                                    <FunnelIcon className="h-5 w-5" aria-hidden="true" />
+                                </button>
+                            </div>
+                        </div>
+
+                       
+                    </main>
+                </div>
+            </div>
+
         </div>
+
 
 
     )

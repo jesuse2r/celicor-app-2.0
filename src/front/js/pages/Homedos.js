@@ -25,14 +25,14 @@ const Homedos = () => {
     },
     {
       url: 'https://static.wixstatic.com/media/526084_073f69f38f044f5faf414890aae407ff~mv2.png/v1/fill/w_1942,h_728,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/CVZ_2023_IMAGEN_BANNER-WEB_4000X1500.png'
-   
+
     },
     {
       url: '  https://www.johnniewalker.com/media/8838/music_tastebuds_06sec_1440x600.mp4',
     },
 
-  
-   
+
+
   ];
   const { actions, store } = useContext(Context)
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -108,14 +108,8 @@ const Homedos = () => {
 
           <div className="flex overflow-x-scroll gap-3">
             {store.products.map((product) => {
-              return (<div className="flex flex-col flex-shrink-0 gap-3">
-
-
+              return (<div className="flex flex-col flex-shrink-0 gap-3 min-w-0">
                 <div className="flex justify-center ">
-
-
-
-
                   <div class="w-60 font-thin  max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
                     <a className="w-40" href="#">
                       <img class="p-4 rounded-t-lg w-25 object-cover object-center group-hover:opacity-75" src={product.category} alt="product image" />
@@ -125,7 +119,7 @@ const Homedos = () => {
                         <p class="text-xl font-semibold tracking-tight text-gray-900 dark:text-neutral">{product.name}</p>
                       </a>
                       <div class="flex items-center mt-2.5 mb-5">
-                      <Rating />
+                        <Rating />
                       </div>
                       <div class="flex items-center justify-between">
                         <span class="text-2xl font-bold text-neutral-900 dark:text-neutral">{product.price} $</span>
@@ -134,18 +128,11 @@ const Homedos = () => {
                     </div>
                   </div>
                 </div>
-              
+
               </div>
 
               )
             })}
-
-
-
-
-
-
-
           </div>
         </div>
         <div className="mx-auto max-w-2xl px-4 py-2 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8 w-50">

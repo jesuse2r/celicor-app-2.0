@@ -18,15 +18,15 @@ const FormPaydos = () => {
   const getTotal = () => {
     let total = 0;
     for (let item of store.cartItems) {
-        total = total + item.licor.price * item.quantity;
-        console.log(total);
+      total = total + item.licor.price * item.quantity;
+      console.log(total);
     }
     return total;
-};
-const totalIva = getTotal() * 0.16
-const totalMasIva = getTotal() * 1.16
-const totalBolivares = totalMasIva * 25.12
-let today = new Date()
+  };
+  const totalIva = getTotal() * 0.16
+  const totalMasIva = getTotal() * 1.16
+  const totalBolivares = totalMasIva * 25.12
+  let today = new Date()
 
 
 
@@ -44,11 +44,11 @@ let today = new Date()
 
 
     <div className="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
-      
+
 
 
       <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-      
+
 
       <div className="fixed inset-0 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
@@ -75,9 +75,9 @@ let today = new Date()
                       <ul role="list" className="-my-6 divide-y divide-gray-200">
                         {store.cartItems?.map((cartItem) => {
                           return (
-                            
+
                             <li className="flex py-6">
-                              
+
                               <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
 
                                 <img src={cartItem.licor.category} alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." className="h-full w-full object-cover object-center" />
@@ -98,14 +98,14 @@ let today = new Date()
                                       <span className="text-center ">{cartItem.quantity}</span>
                                       <button onClick={() => (actions.updateCartItems(cartItem.cart_id, cartItem.quantity + 1, cartItem.licores_id))}
                                         className="btn px-6 "><i className="fas fa-plus"></i></button>
-                                 <p className="ml-4 ">{cartItem.licor.price}</p>
+                                      <p className="ml-4 ">{cartItem.licor.price}</p>
                                     </div>
-                                   
+
 
                                   </div>
                                   <p className="mt-1 text-sm text-gray-500">{cartItem.licor.name}</p>
                                 </div>
-                                
+
                                 <div className="flex flex-1 items-end justify-between text-sm">
                                   <p className="text-gray-500">{cartItem.licor.quantity}</p>
 
@@ -119,9 +119,9 @@ let today = new Date()
                                   </div>
                                 </div>
                               </div>
-                              
+
                             </li>
-                            
+
 
                           )
                         })}
@@ -158,7 +158,7 @@ let today = new Date()
             </div>
           </div>
         </div>
-     
+
       </div>
     </div>
 

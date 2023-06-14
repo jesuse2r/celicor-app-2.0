@@ -495,7 +495,7 @@ const Navbardos = () => {
                             <li className="rounded-full px-0 py-0 font-semibold bg-white bg-opacity-10 flex items-center group ">
 
 
-                                <div class=" relative group px-1 py-1">
+                                <div className=" relative group px-1 py-1">
                                     <ul>
                                         <li
                                             className=" ">
