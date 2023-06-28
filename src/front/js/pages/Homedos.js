@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import Rating from "../component/rating.jsx";
+import { useNavigate } from "react-router-dom";
 
 
 
 
 const Homedos = () => {
+  const navigate = useNavigate();
   const slides = [
     {
       url: 'https://www.roncarupano.com/wp-content/uploads/2023/01/ron-carupano-portada-v2.jpg',
@@ -121,6 +123,7 @@ const Homedos = () => {
                       <div class="flex items-center mt-2.5 mb-5">
                         <Rating />
                       </div>
+                      <button className="btn btn-warning yellow blue" onClick={() => { navigate(`/details/${product.id}`) }}>Detalles <i className="fas fa-info-circle"></i></button>
                       <div class="flex items-center justify-between">
                         <span class="text-2xl font-bold text-neutral-900 dark:text-neutral">{product.price} $</span>
                         <button onClick={() => actions.addToCart(product.id)} className="bg-black text-white  px-3 py-2 btn focus:outline-none rounded-lg gap-2">Agregar al carro</button>
@@ -134,36 +137,28 @@ const Homedos = () => {
               )
             })}
           </div>
+
         </div>
+
         <div className="mx-auto max-w-2xl px-4 py-2 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8 w-50">
-          <h2 className="">Products</h2>
+          <h1 className="font-extrabold text-3xl">Products</h1>
 
           <div className="flex overflow-x-scroll gap-3">
             {store.products.map((product) => {
-              return (<div className="flex flex-col flex-shrink-0 gap-3">
-
-
+              return (<div className="flex flex-col flex-shrink-0 gap-3 min-w-0">
                 <div className="flex justify-center ">
-
-
-
-
-                  <div class="w-60  max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
+                  <div class="w-60 font-thin  max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
                     <a className="w-40" href="#">
                       <img class="p-4 rounded-t-lg w-25 object-cover object-center group-hover:opacity-75" src={product.category} alt="product image" />
                     </a>
                     <div class="px-5 pb-5">
                       <a href="#">
-                        <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{product.name}</h5>
+                        <p class="text-xl font-semibold tracking-tight text-gray-900 dark:text-neutral">{product.name}</p>
                       </a>
                       <div class="flex items-center mt-2.5 mb-5">
-                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Third star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fourth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <span class="bg-white-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
+                        <Rating />
                       </div>
+                      <button className="btn btn-warning yellow blue" onClick={() => { navigate(`/details/${product.id}`) }}>Detalles <i className="fas fa-info-circle"></i></button>
                       <div class="flex items-center justify-between">
                         <span class="text-2xl font-bold text-neutral-900 dark:text-neutral">{product.price} $</span>
                         <button onClick={() => actions.addToCart(product.id)} className="bg-black text-white  px-3 py-2 btn focus:outline-none rounded-lg gap-2">Agregar al carro</button>
@@ -171,54 +166,33 @@ const Homedos = () => {
                     </div>
                   </div>
                 </div>
+
               </div>
 
               )
             })}
-
-
-
-
-
-
-
           </div>
+
         </div>
-
-
-
-
-
         <div className="mx-auto max-w-2xl px-4 py-2 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8 w-50">
-          <h2 className="">Products</h2>
+          <h1 className="font-extrabold text-3xl">Products</h1>
 
           <div className="flex overflow-x-scroll gap-3">
             {store.products.map((product) => {
-              return (<div className="flex flex-col flex-shrink-0 gap-3">
-
-
+              return (<div className="flex flex-col flex-shrink-0 gap-3 min-w-0">
                 <div className="flex justify-center ">
-
-
-
-
-                  <div class="w-60 h-90 max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
+                  <div class="w-60 font-thin  max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
                     <a className="w-40" href="#">
                       <img class="p-4 rounded-t-lg w-25 object-cover object-center group-hover:opacity-75" src={product.category} alt="product image" />
                     </a>
                     <div class="px-5 pb-5">
                       <a href="#">
-                        <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{product.name}</h5>
+                        <p class="text-xl font-semibold tracking-tight text-gray-900 dark:text-neutral">{product.name}</p>
                       </a>
                       <div class="flex items-center mt-2.5 mb-5">
-
-                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Third star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fourth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <span class="bg-white-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
+                        <Rating />
                       </div>
+                      <button className="btn btn-warning yellow blue" onClick={() => { navigate(`/details/${product.id}`) }}>Detalles <i className="fas fa-info-circle"></i></button>
                       <div class="flex items-center justify-between">
                         <span class="text-2xl font-bold text-neutral-900 dark:text-neutral">{product.price} $</span>
                         <button onClick={() => actions.addToCart(product.id)} className="bg-black text-white  px-3 py-2 btn focus:outline-none rounded-lg gap-2">Agregar al carro</button>
@@ -226,20 +200,31 @@ const Homedos = () => {
                     </div>
                   </div>
                 </div>
+
               </div>
 
               )
             })}
-
-
-
-
-
-
-
           </div>
 
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       </div>
 
