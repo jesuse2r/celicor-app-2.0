@@ -14,9 +14,15 @@ function FormPayNew(props) {
       options: [
         { value: "zelle", label: "Zelle", checked: false },
         {
-          value: "efectivo o pagomovil",
+          value: "efectivo",
 
-          label: "Efectivo o Pagomovil",
+          label: "Efectivo",
+          checked: false,
+        },
+        {
+          value: "pagomovil",
+
+          label: "Pagomovil",
           checked: false,
         },
       ],
@@ -75,6 +81,22 @@ function FormPayNew(props) {
   const totalBolivares = totalMasIva * 25.12;
   let today = new Date();
 
+  const sendInformation = (methods) => {
+    let option = methods[0].options.filter((options) => options.checked);
+    return option[0].value;
+  };
+
+  const sendEmail = () => {
+    const metodoDeEnvio = sendInformation(metodoEnvio);
+    const metodoDePago = sendInformation(metodoPago);
+    const tipoDePersona = sendInformation(tipoPersona);
+    actions.sendEmailVerifiedPayment({
+      metodoDeEnvio,
+      metodoDePago,
+      tipoDePersona,
+    });
+  };
+
   useEffect(() => {
     actions.getCartItems();
   }, []);
@@ -91,7 +113,10 @@ function FormPayNew(props) {
               {today.toLocaleDateString()}
             </div>
           </div>
-          <section aria-labelledby="products-heading" className="pb-24 pt-6">
+          <section
+            aria-labelledby="products-heading"
+            className="pb-24 pt-6 grow"
+          >
             <div className="flex  gap-x-8 gap-y-10  ">
               <section
                 aria-labelledby="products-heading"
@@ -234,6 +259,12 @@ function FormPayNew(props) {
                 </div>
               </div>
             </div>
+            <button
+              onClick={sendEmail}
+              className="bg-neutral-500 hover:bg-neutral-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Pagar
+            </button>
           </section>
         </main>
       </div>

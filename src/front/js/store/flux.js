@@ -49,8 +49,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             "Content-type": "application/json",
           },
           body: JSON.stringify(user),
-            
-          
+
+
         };
         const response = await fetch(
           `${process.env.BACKEND_URL}/api/user`,
@@ -62,7 +62,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           return false
         }
         const actions = getActions();
-        const login = await actions.handleLogin({email:user.email, password: user.password});
+        const login = await actions.handleLogin({ email: user.email, password: user.password });
         toast.success("Usuario registrado con exito!")
         return true
 
@@ -71,10 +71,10 @@ const getState = ({ getStore, getActions, setStore }) => {
       handleLogout: () => {
         localStorage.removeItem("token");
         setStore({ token: "" });
-        toast.warning ("Haz hecho logout de tu sesion para realizar alguna compra vuelve a loguearte!")
+        toast.warning("Haz hecho logout de tu sesion para realizar alguna compra vuelve a loguearte!")
       },
       toggleCart: (types) => {
-setStore({showCart: types})
+        setStore({ showCart: types })
       },
 
       handleChange_Password: async (
@@ -167,7 +167,7 @@ setStore({showCart: types})
 
       },
       searchLiquours: (value) => {
-        setStore({searchValue:value})
+        setStore({ searchValue: value })
 
 
       },
@@ -295,6 +295,32 @@ setStore({showCart: types})
         return true;
 
 
+      },
+      sendEmailVerifiedPayment: async (data) => {
+        console.log(data)
+        const store = getStore();
+        const opts = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+
+          },
+          body: JSON.stringify(data),
+        };
+        try {
+          const response = await fetch(
+            `${process.env.BACKEND_URL}/api/verify-pay`,
+            opts
+          );
+          if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.message);
+          }
+          return true;
+        } catch (error) {
+          console.error(error);
+          return false;
+        }
       },
 
 
