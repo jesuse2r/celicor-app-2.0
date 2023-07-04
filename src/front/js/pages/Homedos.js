@@ -111,21 +111,21 @@ const Homedos = () => {
           <div className="flex overflow-x-scroll gap-3">
             {store.products.map((product) => {
               return (<div className="flex flex-col flex-shrink-0 gap-3 min-w-0">
-                <div className="flex justify-center ">
-                  <div class="w-60 font-thin  max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
+                <div key={product.id} className="flex justify-center ">
+                  <div className="w-60 font-thin  max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
                     <a className="w-40" href="#">
-                      <img class="p-4 rounded-t-lg w-25 object-cover object-center group-hover:opacity-75" src={product.category} alt="product image" />
+                      <img className="p-4 rounded-t-lg w-25 object-cover object-center group-hover:opacity-75" src={product.category} alt="product image" />
                     </a>
-                    <div class="px-5 pb-5">
+                    <div className="px-5 pb-5">
                       <a href="#">
-                        <p class="text-xl font-semibold tracking-tight text-gray-900 dark:text-neutral">{product.name}</p>
+                        <p className="text-xl font-semibold tracking-tight text-gray-900 dark:text-neutral">{product.name}</p>
                       </a>
-                      <div class="flex items-center mt-2.5 mb-5">
+                      <div className="flex items-center mt-2.5 mb-5">
                         <Rating />
                       </div>
                       <button className="btn btn-warning yellow blue" onClick={() => { navigate(`/details/${product.id}`) }}>Detalles <i className="fas fa-info-circle"></i></button>
-                      <div class="flex items-center justify-between">
-                        <span class="text-2xl font-bold text-neutral-900 dark:text-neutral">{product.price} $</span>
+                      <div className="flex items-center justify-between">
+                        <span className="text-2xl font-bold text-neutral-900 dark:text-neutral">{product.price} $</span>
                         <button onClick={() => actions.addToCart(product.id)} className="bg-black text-white  px-3 py-2 btn focus:outline-none rounded-lg gap-2">Agregar al carro</button>
                       </div>
                     </div>
@@ -146,21 +146,21 @@ const Homedos = () => {
           <div className="flex overflow-x-scroll gap-3">
             {store.products.map((product) => {
               return (<div className="flex flex-col flex-shrink-0 gap-3 min-w-0">
-                <div className="flex justify-center ">
-                  <div class="w-60 font-thin  max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
+                <div key={product.id} className="flex justify-center ">
+                  <div className="w-60 font-thin  max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
                     <a className="w-40" href="#">
-                      <img class="p-4 rounded-t-lg w-25 object-cover object-center group-hover:opacity-75" src={product.category} alt="product image" />
+                      <img className="p-4 rounded-t-lg w-25 object-cover object-center group-hover:opacity-75" src={product.category} alt="product image" />
                     </a>
-                    <div class="px-5 pb-5">
+                    <div className="px-5 pb-5">
                       <a href="#">
-                        <p class="text-xl font-semibold tracking-tight text-gray-900 dark:text-neutral">{product.name}</p>
+                        <p className="text-xl font-semibold tracking-tight text-gray-900 dark:text-neutral">{product.name}</p>
                       </a>
-                      <div class="flex items-center mt-2.5 mb-5">
+                      <div className="flex items-center mt-2.5 mb-5">
                         <Rating />
                       </div>
                       <button className="btn btn-warning yellow blue" onClick={() => { navigate(`/details/${product.id}`) }}>Detalles <i className="fas fa-info-circle"></i></button>
-                      <div class="flex items-center justify-between">
-                        <span class="text-2xl font-bold text-neutral-900 dark:text-neutral">{product.price} $</span>
+                      <div className="flex items-center justify-between">
+                        <span className="text-2xl font-bold text-neutral-900 dark:text-neutral">{product.price} $</span>
                         <button onClick={() => actions.addToCart(product.id)} className="bg-black text-white  px-3 py-2 btn focus:outline-none rounded-lg gap-2">Agregar al carro</button>
                       </div>
                     </div>
@@ -180,21 +180,21 @@ const Homedos = () => {
           <div className="flex overflow-x-scroll gap-3">
             {store.products.map((product) => {
               return (<div className="flex flex-col flex-shrink-0 gap-3 min-w-0">
-                <div className="flex justify-center ">
-                  <div class="w-60 font-thin  max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
+                <div key={product.id} className="flex justify-center ">
+                  <div className="w-60 font-thin  max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
                     <a className="w-40" href="#">
-                      <img class="p-4 rounded-t-lg w-25 object-cover object-center group-hover:opacity-75" src={product.category} alt="product image" />
+                      <img className="p-4 rounded-t-lg w-25 object-cover object-center group-hover:opacity-75" src={product.category} alt="product image" />
                     </a>
-                    <div class="px-5 pb-5">
+                    <div className="px-5 pb-5">
                       <a href="#">
-                        <p class="text-xl font-semibold tracking-tight text-gray-900 dark:text-neutral">{product.name}</p>
+                        <p className="text-xl font-semibold tracking-tight text-gray-900 dark:text-neutral">{product.name}</p>
                       </a>
-                      <div class="flex items-center mt-2.5 mb-5">
+                      <div className="flex items-center mt-2.5 mb-5">
                         <Rating />
                       </div>
                       <button className="btn btn-warning yellow blue" onClick={() => { navigate(`/details/${product.id}`) }}>Detalles <i className="fas fa-info-circle"></i></button>
-                      <div class="flex items-center justify-between">
-                        <span class="text-2xl font-bold text-neutral-900 dark:text-neutral">{product.price} $</span>
+                      <div className="flex items-center justify-between">
+                        <span className="text-2xl font-bold text-neutral-900 dark:text-neutral">{product.price} $</span>
                         <button onClick={() => actions.addToCart(product.id)} className="bg-black text-white  px-3 py-2 btn focus:outline-none rounded-lg gap-2">Agregar al carro</button>
                       </div>
                     </div>

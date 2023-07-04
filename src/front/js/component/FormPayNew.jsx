@@ -221,7 +221,7 @@ function FormPayNew(props) {
                       })}
 
                       <li>
-                        <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                        <div className="mt-6 border-t border-gray-100 mb-6 border-b border-gray-100 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                           <dt className="text-sm font-medium leading-6 text-gray-900">
                             Envio
                           </dt>
@@ -229,12 +229,12 @@ function FormPayNew(props) {
                         </div>
                       </li>
                       <li>
-                        <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                        <div className=" px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                           <dt className="text-sm font-medium leading-6 text-gray-900">
                             Sub Total
                           </dt>
                           <dd
-                            className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 
+                            className="  mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 
                                                 sm:mt-0 justify-end flex"
                           >
                             $ {getTotal().toFixed(2)}
@@ -242,7 +242,7 @@ function FormPayNew(props) {
                         </div>
                       </li>
                       <li>
-                        <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                        <div className="mt-6 border-t border-gray-100 mb-6 border-b border-gray-100 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                           <dt className="text-sm font-medium leading-6 text-gray-900">
                             Orden TotaL
                           </dt>
@@ -259,12 +259,14 @@ function FormPayNew(props) {
                 </div>
               </div>
             </div>
-            <button
-              onClick={sendEmail}
-              className="bg-neutral-500 hover:bg-neutral-700 text-white font-bold py-2 px-4 rounded"
-            >
-              Pagar
-            </button>
+            <div className="  flex justify-end ">
+              <button
+                onClick={sendEmail}
+                className=" bg-black text-white font-bold py-2 px-4 rounded "
+              >
+                Pagar
+              </button>
+            </div>
           </section>
         </main>
       </div>

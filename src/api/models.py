@@ -122,8 +122,3 @@ class Factura(db.Model):
             "user_id": self.user_id,
            
         }
-
-
-
-
-

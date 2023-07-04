@@ -485,7 +485,7 @@ def verify_pay():
 															<td class="pad">
 																<div style="color:#101112;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
 																	<p style="margin: 0; margin-bottom: 16px;">Metodo de pago:</p>
-																	<p style="margin: 0; margin-bottom: 16px;">zelle</p>
+																	<p style="margin: 0; margin-bottom: 16px;">{body["metodoDePago"]}</p>
 																	<p style="margin: 0;">&nbsp;</p>
 																</div>
 															</td>
@@ -509,7 +509,7 @@ def verify_pay():
 															<td class="pad">
 																<div style="color:#101112;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
 																	<p style="margin: 0; margin-bottom: 16px;">Metodo de envio:</p>
-																	<p style="margin: 0; margin-bottom: 16px;">Pick-up</p>
+																	<p style="margin: 0; margin-bottom: 16px;">{body["metodoDeEnvio"]}</p>
 																	<p style="margin: 0;">&nbsp;</p>
 																</div>
 															</td>
@@ -533,7 +533,7 @@ def verify_pay():
 															<td class="pad">
 																<div style="color:#101112;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
 																	<p style="margin: 0; margin-bottom: 16px;">Direccion:</p>
-																	<p style="margin: 0;">colinas de bello monte</p>
+																	<p style="margin: 0;">user_address</p>
 																</div>
 															</td>
 														</tr>
@@ -556,7 +556,7 @@ def verify_pay():
 															<td class="pad">
 																<div style="color:#101112;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
 																	<p style="margin: 0; margin-bottom: 16px;">Tipo de Persona:</p>
-																	<p style="margin: 0; margin-bottom: 16px;">juridica</p>
+																	<p style="margin: 0; margin-bottom: 16px;">{body["TipoDePersona"]}</p>
 																	<p style="margin: 0;">&nbsp;</p>
 																</div>
 															</td>
