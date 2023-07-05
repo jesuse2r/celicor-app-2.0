@@ -203,6 +203,7 @@ def get_types(types):
 @api.route('/licores/<types>/<marca>', methods=['GET'])
 def get_marca(types, marca):
     licores_list = Licores.query.filter_by(types=types,marca=marca).all()
+    print(licores_list)
     serialized_licores = [licores.serialize() for licores in licores_list]
     if not licores_list:
         return {"mensaje" : "no existe un licor con esa marca"}    
@@ -556,7 +557,7 @@ def verify_pay():
 															<td class="pad">
 																<div style="color:#101112;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
 																	<p style="margin: 0; margin-bottom: 16px;">Tipo de Persona:</p>
-																	<p style="margin: 0; margin-bottom: 16px;">{body["TipoDePersona"]}</p>
+																	<p style="margin: 0; margin-bottom: 16px;">{body["tipoDePersona"]}</p>
 																	<p style="margin: 0;">&nbsp;</p>
 																</div>
 															</td>

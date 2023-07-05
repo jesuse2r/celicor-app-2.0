@@ -4,6 +4,7 @@ import { MinusIcon, PlusIcon } from "@heroicons/react/20/solid";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import Accordion from "./Accordion.jsx";
+import Swal from "sweetalert2";
 
 function FormPayNew(props) {
   const navigate = useNavigate();
@@ -90,11 +91,30 @@ function FormPayNew(props) {
     const metodoDeEnvio = sendInformation(metodoEnvio);
     const metodoDePago = sendInformation(metodoPago);
     const tipoDePersona = sendInformation(tipoPersona);
-    actions.sendEmailVerifiedPayment({
+    const responseEmail = actions.sendEmailVerifiedPayment({
       metodoDeEnvio,
       metodoDePago,
       tipoDePersona,
     });
+    if (responseEmail) {
+      Swal.fire({
+        icon: "success",
+        title: "Pedido realizado",
+        text: "Se ha enviado la informacion a su correo electronico",
+
+        confirmButtonText: "ok",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/");
+        }
+      });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Pedido no realizado",
+        text: "Intente nuevamente",
+      });
+    }
   };
 
   useEffect(() => {

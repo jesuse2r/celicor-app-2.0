@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
-import Rating from "../component/rating.jsx";
+
 import { useNavigate } from "react-router-dom";
 
 
@@ -106,10 +106,10 @@ const Homedos = () => {
       <div className="bg-white antialiased bg-no-repeat text-black">
 
         <div className="mx-auto max-w-2xl px-4 py-2 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8 w-50">
-          <h1 className="font-extrabold text-3xl">Products</h1>
+          <h1 className="font-extrabold text-3xl">Whiskys</h1>
 
           <div className="flex overflow-x-scroll gap-3">
-            {store.products.map((product) => {
+            {store.products.filter(product => product.types == "whiskys").map((product) => {
               return (<div className="flex flex-col flex-shrink-0 gap-3 min-w-0">
                 <div key={product.id} className="flex justify-center ">
                   <div className="w-60 font-thin  max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
@@ -121,7 +121,7 @@ const Homedos = () => {
                         <p className="text-xl font-semibold tracking-tight text-gray-900 dark:text-neutral">{product.name}</p>
                       </a>
                       <div className="flex items-center mt-2.5 mb-5">
-                        <Rating />
+
                       </div>
                       <button className="btn btn-warning yellow blue" onClick={() => { navigate(`/details/${product.id}`) }}>Detalles <i className="fas fa-info-circle"></i></button>
                       <div className="flex items-center justify-between">
@@ -141,10 +141,10 @@ const Homedos = () => {
         </div>
 
         <div className="mx-auto max-w-2xl px-4 py-2 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8 w-50">
-          <h1 className="font-extrabold text-3xl">Products</h1>
+          <h1 className="font-extrabold text-3xl">Rones</h1>
 
           <div className="flex overflow-x-scroll gap-3">
-            {store.products.map((product) => {
+            {store.products.filter(product => product.types == "rones").map((product) => {
               return (<div className="flex flex-col flex-shrink-0 gap-3 min-w-0">
                 <div key={product.id} className="flex justify-center ">
                   <div className="w-60 font-thin  max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
@@ -156,7 +156,7 @@ const Homedos = () => {
                         <p className="text-xl font-semibold tracking-tight text-gray-900 dark:text-neutral">{product.name}</p>
                       </a>
                       <div className="flex items-center mt-2.5 mb-5">
-                        <Rating />
+
                       </div>
                       <button className="btn btn-warning yellow blue" onClick={() => { navigate(`/details/${product.id}`) }}>Detalles <i className="fas fa-info-circle"></i></button>
                       <div className="flex items-center justify-between">
@@ -175,10 +175,10 @@ const Homedos = () => {
 
         </div>
         <div className="mx-auto max-w-2xl px-4 py-2 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8 w-50">
-          <h1 className="font-extrabold text-3xl">Products</h1>
+          <h1 className="font-extrabold text-3xl">Vodkas</h1>
 
           <div className="flex overflow-x-scroll gap-3">
-            {store.products.map((product) => {
+            {store.products.filter(product => product.types == "vodkas").map((product) => {
               return (<div className="flex flex-col flex-shrink-0 gap-3 min-w-0">
                 <div key={product.id} className="flex justify-center ">
                   <div className="w-60 font-thin  max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
@@ -190,7 +190,7 @@ const Homedos = () => {
                         <p className="text-xl font-semibold tracking-tight text-gray-900 dark:text-neutral">{product.name}</p>
                       </a>
                       <div className="flex items-center mt-2.5 mb-5">
-                        <Rating />
+
                       </div>
                       <button className="btn btn-warning yellow blue" onClick={() => { navigate(`/details/${product.id}`) }}>Detalles <i className="fas fa-info-circle"></i></button>
                       <div className="flex items-center justify-between">

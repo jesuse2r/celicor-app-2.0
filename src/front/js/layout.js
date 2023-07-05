@@ -4,15 +4,15 @@ import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/home";
-import  Logindos  from "./pages/Logindos.jsx";
-import Registerdos  from "./pages/Registerdos.jsx";
+import Logindos from "./pages/Logindos.jsx";
+import Registerdos from "./pages/Registerdos.jsx";
 import { Profile } from "./pages/Profile.jsx";
 import { Details } from "./pages/details.jsx";
-import  Aboutdos  from "./pages/aboutdos.jsx";
+import Aboutdos from "./pages/aboutdos.jsx";
 import injectContext from "./store/appContext";
 
-import  Navbardos  from "./component/navbardos";
-import  Footerdos  from "./component/footerdos";
+import Navbardos from "./component/navbardos";
+import Footerdos from "./component/footerdos";
 import ViewFormPay from "./pages/ViewFormPay";
 import CartView from "./pages/CartView";
 
@@ -49,7 +49,7 @@ const Layout = () => {
                         <Route element={<ViewFormPay />} path="/viewpay" />
                         <Route element={<CartView />} path="cartview" />
                         <Route element={<Licores />} path="licor/:type" />
-                        <Route element={<MarcaView />} path="licor/:type/:marca" />
+                        <Route element={<MarcaView />} path="licor/:types/:marca" />
                         <Route element={<ViewFacture />} path="viewfacture" />
                         <Route element={<Aboutdos />} path="/about" />
                         <Route element={<TerminosCondicionesdos />} path="/terminoscondiciones" />

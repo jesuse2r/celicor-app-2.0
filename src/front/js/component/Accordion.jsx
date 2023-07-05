@@ -96,9 +96,15 @@ function Accordion({ methods, setMethods }) {
                         <div className="max-w-sm rounded overflow-hidden shadow-lg">
                           <div className="px-6 py-4">
                             <div className="font-bold text-xl mb-2">
-                              <h1 className="font-bold">Correo Electronico:</h1>
-                              <p>fransu2209@gmail.com</p>
+                              <h1 className="font-bold">Instrucciones:</h1>
                             </div>
+                            <p>Paga el monto a Fransu2209@gmail.com</p>
+                            <p>Completa el pedido y envía soporte de pago al</p>
+                            <p>Whatssap +58-424-2187006</p>
+                            <p>
+                              (Si tienes problemas para pagar contáctanos para
+                              ayudarte)
+                            </p>
                           </div>
                         </div>
                       )}
@@ -106,8 +112,13 @@ function Accordion({ methods, setMethods }) {
                         <div className="max-w-sm rounded overflow-hidden shadow-lg">
                           <div className="px-6 py-4">
                             <div className="font-bold text-xl mb-2">
-                              <h1>Enviar denominacion de su billete</h1>
+                              <h1>Instrucciones:</h1>
                             </div>
+                            <p>
+                              Por favor comunicarse con nosotros para saber su
+                              vuelto exacto
+                            </p>
+                            <p>Whatssap: +58-424-2187006</p>
                           </div>
                         </div>
                       )}
@@ -116,16 +127,16 @@ function Accordion({ methods, setMethods }) {
                           <div className="px-6 py-4">
                             <div className="font-bold text-xl mb-2">
                               <h1>Bancos:</h1>
-                              <p>Banesco</p>
-                              <p>Numero telefonico: 0414-277-67-95</p>
-                              <p>Cedula de identidad: 24.213.194</p>
-                              <p>Venezuela</p>
-                              <p>Numero telefonico: 0414-277-67-95</p>
-                              <p>Cedula de identidad: 24.213.194</p>
-                              <p>Mercantil</p>
-                              <p>Numero telefonico: 0414-277-67-95</p>
-                              <p>Cedula de identidad: 24.213.194</p>
                             </div>
+                            <p className="font-bold">Banesco</p>
+                            <p>Numero telefonico: 0414-277-67-95</p>
+                            <p>Cedula de identidad: 24.213.194</p>
+                            <p className="font-bold">Venezuela</p>
+                            <p>Numero telefonico: 0414-277-67-95</p>
+                            <p>Cedula de identidad: 24.213.194</p>
+                            <p className="font-bold">Mercantil</p>
+                            <p>Numero telefonico: 0414-277-67-95</p>
+                            <p>Cedula de identidad: 24.213.194</p>
                           </div>
                         </div>
                       )}
@@ -134,14 +145,13 @@ function Accordion({ methods, setMethods }) {
                           <div className="px-6 py-4">
                             <div className="font-bold text-xl mb-2">
                               <h1>Direccion de Envio:</h1>
-                              <p>Nombre: Jesus Apellido: Rodríguez </p>
-                              <p>Tipo de Documento: Natural V- 23944726</p>
-                              <p>
-                                Dirección: Edificio san francisco Ciudad:
-                                Caracas Estado: Distrito Capital Urbanización:
-                                Bello Monte
-                              </p>
                             </div>
+                            <p>Nombre: Jesus Apellido: Rodríguez </p>
+                            <p>Tipo de Documento: Natural V- 23944726</p>
+                            <p>
+                              Dirección: Edificio san francisco Ciudad: Caracas
+                              Estado: Distrito Capital Urbanización: Bello Monte
+                            </p>
                           </div>
                         </div>
                       )}
@@ -150,59 +160,22 @@ function Accordion({ methods, setMethods }) {
                           <form>
                             <div className="relative z-0 w-full mb-6 group">
                               <input
-                                type="email"
-                                name="floating_email"
-                                id="floating_email"
                                 className="block py-2.5 px-0 w-full text-sm text-neutral-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-neutral dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                 placeholder=" "
                                 required
                               />
-                              <label
-                                for="floating_email"
-                                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                              >
-                                Email address
+                              <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                Persona que retira:
                               </label>
                             </div>
-                            <div className="relative z-0 w-full mb-6 group">
-                              <input
-                                type="password"
-                                name="floating_password"
-                                id="floating_password"
-                                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                placeholder=" "
-                                required
-                              />
-                              <label
-                                for="floating_password"
-                                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                              >
-                                Password
-                              </label>
-                            </div>
-                            <div className="relative z-0 w-full mb-6 group">
-                              <input
-                                type="password"
-                                name="repeat_password"
-                                id="floating_repeat_password"
-                                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                placeholder=" "
-                                required
-                              />
-                              <label
-                                for="floating_repeat_password"
-                                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                              >
-                                Confirm password
-                              </label>
-                            </div>
+
                             <div className="grid md:grid-cols-2 md:gap-6">
                               <div className="relative z-0 w-full mb-6 group">
                                 <input
                                   type="text"
                                   name="floating_first_name"
                                   id="floating_first_name"
-                                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                   placeholder=" "
                                   required
                                 />
@@ -210,7 +183,7 @@ function Accordion({ methods, setMethods }) {
                                   for="floating_first_name"
                                   className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                                 >
-                                  First name
+                                  Nombre
                                 </label>
                               </div>
                               <div className="relative z-0 w-full mb-6 group">
@@ -218,7 +191,7 @@ function Accordion({ methods, setMethods }) {
                                   type="text"
                                   name="floating_last_name"
                                   id="floating_last_name"
-                                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                   placeholder=" "
                                   required
                                 />
@@ -226,7 +199,7 @@ function Accordion({ methods, setMethods }) {
                                   for="floating_last_name"
                                   className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                                 >
-                                  Last name
+                                  Apellido
                                 </label>
                               </div>
                             </div>
@@ -237,7 +210,7 @@ function Accordion({ methods, setMethods }) {
                                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                                   name="floating_phone"
                                   id="floating_phone"
-                                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                   placeholder=" "
                                   required
                                 />
@@ -245,7 +218,7 @@ function Accordion({ methods, setMethods }) {
                                   for="floating_phone"
                                   className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                                 >
-                                  Phone number (123-456-7890)
+                                  Numero de telefono
                                 </label>
                               </div>
                               <div className="relative z-0 w-full mb-6 group">
@@ -253,7 +226,7 @@ function Accordion({ methods, setMethods }) {
                                   type="text"
                                   name="floating_company"
                                   id="floating_company"
-                                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                   placeholder=" "
                                   required
                                 />
@@ -261,15 +234,15 @@ function Accordion({ methods, setMethods }) {
                                   for="floating_company"
                                   className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                                 >
-                                  Company (Ex. Google)
+                                  Cedula
                                 </label>
                               </div>
                             </div>
                             <button
                               type="submit"
-                              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                              className="text-white bg-black focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                             >
-                              Nueva Direccion
+                              Enviar
                             </button>
                           </form>
                         </div>
