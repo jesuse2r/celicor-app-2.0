@@ -4,14 +4,21 @@ import logo from "../../img/logo.jpg";
 import { Context } from "../store/appContext";
 import FormPaydos from "./FormPaydos.jsx";
 import Modal from "./Modal.jsx";
-import { Dialog, Transition } from '@headlessui/react'
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+
+
+import { Menu, Transition } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 const Navbardos = () => {
     const { store, actions } = useContext(Context);
     const [open, setOpen] = useState(true)
 
     const cancelButtonRef = useRef(null)
+
+
+    function classNames(...classes) {
+        return classes.filter(Boolean).join(' ')
+    }
 
 
     return (
@@ -546,6 +553,8 @@ const Navbardos = () => {
                                 </div>
 
                             </li>
+
+
 
 
 

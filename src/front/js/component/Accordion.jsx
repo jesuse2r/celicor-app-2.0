@@ -42,6 +42,16 @@ function Accordion({ methods, setMethods }) {
     setMethods(updatedFilters);
   };
 
+  const handleChange = ({ target }) => {
+    console.log(target.name);
+    console.log(methods[0].options[1].direccion);
+    console.log(methods);
+    /*  setMethods([
+      ...methods,
+      { ...methods[0].options[1].direccion, [target.name]: target.value },
+    ]); */
+  };
+
   return (
     <form className=" lg:block">
       {methods.map((section, sectionIndex) => (
@@ -158,22 +168,17 @@ function Accordion({ methods, setMethods }) {
                       {option.checked && option.value == "pick-up" && (
                         <div className="max-w-sm rounded overflow-hidden shadow-lg p-8">
                           <form>
-                            <div className="relative z-0 w-full mb-6 group">
-                              <input
-                                className="block py-2.5 px-0 w-full text-sm text-neutral-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-neutral dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                placeholder=" "
-                                required
-                              />
-                              <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                                Persona que retira:
-                              </label>
-                            </div>
+                            <label className="font-bold">
+                              Persona que retira
+                            </label>
 
                             <div className="grid md:grid-cols-2 md:gap-6">
                               <div className="relative z-0 w-full mb-6 group">
                                 <input
                                   type="text"
-                                  name="floating_first_name"
+                                  name="nombre"
+                                  value={option.direccion.nombre}
+                                  onChange={handleChange}
                                   id="floating_first_name"
                                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                   placeholder=" "
@@ -189,7 +194,9 @@ function Accordion({ methods, setMethods }) {
                               <div className="relative z-0 w-full mb-6 group">
                                 <input
                                   type="text"
-                                  name="floating_last_name"
+                                  name="apellido"
+                                  value={option.direccion.apellido}
+                                  onChange={handleChange}
                                   id="floating_last_name"
                                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                   placeholder=" "
@@ -208,7 +215,9 @@ function Accordion({ methods, setMethods }) {
                                 <input
                                   type="tel"
                                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                                  name="floating_phone"
+                                  name="telefono"
+                                  value={option.direccion.telefono}
+                                  onChange={handleChange}
                                   id="floating_phone"
                                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                   placeholder=" "
@@ -224,7 +233,9 @@ function Accordion({ methods, setMethods }) {
                               <div className="relative z-0 w-full mb-6 group">
                                 <input
                                   type="text"
-                                  name="floating_company"
+                                  name="cedula"
+                                  value={option.direccion.cedula}
+                                  onChange={handleChange}
                                   id="floating_company"
                                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                   placeholder=" "
@@ -238,12 +249,6 @@ function Accordion({ methods, setMethods }) {
                                 </label>
                               </div>
                             </div>
-                            <button
-                              type="submit"
-                              className="text-white bg-black focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
-                            >
-                              Enviar
-                            </button>
                           </form>
                         </div>
                       )}

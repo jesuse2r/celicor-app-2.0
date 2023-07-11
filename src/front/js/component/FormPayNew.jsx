@@ -40,7 +40,12 @@ function FormPayNew(props) {
           label: "Envio a Domicilio",
           checked: false,
         },
-        { value: "pick-up", label: "Pick-Up", checked: false },
+        {
+          value: "pick-up",
+          label: "Pick-Up",
+          direccion: { nombre: "", apellido: "", telefono: "", cedula: "" },
+          checked: false,
+        },
       ],
       icono: "fas fa-box",
     },
@@ -91,10 +96,13 @@ function FormPayNew(props) {
     const metodoDeEnvio = sendInformation(metodoEnvio);
     const metodoDePago = sendInformation(metodoPago);
     const tipoDePersona = sendInformation(tipoPersona);
+
     const responseEmail = actions.sendEmailVerifiedPayment({
       metodoDeEnvio,
       metodoDePago,
       tipoDePersona,
+      total: totalMasIva.toFixed(2),
+      cartItems: store.cartItems,
     });
     if (responseEmail) {
       Swal.fire({

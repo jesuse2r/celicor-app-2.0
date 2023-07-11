@@ -7,6 +7,7 @@ function Modal() {
   const [showModal, setShowModal] = useState(false);
   const [searchProduct, setSearchProduct] = useState([]);
   const { store, actions } = useContext(Context);
+
   useEffect(() => {
     const products = store.products.filter((product) => {
       return (
