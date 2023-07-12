@@ -42,14 +42,12 @@ function Accordion({ methods, setMethods }) {
     setMethods(updatedFilters);
   };
 
-  const handleChange = ({ target }) => {
-    console.log(target.name);
-    console.log(methods[0].options[1].direccion);
-    console.log(methods);
-    /*  setMethods([
-      ...methods,
-      { ...methods[0].options[1].direccion, [target.name]: target.value },
-    ]); */
+  const handleChange = (event, sectionIndex, optionIndex) => {
+    const updatedFilters = [...methods];
+    updatedFilters[sectionIndex].options[optionIndex].direccion[
+      event.target.name
+    ] = event.target.value;
+    setMethods(updatedFilters);
   };
 
   return (
@@ -178,7 +176,9 @@ function Accordion({ methods, setMethods }) {
                                   type="text"
                                   name="nombre"
                                   value={option.direccion.nombre}
-                                  onChange={handleChange}
+                                  onChange={(event) =>
+                                    handleChange(event, sectionIndex, optionIdx)
+                                  }
                                   id="floating_first_name"
                                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                   placeholder=" "
@@ -196,7 +196,9 @@ function Accordion({ methods, setMethods }) {
                                   type="text"
                                   name="apellido"
                                   value={option.direccion.apellido}
-                                  onChange={handleChange}
+                                  onChange={(event) =>
+                                    handleChange(event, sectionIndex, optionIdx)
+                                  }
                                   id="floating_last_name"
                                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                   placeholder=" "
@@ -217,7 +219,9 @@ function Accordion({ methods, setMethods }) {
                                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                                   name="telefono"
                                   value={option.direccion.telefono}
-                                  onChange={handleChange}
+                                  onChange={(event) =>
+                                    handleChange(event, sectionIndex, optionIdx)
+                                  }
                                   id="floating_phone"
                                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                   placeholder=" "
@@ -235,7 +239,9 @@ function Accordion({ methods, setMethods }) {
                                   type="text"
                                   name="cedula"
                                   value={option.direccion.cedula}
-                                  onChange={handleChange}
+                                  onChange={(event) =>
+                                    handleChange(event, sectionIndex, optionIdx)
+                                  }
                                   id="floating_company"
                                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                   placeholder=" "

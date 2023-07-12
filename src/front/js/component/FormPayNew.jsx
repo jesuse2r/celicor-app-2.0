@@ -89,18 +89,23 @@ function FormPayNew(props) {
 
   const sendInformation = (methods) => {
     let option = methods[0].options.filter((options) => options.checked);
-    return option[0].value;
+    console.log(option);
+    return option[0];
   };
 
   const sendEmail = () => {
     const metodoDeEnvio = sendInformation(metodoEnvio);
     const metodoDePago = sendInformation(metodoPago);
     const tipoDePersona = sendInformation(tipoPersona);
-
+    let direccionPickUp = "";
+    if (metodoDeEnvio.value == "pick-up") {
+      direccionPickUp = metodoDeEnvio.direccion;
+    }
     const responseEmail = actions.sendEmailVerifiedPayment({
-      metodoDeEnvio,
-      metodoDePago,
-      tipoDePersona,
+      metodoDeEnvio: metodoDeEnvio.value,
+      metodoDePago: metodoDePago.value,
+      tipoDePersona: tipoDePersona.value,
+      direccion: direccionPickUp,
       total: totalMasIva.toFixed(2),
       cartItems: store.cartItems,
     });

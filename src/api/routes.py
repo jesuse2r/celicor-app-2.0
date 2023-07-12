@@ -254,6 +254,19 @@ def delete_licores(id):
     except Exception as error:
         db.session.rollback()
         return {"error": error}, 500
+@api.route('/cart/<int:id>', methods=['DELETE'])
+def delete_cart(id):
+    
+    cart = Cart.query.get(id)
+    if not cart:
+        return {"mensaje" : "no existe un carro con este id"}    
+    db.session.delete(cart)
+    try:
+        db.session.commit()
+        return "carrito eliminado"
+    except Exception as error:
+        db.session.rollback()
+        return {"error": error.args}, 500
 
 #-----Modificacion de la contraseña y email ------
 @api.route('/change-password', methods=["PUT"])
@@ -324,9 +337,16 @@ def verify_pay():
     
     if request.method == "POST":
         user = get_jwt_identity()
-        user = User.query.filter_by(id = user["id"]).first()
         body = request.json
         print (body)
+        user = User.query.filter_by(id = user["id"]).first()
+        direccion = ""
+        if body.get("direccion"): 
+            pickUp= body.get("direccion")
+            direccion = f'{pickUp["nombre"]}, {pickUp["apellido"]}, {pickUp["telefono"]}, {pickUp["cedula"]}'
+        else: 
+            direccion = user.address
+       
         articulos = ""
         for articulo in body["cartItems"]:
             articulos = articulos+f"<tr style='text-align:center'><td>{articulo['licor']['name']}</td> <td>{articulo['quantity']}</td><td>{articulo['licor']['price']}</td></tr>"
@@ -471,7 +491,7 @@ def verify_pay():
 														<tr>
 															<td class="pad">
 																<div style="color:#101112;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
-																	<p style="margin: 0; margin-bottom: 16px;">Hola, Jesus Rodríguez,</p>
+																	<p style="margin: 0; margin-bottom: 16px;">Hola, {user.name}</p>
 																	<p style="margin: 0;">Gracias por tu pedido de&nbsp;Licores&nbsp;Mundiales. Realiza o confirma el pago respondiendo a este correo. El equipo de despacho te llamará para coordinar el delivery o pick-up después de verificar el pago.</p>
 																</div>
 															</td>
@@ -539,7 +559,7 @@ def verify_pay():
 															<td class="pad">
 																<div style="color:#101112;direction:ltr;font-family:Arial, Helvetica, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
 																	<p style="margin: 0; margin-bottom: 16px;">Direccion:</p>
-																	<p style="margin: 0;">{user.address}</p>
+																	<p style="margin: 0;">{direccion}</p>
 																</div>
 															</td>
 														</tr>
