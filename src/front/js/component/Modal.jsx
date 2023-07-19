@@ -9,13 +9,19 @@ function Modal() {
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
-    const products = store.products.filter((product) => {
-      return (
-        product.name.toLowerCase().includes(store.searchValue.toLowerCase()) ||
-        product.marca.toLowerCase().includes(store.searchValue.toLowerCase())
-      );
-    });
-    setSearchProduct(products);
+    if (store.searchValue != "") {
+      const products = store.products.filter((product) => {
+        return (
+          product.name
+            .toLowerCase()
+            .includes(store.searchValue.toLowerCase()) ||
+          product.marca.toLowerCase().includes(store.searchValue.toLowerCase())
+        );
+      });
+      setSearchProduct(products);
+    } else {
+      setSearchProduct([]);
+    }
   }, [store.searchValue]);
 
   return (

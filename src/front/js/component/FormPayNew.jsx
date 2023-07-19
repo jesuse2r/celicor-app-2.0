@@ -101,15 +101,44 @@ function FormPayNew(props) {
     if (metodoDeEnvio.value == "pick-up") {
       direccionPickUp = metodoDeEnvio.direccion;
     }
-    const responseEmail = actions.sendEmailVerifiedPayment({
-      metodoDeEnvio: metodoDeEnvio.value,
-      metodoDePago: metodoDePago.value,
-      tipoDePersona: tipoDePersona.value,
-      direccion: direccionPickUp,
-      total: totalMasIva.toFixed(2),
-      cartItems: store.cartItems,
+
+    Swal.fire({
+      title: "estas seguro",
+      text: "si quiere comprar otra cosa dele no",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "si realizar compra",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const responseEmail = actions.sendEmailVerifiedPayment({
+          metodoDeEnvio: metodoDeEnvio.value,
+          metodoDePago: metodoDePago.value,
+          tipoDePersona: tipoDePersona.value,
+          direccion: direccionPickUp,
+          total: totalMasIva.toFixed(2),
+          cartItems: store.cartItems,
+        });
+        if (responseEmail) {
+          actions.deleteCartItems();
+        }
+        console.log(responseEmail);
+        Swal.fire({
+          icon: "success",
+          title: "Pedido realizado",
+          text: "Se ha enviado la informacion a su correo electronico",
+
+          confirmButtonText: "ok",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate("/");
+          }
+        });
+      }
     });
-    if (responseEmail) {
+
+    /* if (responseEmail) {
       Swal.fire({
         icon: "success",
         title: "Pedido realizado",
@@ -127,7 +156,7 @@ function FormPayNew(props) {
         title: "Pedido no realizado",
         text: "Intente nuevamente",
       });
-    }
+    } */
   };
 
   useEffect(() => {

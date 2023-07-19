@@ -268,6 +268,27 @@ def delete_cart(id):
         db.session.rollback()
         return {"error": error.args}, 500
 
+@api.route('/cartitem', methods=['DELETE'])
+@jwt_required()
+def delete_items_cart():
+
+    
+    cart = Cart.query.get(get_jwt_identity())
+    if not cart:
+        return {"mensaje" : "no existe un carro con este id"}   
+    cartitems= Cartitem.query.filter_by(cart_id=cart.id).all()
+    if not cartitems:
+        return {"mensaje": "este carrito no tiene articulos"}
+    for cartitem in cartitems: 
+        db.session.delete(cartitem)
+    print(cartitems)
+    try:
+        db.session.commit()
+        return "articulos eliminados"
+    except Exception as error:
+        db.session.rollback()
+        return {"error": error.args}, 500
+
 #-----Modificacion de la contraseña y email ------
 @api.route('/change-password', methods=["PUT"])
 def change_password():
@@ -325,6 +346,7 @@ def get_factura(id):
     print(factura)
 
     return jsonify({"data": factura.serialize()})
+
 
 
 

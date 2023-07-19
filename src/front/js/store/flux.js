@@ -323,6 +323,49 @@ const getState = ({ getStore, getActions, setStore }) => {
           return false;
         }
       },
+      deleteCartItems: async (
+
+      ) => {
+        const actions = getActions()
+        const store = getStore()
+
+        const opts = {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json",
+            authorization: `Bearer ${store.token}`
+
+          },
+
+        };
+        try {
+          const response = await fetch(
+            `${process.env.BACKEND_URL}/api/cartitem`,
+            opts
+          );
+          const data = await response.json()
+          console.log(data)
+          if (response.ok) {
+
+            console.log("licor eliminado");
+            actions.getCartItems()
+
+
+
+
+
+            return true;
+          }
+
+
+          return false;
+
+        } catch (error) {
+          console.log(error)
+
+        }
+
+      },
 
 
     },
