@@ -110,9 +110,9 @@ function FormPayNew(props) {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "si realizar compra",
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        const responseEmail = actions.sendEmailVerifiedPayment({
+        const responseEmail = await actions.sendEmailVerifiedPayment({
           metodoDeEnvio: metodoDeEnvio.value,
           metodoDePago: metodoDePago.value,
           tipoDePersona: tipoDePersona.value,

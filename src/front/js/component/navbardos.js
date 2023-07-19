@@ -6,9 +6,6 @@ import FormPaydos from "./FormPaydos.jsx";
 import Modal from "./Modal.jsx";
 
 
-import { Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-
 const Navbardos = () => {
     const { store, actions } = useContext(Context);
     const [open, setOpen] = useState(true)
@@ -559,33 +556,58 @@ const Navbardos = () => {
 
 
 
+                            {store.token != "" && (
+                                <li className="rounded-full px-3 py-2 font-semibold bg-white bg-opacity-10 flex items-center group">
+                                    <button
 
-                            <li className="rounded-full px-3 py-2 font-semibold bg-white bg-opacity-10 flex items-center group">
-                                <button
+                                        onClick={() => actions.toggleCart(true)}> <i className="fas fa-shopping-cart"></i>
+                                        <span className="p-3">{store.cartItems.length}</span>
+                                    </button>
+                                </li>
+                            )}
 
-                                    onClick={() => actions.toggleCart(true)}> <i className="fas fa-shopping-cart"></i>
-                                    <span className="p-3">{store.cartItems.length}</span>
-                                </button>
-                            </li>
 
 
                             <li>
+                                {store.token != "" ? (
+                                    <>
+                                        <Link to="/" className="rounded-full px-3 py-2 font-semibold bg-white bg-opacity-10 flex items-center group ">
+                                            <span
+                                                onClick={() => actions.handleLogout()}
+                                                className="mr-2"> Logout
+
+                                            </span>
+                                            <svg className="stroke-current" width="10"
+                                                height="10" strokeWidth="2" viewBox="0 0 10"
+                                                aria-hidden="true">
+                                                <g fillRule="evenodd">
+                                                    <path className="opacity-0 group-hover:opacity-100 transition ease-in out duration-200" d="M0 5h7">
+                                                    </path>
+                                                    <path className="opacity-100 group-hover:transform group-hover: translate-x-1 transition ease-in-out duration-200" d="M1 1l4 4-4 4"></path>
+                                                </g>
+                                            </svg>
+                                        </Link>
+                                    </>
+
+                                ) : (
+                                    <Link to="/login" className="rounded-full px-3 py-2 font-semibold bg-white bg-opacity-10 flex items-center group ">
+                                        <span className="mr-2"> Login
+
+                                        </span>
+                                        <svg className="stroke-current" width="10"
+                                            height="10" strokeWidth="2" viewBox="0 0 10"
+                                            aria-hidden="true">
+                                            <g fillRule="evenodd">
+                                                <path className="opacity-0 group-hover:opacity-100 transition ease-in out duration-200" d="M0 5h7">
+                                                </path>
+                                                <path className="opacity-100 group-hover:transform group-hover: translate-x-1 transition ease-in-out duration-200" d="M1 1l4 4-4 4"></path>
+                                            </g>
+                                        </svg>
+                                    </Link>
+                                )}
 
 
-                                <Link to="/login" className="rounded-full px-3 py-2 font-semibold bg-white bg-opacity-10 flex items-center group ">
-                                    <span className="mr-2"> Login
 
-                                    </span>
-                                    <svg className="stroke-current" width="10"
-                                        height="10" strokeWidth="2" viewBox="0 0 10"
-                                        aria-hidden="true">
-                                        <g fillRule="evenodd">
-                                            <path className="opacity-0 group-hover:opacity-100 transition ease-in out duration-200" d="M0 5h7">
-                                            </path>
-                                            <path className="opacity-100 group-hover:transform group-hover: translate-x-1 transition ease-in-out duration-200" d="M1 1l4 4-4 4"></path>
-                                        </g>
-                                    </svg>
-                                </Link>
                             </li>
                             <li>
 

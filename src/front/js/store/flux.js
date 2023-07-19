@@ -1,3 +1,4 @@
+import { cardFooter } from "@material-tailwind/react";
 import { redirect } from "react-router-dom";
 import { toast } from 'react-toastify';
 
@@ -348,12 +349,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           if (response.ok) {
 
             console.log("licor eliminado");
-            actions.getCartItems()
-
-
-
-
-
+            await actions.getCartItems()
+            console.log(store.cartitems)
             return true;
           }
 
