@@ -78,7 +78,6 @@ function FormPayNew(props) {
     let total = 0;
     for (let item of store.cartItems) {
       total = total + item.licor.price * item.quantity;
-      console.log(total);
     }
     return total;
   };

@@ -1,11 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
-import celicorGif from "../../img/corona.png";
-import whisky from "../../img/oldparr.png";
+
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
-import carritoVacio from "../../img/carritoVacio.png";
 
 const FormPaydos = () => {
   const navigate = useNavigate();
@@ -148,8 +145,8 @@ const FormPaydos = () => {
                                     <button
                                       onClick={() =>
                                         actions.deleteCartItem(
-                                          product.licores_id,
-                                          product.cart_id
+                                          cartItem.licores_id,
+                                          cartItem.cart_id
                                         )
                                       }
                                       className="font-medium text-indigo-600 hover:text-indigo-500"

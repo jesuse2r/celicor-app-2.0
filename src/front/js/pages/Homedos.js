@@ -110,8 +110,8 @@ const Homedos = () => {
 
           <div className="flex overflow-x-scroll gap-3">
             {store.products.filter(product => product.types == "whiskys").map((product) => {
-              return (<div className="flex flex-col flex-shrink-0 gap-3 min-w-0">
-                <div key={product.id} className="flex justify-center ">
+              return (<div key={product.id} className="flex flex-col flex-shrink-0 gap-3 min-w-0">
+                <div className="flex justify-center ">
                   <div className="w-60 font-thin  max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
                     <a className="w-40" href="#">
                       <img className="p-4 rounded-t-lg w-25 object-cover object-center group-hover:opacity-75" src={product.category} alt="product image" />
@@ -145,8 +145,8 @@ const Homedos = () => {
 
           <div className="flex overflow-x-scroll gap-3">
             {store.products.filter(product => product.types == "rones").map((product) => {
-              return (<div className="flex flex-col flex-shrink-0 gap-3 min-w-0">
-                <div key={product.id} className="flex justify-center ">
+              return (<div key={product.id} className="flex flex-col flex-shrink-0 gap-3 min-w-0">
+                <div className="flex justify-center ">
                   <div className="w-60 font-thin  max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
                     <a className="w-40" href="#">
                       <img className="p-4 rounded-t-lg w-25 object-cover object-center group-hover:opacity-75" src={product.category} alt="product image" />
@@ -179,8 +179,8 @@ const Homedos = () => {
 
           <div className="flex overflow-x-scroll gap-3">
             {store.products.filter(product => product.types == "vodkas").map((product) => {
-              return (<div className="flex flex-col flex-shrink-0 gap-3 min-w-0">
-                <div key={product.id} className="flex justify-center ">
+              return (<div key={product.id} className="flex flex-col flex-shrink-0 gap-3 min-w-0">
+                <div className="flex justify-center ">
                   <div className="w-60 font-thin  max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
                     <a className="w-40" href="#">
                       <img className="p-4 rounded-t-lg w-25 object-cover object-center group-hover:opacity-75" src={product.category} alt="product image" />

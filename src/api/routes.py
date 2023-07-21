@@ -284,7 +284,7 @@ def delete_items_cart():
     print(cartitems)
     try:
         db.session.commit()
-        return "articulos eliminados"
+        return {"mensaje": "articulos eliminados"}
     except Exception as error:
         db.session.rollback()
         return {"error": error.args}, 500

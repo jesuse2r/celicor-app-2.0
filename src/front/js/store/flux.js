@@ -350,7 +350,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             console.log("licor eliminado");
             await actions.getCartItems()
-            console.log(store.cartitems)
+
             return true;
           }
 

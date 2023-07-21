@@ -16,8 +16,6 @@ const Navbardos = () => {
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ')
     }
-
-
     return (
         <>
             <div className="bg-white antialiased bg-no-repeat text-black ">
@@ -26,18 +24,12 @@ const Navbardos = () => {
 
                 </div>
             </div>
-
-
-
             <div className="bg-black antialiased bg-no-repeat text-white ">
-
-
-
                 <div className="container mx-auto px-4 py-6 flex items-center justify-between">
                     <Link to="/" className="font-bold text-white text-xl"><img src={logo} className="logo"></img></Link>
 
 
-                    <nav>
+                    <nav className="">
                         <ul className="flex items-center justify-center font-semibold">
                             <li className="relative group px-3 py-2">
                                 <Link to="licor/whiskys" className="hover:opacity-50
@@ -51,28 +43,40 @@ const Navbardos = () => {
 
 
                                     <div className="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full">
-                                        <div className="w-10 h-10 bg-white transform rotate-45 absolute top-0 z-0 translate-x-0 transition-transform group-hover:translate-x-[12rem] duration-500 ease-in-out rounded-sm">
+                                        <div className="w-10 h-10 bg-white transform rotate-45 absolute top-0 z-0 
+                                        translate-x-0 transition-transform group-hover:translate-x-[12rem] 
+                                        duration-500 ease-in-out rounded-sm">
 
                                         </div>
                                         <div className="relative z-10">
                                             <div className="grid grid-cols-2 gap-6">
                                                 <div>
-                                                    <p className="uppercase tracking-wider text-gray-500 font-medium text-13px]">Special</p>
+                                                    <p className="uppercase tracking-wider text-gray-500 
+                                                    font-medium text-13px]">Special</p>
                                                     <ul className="mt-3 text-[15px]">
                                                         <li>
-                                                            <Link to="/licor/whiskys/buchanans" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-black-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/whiskys/buchanans" className="block p-2 -mx-2 
+                                                            rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 
+                                                            hover:to-pink 50 hover:via-black-50 transition ease-in-out 
+                                                            duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Buchanans 12
                                                                 <p className="text-gray-500 font-normal">12 anos</p>
                                                             </Link>
                                                         </li>
                                                         <li>
-                                                            <Link to="/licor/whiskys/oldparr" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-black-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/whiskys/oldparr" className="block p-2 -mx-2 
+                                                            rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 
+                                                            hover:to-pink 50 hover:via-black-50 transition ease-in-out 
+                                                            duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Old Parr
                                                                 <p className="text-gray-500 font-normal">12 anos</p>
                                                             </Link>
                                                         </li>
                                                         <li>
-                                                            <a href="#" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-black-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <a href="#" className="block p-2 -mx-2 rounded-lg 
+                                                            hover:bg-gradient-to-br hover:from-indigo-50 
+                                                            hover:to-pink 50 hover:via-black-50 transition 
+                                                            ease-in-out duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Chivas 12
                                                                 <p className="text-gray-500 font-normal">12 anos</p>
                                                             </a>
@@ -80,22 +84,33 @@ const Navbardos = () => {
                                                     </ul>
                                                 </div>
                                                 <div>
-                                                    <p className="uppercase tracking-wider text-gray-500 font-medium text-13px]">licores de whisky</p>
+                                                    <p className="uppercase tracking-wider text-gray-500 
+                                                    font-medium text-13px]">licores de whisky</p>
                                                     <ul className="mt-3 text-[15px]">
                                                         <li>
-                                                            <a href="#" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-black-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <a href="#" className="block p-2 -mx-2 
+                                                            rounded-lg hover:bg-gradient-to-br 
+                                                            hover:from-indigo-50 hover:to-pink 50 
+                                                            hover:via-black-50 transition ease-in-out 
+                                                            duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">WKY
                                                                 <p className="text-gray-500 font-normal">10</p>
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-black-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <a href="#" className="block p-2 -mx-2 rounded-lg 
+                                                            hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 
+                                                            hover:via-black-50 transition ease-in-out duration-300 
+                                                            text-gray-800 font-semibold
 															hover:text-indigo-600">Grand Lord
                                                                 <p className="text-gray-500 font-normal">10</p>
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-black-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <a href="#" className="block p-2 -mx-2 rounded-lg h
+                                                            over:bg-gradient-to-br hover:from-indigo-50 
+                                                            hover:to-pink 50 hover:via-black-50 transition 
+                                                            ease-in-out duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Old Label
                                                                 <p className="text-gray-500 font-normal">2</p>
                                                             </a>
@@ -124,28 +139,41 @@ const Navbardos = () => {
 								transform">
 
                                     <div className="relative top-6 p-6 bg-white rounded-xl shadow-xl w-full">
-                                        <div className="w-10 h-10 bg-white transform rotate-45 absolute top-0 z-0 translate-x-0 transition-transform group-hover:translate-x-[12rem] duration-500 ease-in-out rounded-sm">
+                                        <div className="w-10 h-10 bg-white transform rotate-45 absolute top-0 z-0 
+                                        translate-x-0 transition-transform group-hover:translate-x-[12rem] 
+                                        duration-500 ease-in-out rounded-sm">
 
                                         </div>
                                         <div className="relative z-10">
                                             <div className="grid grid-cols-2 gap-6">
                                                 <div>
-                                                    <p className="uppercase tracking-wider text-gray-500 font-medium text-13px]">Special</p>
+                                                    <p className="uppercase tracking-wider text-gray-500 
+                                                    font-medium text-13px]">Special</p>
                                                     <ul className="mt-3 text-[15px]">
                                                         <li>
-                                                            <Link to="/licor/rones/santateresa" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-black-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/rones/santateresa"
+                                                                className="block p-2 -mx-2 rounded-lg
+                                                              hover:bg-gradient-to-br hover:from-indigo-50 
+                                                              hover:to-pink 50 hover:via-black-50 transition 
+                                                              ease-in-out duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Santa Teresa
                                                                 <p className="text-gray-500 font-normal">12 anos</p>
                                                             </Link>
                                                         </li>
                                                         <li>
-                                                            <Link to="/licor/rones/cacique" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-black-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/rones/cacique" className="block p-2 -mx-2 
+                                                            rounded-lg hover:bg-gradient-to-br hover:from-indigo-50
+                                                             hover:to-pink 50 hover:via-black-50 transition ease-in-out 
+                                                             duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Cacique
                                                                 <p className="text-gray-500 font-normal">0.75</p>
                                                             </Link>
                                                         </li>
                                                         <li>
-                                                            <Link to="/licor/rones/pampero" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-black-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/rones/pampero" className="block p-2 -mx-2 
+                                                            rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 
+                                                            hover:to-pink 50 hover:via-black-50 transition ease-in-out 
+                                                            duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Pampero
                                                                 <p className="text-gray-500 font-normal">0.75</p>
                                                             </Link>
@@ -153,22 +181,31 @@ const Navbardos = () => {
                                                     </ul>
                                                 </div>
                                                 <div>
-                                                    <p className="uppercase tracking-wider text-gray-500 font-medium text-13px]">licores de ron</p>
+                                                    <p className="uppercase tracking-wider text-gray-500 font-medium
+                                                     text-13px]">licores de ron</p>
                                                     <ul className="mt-3 text-[15px]">
                                                         <li>
-                                                            <Link to="/licor/rones/santateresa" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-black-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/rones/santateresa" className="block p-2 -mx-2
+                                                             rounded-lg hover:bg-gradient-to-br hover:from-indigo-50
+                                                              hover:to-pink 50 hover:via-black-50 transition ease-in-out 
+                                                              duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Record
                                                                 <p className="text-gray-500 font-normal">2.0 litros</p>
                                                             </Link>
                                                         </li>
                                                         <li>
-                                                            <Link to="/licor/rones/pajarito" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-black-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/rones/pajarito" className="block p-2 -mx-2 
+                                                            rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 
+                                                            hover:to-pink 50 hover:via-black-50 transition ease-in-out 
+                                                            duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Ry
                                                                 <p className="text-gray-500 font-normal">2.0 litros</p>
                                                             </Link>
                                                         </li>
                                                         <li>
-                                                            <Link to="/licor/rones/pajarito" className="block p-2 -mx-2 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-pink 50 hover:via-black-50 transition ease-in-out duration-300 text-gray-800 font-semibold
+                                                            <Link to="/licor/rones/pajarito" className="block p-2 -mx-2 
+                                                            rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 
+                                                            hover:to-pink 50 hover:via-black-50 transition ease-in-out duration-300 text-gray-800 font-semibold
 															hover:text-indigo-600">Pajarito
                                                                 <p className="text-gray-500 font-normal">2</p>
                                                             </Link>
@@ -494,68 +531,6 @@ const Navbardos = () => {
                     <nav>
 
                         <ul className="flex gap-2">
-
-
-                            <li className="rounded-full px-0 py-0 font-semibold bg-white bg-opacity-10 flex items-center group ">
-
-
-                                <div className=" relative group px-1 py-1">
-                                    <ul>
-                                        <li
-                                            className=" ">
-                                            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className=" relative text-white bg-black-700 hover:bg-black-800 focus:ring-4 focus:outline-none focus:ring-black-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-black-600 dark:hover:bg-black-700 dark:focus:ring-black-800" type="button"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Venezuela.svg/2560px-Flag_of_Venezuela.svg.png" alt="" className="block h-auto w-5 flex-shrink-0 " /><svg className="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                                            <div className="absolute top-0 left-0 transition 
-								">
-                                                <div className="absolute top-0 -left-2 transition
-								group-hover:translate-y-5 translate-y-0 
-								opacity-0 invisible group-hover:opacity-100 
-								group-hover:visible duration-500 ease-in-out 
-								group-hover:transform z-50 min-w-[80px] 
-								transform  ">
-
-                                                    <div className="relative top-7 rounded-full px-0 py-0 font-semibold bg-white bg-opacity-10 flex justify-center group hover:opacity-50
-								cursor-default text-[20px]">
-
-
-                                                        <div className="relative z-10  ">
-
-
-
-
-                                                            <ul className="mt-3 mb-3 p-1 ">
-                                                                <li>
-
-                                                                    <img src=" https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/2880px-Flag_of_the_United_States.svg.png" alt="" className="block h-4 w-6 flex items-center group" />
-                                                                </li>
-
-
-
-
-                                                            </ul>
-                                                        </div>
-
-
-                                                    </div>
-
-
-                                                </div>
-
-                                            </div>
-
-
-
-
-                                        </li>
-                                    </ul>
-                                </div>
-
-                            </li>
-
-
-
-
-
-
                             {store.token != "" && (
                                 <li className="rounded-full px-3 py-2 font-semibold bg-white bg-opacity-10 flex items-center group">
                                     <button
