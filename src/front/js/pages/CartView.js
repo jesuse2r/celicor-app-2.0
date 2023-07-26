@@ -3,11 +3,9 @@ import logo from "../../img/logo.jpg";
 import sede from "../../img/sede.jpg";
 import "../../styles/about.css";
 import { useNavigate } from "react-router-dom";
-import Santiago from "../../img/Santiago.jpg";
-import Raul from "../../img/Raul.jpg"
-import Jesus from "../../img/Jesus.jpg"
 
-export const CartView= () => {
+
+export const CartView = () => {
   const navigate = useNavigate();
 
   return (
@@ -28,7 +26,7 @@ export const CartView= () => {
                 cotizaciones en linea para que disfrutes de nuestros productos ❞
               </p>
             </div>
-               
+
             <button
               type="button"
               className="btn btn-outline-light yellow border border-0 m-4  fs-4"
@@ -38,10 +36,10 @@ export const CartView= () => {
             >
               Pagina Principal
             </button>
-        
+
 
           </div>
-       
+
         </div>
       </div>
     </div>

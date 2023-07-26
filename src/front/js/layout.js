@@ -2,23 +2,18 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
-
-import { Home } from "./pages/home";
 import Logindos from "./pages/Logindos.jsx";
 import Registerdos from "./pages/Registerdos.jsx";
 import { Profile } from "./pages/Profile.jsx";
 import { Details } from "./pages/details.jsx";
 import Aboutdos from "./pages/aboutdos.jsx";
 import injectContext from "./store/appContext";
-
 import Navbardos from "./component/navbardos";
 import Footerdos from "./component/footerdos";
 import ViewFormPay from "./pages/ViewFormPay";
 import CartView from "./pages/CartView";
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import ViewFacture from "./pages/ViewFacture";
 import TerminosCondicionesdos from "./pages/TerminosCondicionesdos";
 import Homedos from "./pages/Homedos";
 import Licores from "./pages/Licores";
@@ -50,7 +45,7 @@ const Layout = () => {
                         <Route element={<CartView />} path="cartview" />
                         <Route element={<Licores />} path="licor/:type" />
                         <Route element={<MarcaView />} path="licor/:types/:marca" />
-                        <Route element={<ViewFacture />} path="viewfacture" />
+
                         <Route element={<Aboutdos />} path="/about" />
                         <Route element={<TerminosCondicionesdos />} path="/terminoscondiciones" />
                         <Route element={<h1>Not found!</h1>} />

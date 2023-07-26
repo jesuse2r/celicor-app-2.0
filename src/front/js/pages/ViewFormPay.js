@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import FormPayNew from "../component/FormPayNew.jsx";
-import PagomovilView from "../component/PagomovilView.jsx";
 
-import TransferenciaView from "../component/TransferenciaView.jsx"
-import EfectivoView from "../component/EfectivoView.jsx"
 
 
 
@@ -21,7 +18,7 @@ const ViewFormPay = () => {
     })
 
 
-    return <div className="d-flex flex-column bg-light ">
+    return <div className="flex flex-col bg-light ">
 
 
 
@@ -29,9 +26,6 @@ const ViewFormPay = () => {
         <FormPayNew setHandleCredit={setHandleCredit} handleCredit={handleCredit} />
 
 
-        {handleCredit.transferencia ? <TransferenciaView /> : null}
-        {handleCredit.pagomovil ? <PagomovilView /> : null}
-        {handleCredit.efectivo ? <EfectivoView /> : null}
 
 
 
