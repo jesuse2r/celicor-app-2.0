@@ -29,9 +29,7 @@ const Homedos = () => {
       url: 'https://static.wixstatic.com/media/526084_073f69f38f044f5faf414890aae407ff~mv2.png/v1/fill/w_1942,h_728,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/CVZ_2023_IMAGEN_BANNER-WEB_4000X1500.png'
 
     },
-    {
-      url: '  https://www.johnniewalker.com/media/8838/music_tastebuds_06sec_1440x600.mp4',
-    },
+
 
 
 
