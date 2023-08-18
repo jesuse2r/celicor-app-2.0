@@ -14,7 +14,7 @@ function ItemNavbar({ title, categories, type }) {
         {categories.map((category) => (
           <li key={category.name}>
             <Link
-              to={`/licor/${type}/${category.url}`}
+              to={`${type}/${category.url}`}
               className="block p-2 -mx-2 
               rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 
               hover:to-pink 50 hover:via-black-50 transition ease-in-out 

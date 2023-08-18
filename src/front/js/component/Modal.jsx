@@ -123,7 +123,7 @@ function Modal() {
                                 <a className="w-40" href="#">
                                   <img
                                     className="p-4 rounded-t-lg w-25 object-cover object-center group-hover:opacity-75"
-                                    src={product.category}
+                                    src={product.image}
                                     alt="product image"
                                   />
                                 </a>

@@ -117,15 +117,15 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log(data)
         setStore({ ...store, products: data.data })
       },
-      getAllLiquorsTypes: async (type) => {
-        const response = await fetch(`${process.env.BACKEND_URL}/api/licores/${type}`);
+      getAllLiquorsCategory: async (category) => {
+        const response = await fetch(`${process.env.BACKEND_URL}/api/licores/${category}`);
         const data = await response.json()
         const store = getStore();
         console.log(data)
         setStore({ ...store, products: data.data })
       },
-      getAllLiquorsMarca: async (type, marca) => {
-        const response = await fetch(`${process.env.BACKEND_URL}/api/licores/${type}/${marca}`);
+      getAllLiquorsMarca: async (category, types) => {
+        const response = await fetch(`${process.env.BACKEND_URL}/api/licores/${category}/${types}`);
         const data = await response.json()
         const store = getStore();
         console.log(data)

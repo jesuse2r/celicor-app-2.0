@@ -35,15 +35,15 @@ class User(db.Model):
 class Licores(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name= db.Column(db.String(50),nullable= False)
-    category= db.Column(db.String(1000), nullable=False)
+    image= db.Column(db.String(1000), nullable=False)
     quantity= db.Column(db.Integer, nullable = False)
+    category= db.Column(db.String, nullable = False)
     types= db.Column(db.String(50),nullable= False)
     marca= db.Column(db.String(50),nullable= False)
     price= db.Column(db.String,nullable= False)
     origen= db.Column(db.String(50),nullable= False)
     litres= db.Column(db.String,nullable= False)
-    style= db.Column(db.String(50),nullable= False)
-    old =db.Column(db.String(50),nullable= False)
+    
 
     def __repr__(self):
         return f'<Licores {self.name}>'
@@ -53,14 +53,14 @@ class Licores(db.Model):
             "id": self.id,
             "name": self.name,
             "quantity": self.quantity,
+            "image": self.image,
             "category": self.category,
             "types": self.types,
             "marca": self.marca,
             "price": self.price,
             "origen": self.origen,
             "litres": self.litres,
-            "style": self.style,
-            "old": self.old
+           
         }
 class Cartitem(db.Model):
     id = db.Column(db.Integer, primary_key=True)

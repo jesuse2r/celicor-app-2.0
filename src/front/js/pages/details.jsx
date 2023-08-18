@@ -20,7 +20,7 @@ export const Details = (props) => {
         <a href="#">
           <img
             class="p-16 rounded-t-lg"
-            src={product?.category}
+            src={product?.image}
             alt="product image"
           />
         </a>

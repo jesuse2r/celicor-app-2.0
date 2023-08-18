@@ -5,10 +5,10 @@ import { useParams } from 'react-router-dom'
 
 function Licores() {
   const { actions, store } = useContext(Context)
-  const { type } = useParams()
+  const { category } = useParams()
 
   useEffect(() => {
-    actions.getAllLiquorsTypes(type)
+    actions.getAllLiquorsCategory(category)
   }, [])
   console.log(store.products)
   return (
@@ -26,7 +26,7 @@ function Licores() {
             return (
               <a href="#" className="group">
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg  xl:aspect-h-8 xl:aspect-w-7">
-                  <img src={item.category} alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." className="h-full w-full object-cover object-center group-hover:opacity-75" />
+                  <img src={item.image} alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." className="h-full w-full object-cover object-center group-hover:opacity-75" />
                 </div>
                 <h3 className="mt-4 text-md text-black-700 font-extrabold justify-center flex items-center">{item.name}</h3>
                 <p className="mt-1 text-lg font-medium text-white-900 justify-center flex items-center">{item.price}</p>

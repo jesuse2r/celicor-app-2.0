@@ -191,22 +191,22 @@ def get_licores(id):
         return {"mensaje" : "no existe un licor con este id"}    
     return jsonify({"data": licores.serialize()})
 #traer categoria de licores por ejemp whisky, ron etc.
-@api.route('/licores/<types>', methods=['GET'])
-def get_types(types):
-    licores_list = Licores.query.filter_by(types=types).all()
+@api.route('/licores/<string:category>', methods=['GET'])
+def get_category(category):
+    licores_list = Licores.query.filter_by(category=category).all()
     serialized_licores = [licores.serialize() for licores in licores_list]
     if not licores_list:
         return {"mensaje" : "no existe un licor de este tipo"}    
     return jsonify({"data": serialized_licores})
 #agregar licores
 
-@api.route('/licores/<types>/<marca>', methods=['GET'])
-def get_marca(types, marca):
-    licores_list = Licores.query.filter_by(types=types,marca=marca).all()
+@api.route('/licores/<string:category>/<string:types>', methods=['GET'])
+def get_types(category, types):
+    licores_list = Licores.query.filter_by(category=category,types=types).all()
     print(licores_list)
     serialized_licores = [licores.serialize() for licores in licores_list]
     if not licores_list:
-        return {"mensaje" : "no existe un licor con esa marca"}    
+        return {"mensaje" : "no existe un licor de este tipo"}    
     return jsonify({"data": serialized_licores})
 
 @api.route('/licores', methods=['POST'])
@@ -215,24 +215,24 @@ def create_licores():
     files = request.files
     print(form)
     print(files)
+    body_category = form.get('category')
     body_name = form.get('name')
-    body_category = files.get('image')
+    body_image = files.get('image')
     body_quantity = form.get('quantity')
     body_types = form.get('types')
     body_marca = form.get('marca')
     body_price = form.get('price')
     body_origen = form.get('origen')
     body_litres = form.get('litres')
-    body_style = form.get('style')
-    body_old = form.get('old')
-    new_image = Bucket.upload_file(body_category, body_category.filename)
+
+    new_image = Bucket.upload_file(body_image, body_image.filename)
     print(new_image)
-    if body_category is None or body_name is None or body_quantity is None or body_types is None or body_marca is None or body_price is None or body_origen is None or body_litres is None or body_style is None or body_old is None:
-        return {"error": "Todos los campos requeridos"}, 400
+    if body_category is None or body_image is None or body_name is None or body_quantity is None or body_types is None or body_marca is None or body_price is None or body_origen is None or body_litres is None:
+    	return {"error": "Todos los campos requeridos"}, 400
     licores_exists = Licores.query.filter_by(name=body_name).first()
     if licores_exists:
         return {"error": f"ya existe un licor con el nombre: {body_name}"}, 400
-    new_licores = Licores(category=new_image, name=body_name,  quantity=body_quantity, types=body_types, marca=body_marca, price=body_price, origen=body_origen, litres=body_litres, style=body_style, old=body_old )
+    new_licores = Licores(category=body_category, image=new_image, name=body_name, quantity=body_quantity, types=body_types, marca=body_marca, price=body_price, origen=body_origen, litres=body_litres)
     db.session.add(new_licores) 
     try:
         db.session.commit()
