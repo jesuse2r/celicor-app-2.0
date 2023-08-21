@@ -40,14 +40,14 @@ const Hamburger = () => {
             <li className="border-b-2  text-black px-4 py-2 cursor-pointer">
               <button
                 className="block focus:outline-none"
-                onClick={() => toggleDesplegate("whiskys")}
+                onClick={() => toggleDesplegate("whisky")}
               >
                 Whiskys
               </button>
-              {desplegate == "whiskys" && (
+              {desplegate == "whisky" && (
                 <ul className=" mt-2 w-full bg-white rounded-lg ">
-                  <li className="  hover:bg-gray-200 text-black px-4 py-2 cursor-pointer">
-                    <Link to="licor/rones"> Premium</Link>
+                  <li className="hover:bg-gray-200 text-black px-4 py-2 cursor-pointer">
+                    <Link to="licor/whisky"> Premium</Link>
                   </li>
                   <li className=" hover:bg-gray-200 text-black px-4 py-2 cursor-pointer">
                     Deluxe
@@ -61,7 +61,7 @@ const Hamburger = () => {
                 </ul>
               )}
             </li>
-            <li className="hover:bg-gray-200 text-black px-4 py-2 cursor-pointer">
+            <li className="border-b-2 text-black px-4 py-2 cursor-pointer">
               <button
                 className="block focus:outline-none"
                 onClick={() => toggleDesplegate("rones")}
@@ -69,7 +69,7 @@ const Hamburger = () => {
                 Rones
               </button>
               {desplegate == "rones" && (
-                <ul className=" mt-2  bg-white rounded-lg ">
+                <ul className=" mt-2  w-full bg-white rounded-lg ">
                   <li className=" hover:bg-gray-200 text-black px-4 py-2 cursor-pointer">
                     <Link to="licor/rones"> Premium</Link>
                   </li>
@@ -88,7 +88,7 @@ const Hamburger = () => {
                 </ul>
               )}
             </li>
-            <li className="hover:bg-gray-200 text-black px-4 py-2 cursor-pointer">
+            <li className="border-b-2 text-black px-4 py-2 cursor-pointer">
               <button
                 className="block focus:outline-none"
                 onClick={() => toggleDesplegate("destilados")}
@@ -96,13 +96,13 @@ const Hamburger = () => {
                 Destilados
               </button>
               {desplegate == "destilados" && (
-                <ul className=" mt-2  bg-white rounded-lg ">
+                <ul className=" mt-2 w-full bg-white rounded-lg ">
                   <li className=" hover:bg-gray-200 text-black px-4 py-2 cursor-pointer">
-                    <Link to="licor/rones"> Premium</Link>
+                    <Link to="licor/destilados"> Premium</Link>
                   </li>
 
                   <li className=" hover:bg-gray-200 text-black px-4 py-2 cursor-pointer">
-                    <Link to="licor/rones">Destacados</Link>
+                    <Link to="licor/destilados">Destacados</Link>
                   </li>
                   <li className=" hover:bg-gray-200 text-black px-4 py-2 cursor-pointer">
                     <Link to="licor/rones">Otros</Link>
@@ -110,7 +110,7 @@ const Hamburger = () => {
                 </ul>
               )}
             </li>
-            <li className="hover:bg-gray-200 text-black px-4 py-2 cursor-pointer">
+            <li className="border-b-2 text-black px-4 py-2 cursor-pointer">
               <button
                 className="block focus:outline-none"
                 onClick={() => toggleDesplegate("otros")}
@@ -118,7 +118,7 @@ const Hamburger = () => {
                 Otros
               </button>
               {desplegate == "otros" && (
-                <ul className=" mt-2  bg-white rounded-lg ">
+                <ul className=" mt-2 w-full bg-white rounded-lg ">
                   <li className=" hover:bg-gray-200 text-black px-4 py-2 cursor-pointer">
                     <Link to="licor/rones">Sangria</Link>
                   </li>
@@ -135,7 +135,7 @@ const Hamburger = () => {
                 </ul>
               )}
             </li>
-            <li className="hover:bg-gray-200 text-black px-4 py-2 cursor-pointer">
+            <li className="border-b-2 text-black px-4 py-2 cursor-pointer">
               <button
                 className="block focus:outline-none"
                 onClick={() => toggleDesplegate("bebidas")}
@@ -143,7 +143,7 @@ const Hamburger = () => {
                 Bebidas
               </button>
               {desplegate == "bebidas" && (
-                <ul className=" mt-2  bg-white rounded-lg ">
+                <ul className=" mt-2 w-full bg-white rounded-lg ">
                   <li className=" hover:bg-gray-200 text-black px-4 py-2 cursor-pointer">
                     <Link to="licor/rones">Energizante</Link>
                   </li>
@@ -160,7 +160,7 @@ const Hamburger = () => {
                 </ul>
               )}
             </li>
-            <li className="hover:bg-gray-200 text-black px-4 py-2 cursor-pointer">
+            <li className="border-b-2 text-black px-4 py-2 cursor-pointer">
               <button
                 className="block focus:outline-none"
                 onClick={() => toggleDesplegate("snacks")}
@@ -168,7 +168,7 @@ const Hamburger = () => {
                 Snacks
               </button>
               {desplegate == "snacks" && (
-                <ul className=" mt-2  bg-white rounded-lg ">
+                <ul className=" mt-2 w-full bg-white rounded-lg ">
                   <li className=" hover:bg-gray-200 text-black px-4 py-2 cursor-pointer">
                     <Link to="licor/rones">Chips</Link>
                   </li>

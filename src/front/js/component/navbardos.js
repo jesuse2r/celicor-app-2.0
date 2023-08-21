@@ -21,12 +21,12 @@ const Navbardos = () => {
                 <div className="container mx-auto px-4 py-6 flex items-center justify-between">
                     <Link to="/" className=" md:flex font-bold text-white text-xl "><img style={{ minWidth: "80px" }} src={logo} className="logo"></img></Link>
 
-                    <nav className="hidden lg:block">
+                    <nav className="hidden lg:!block">
 
                         <ul className="items-center justify-center font-semibold  md:flex">
                             <li className="relative group px-3 py-2">
-                                <span className="hover:opacity-50
-								cursor-default text-[20px]">Whisky</span>
+                                <Link to="licor/whisky" className="hover:opacity-50
+								cursor-default text-[20px]">Whisky</Link>
                                 <div className="absolute top-0 -left-48 transition
 								group-hover:translate-y-5 translate-y-0 
 								opacity-0 invisible group-hover:opacity-100 
@@ -80,8 +80,8 @@ const Navbardos = () => {
                                 </div>
                             </li>
                             <li className="relative group px-3 py-2 md:flex">
-                                <button className="hover:opacity-50
-								cursor-default text-[20px]">Destilados</button>
+                                <Link to="licor/destilados" className="hover:opacity-50
+								cursor-default text-[20px]">Destilados</Link>
                                 <div className="absolute top-0 -left-48 transition
 								group-hover:translate-y-5 translate-y-0 
 								opacity-0 invisible group-hover:opacity-100 
@@ -104,8 +104,8 @@ const Navbardos = () => {
                                 </div>
                             </li>
                             <li className="relative group px-3 py-2 md:flex">
-                                <button className="hover:opacity-50
-								cursor-default text-[20px]">Otros</button>
+                                <Link to="licor/otros" className="hover:opacity-50
+								cursor-default text-[20px]">Otros</Link>
                                 <div className="absolute top-0 -left-48 transition
 								group-hover:translate-y-5 translate-y-0 
 								opacity-0 invisible group-hover:opacity-100 
@@ -131,8 +131,8 @@ const Navbardos = () => {
                             </li>
                             <li
                                 className="relative group px-3 py-2  md:flex">
-                                <button className="hover:opacity-50
-								cursor-default text-[20px]">Bebidas & Snacks</button>
+                                <Link to="licor/bebidas" className="hover:opacity-50
+								cursor-default text-[20px]">Bebidas & Snacks</Link>
                                 <div className="absolute top-0 left-0 transition">
 
 

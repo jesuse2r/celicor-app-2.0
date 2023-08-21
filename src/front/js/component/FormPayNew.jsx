@@ -142,14 +142,14 @@ function FormPayNew(props) {
   return (
     <div className="bg-white">
       <div>
-        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
-          <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
+        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8  ">
+          <div className="sm:flex items-baseline justify-between border-b border-gray-200 pb-6 pt-12">
             <h1 className="text-4xl  tracking-tight text-gray-900">
               Metodo de Pago
             </h1>
             <div className="">
-              <span className="justify-end flex">Fecha:</span>
-              {today.toLocaleDateString()}
+              <span className="justify-end flex"></span>
+              Fecha: {today.toLocaleDateString()}
             </div>
           </div>
           <section
@@ -174,13 +174,13 @@ function FormPayNew(props) {
                 </div>
               </section>
 
-              <div className="lg:col-span-3 grow  ">
+              <div className=" lg:col-span-3 grow  ">
                 <div className="mt-6 border-t border-gray-100">
                   <dl className="divide-y divide-gray-100">
                     <ul>
                       {store.cartItems?.map((cartItem) => {
                         return (
-                          <li key={cartItem.licor.id} className="flex py-6 ">
+                          <li key={cartItem.licor.id} className="sm:flex py-6 ">
                             <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                               <img
                                 src={cartItem.licor.image}
@@ -226,7 +226,7 @@ function FormPayNew(props) {
                                       <i className="fas fa-plus"></i>
                                     </button>
                                     <p className="ml-4 ">
-                                      {cartItem.licor.price}
+                                      ${cartItem.licor.price}
                                     </p>
                                   </div>
                                 </div>
@@ -259,14 +259,6 @@ function FormPayNew(props) {
                         );
                       })}
 
-                      <li>
-                        <div className="mt-6 border-t border-gray-100 mb-6 border-b border-gray-100 px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                          <dt className="text-sm font-medium leading-6 text-gray-900">
-                            Envio
-                          </dt>
-                          <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 justify-end flex"></dd>
-                        </div>
-                      </li>
                       <li>
                         <div className=" px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                           <dt className="text-sm font-medium leading-6 text-gray-900">

@@ -37,7 +37,7 @@ const FormPaydos = () => {
     >
       <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
-      <div className="fixed inset-0 overflow-hidden">
+      <div className="fixed inset-0 overflow-hidden ">
         <div className="absolute inset-0 overflow-hidden">
           <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
             <div className="pointer-events-auto w-screen max-w-md">
@@ -74,7 +74,7 @@ const FormPaydos = () => {
                     </div>
                   </div>
 
-                  <div className="mt-8">
+                  <div className="mt-8 ">
                     <div className="flow-root">
                       <ul
                         role="list"
@@ -82,7 +82,10 @@ const FormPaydos = () => {
                       >
                         {store.cartItems?.map((cartItem) => {
                           return (
-                            <li key={cartItem.licor.id} className="flex py-6">
+                            <li
+                              key={cartItem.licor.id}
+                              className="sm:flex py-3"
+                            >
                               <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                 <img
                                   src={cartItem.licor.image}
@@ -127,7 +130,7 @@ const FormPaydos = () => {
                                         <i className="fas fa-plus"></i>
                                       </button>
                                       <p className="ml-4 ">
-                                        {cartItem.licor.price}
+                                        ${cartItem.licor.price}
                                       </p>
                                     </div>
                                   </div>

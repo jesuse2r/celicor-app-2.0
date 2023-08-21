@@ -85,7 +85,7 @@ const Homedos = () => {
           <h1 className="font-extrabold text-3xl">Whiskys</h1>
 
           <div className="flex overflow-x-scroll gap-3">
-            {store.products.filter(product => product.category == "whiskys").map((product) => {
+            {store.products.filter(product => product.category == "whisky").map((product) => {
               return (<div key={product.id} className="flex flex-col flex-shrink-0 gap-3 min-w-0">
                 <div className="flex justify-center ">
                   <div className="w-60 font-thin  max-w-sm bg-white  rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
@@ -101,7 +101,7 @@ const Homedos = () => {
                       </div>
                       <button className="btn btn-warning yellow blue" onClick={() => { navigate(`/details/${product.id}`) }}>Detalles <i className="fas fa-info-circle"></i></button>
                       <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold text-neutral-900 dark:text-neutral">{product.price} $</span>
+                        <span className="text-2xl font-bold text-neutral-900 dark:text-neutral">$ {product.price}</span>
                         <button onClick={() => actions.addToCart(product.id)} className="bg-black text-white  px-3 py-2 btn focus:outline-none rounded-lg gap-2">Agregar al carro</button>
                       </div>
                     </div>
@@ -137,7 +137,7 @@ const Homedos = () => {
                       </div>
                       <button className="btn btn-warning yellow blue" onClick={() => { navigate(`/details/${product.id}`) }}>Detalles <i className="fas fa-info-circle"></i></button>
                       <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold text-neutral-900 dark:text-neutral">{product.price} $</span>
+                        <span className="text-2xl font-bold text-neutral-900 dark:text-neutral">$ {product.price}</span>
                         <button onClick={() => actions.addToCart(product.id)} className="bg-black text-white  px-3 py-2 btn focus:outline-none rounded-lg gap-2">Agregar al carro</button>
                       </div>
                     </div>
@@ -171,7 +171,7 @@ const Homedos = () => {
                       </div>
                       <button className="btn btn-warning yellow blue" onClick={() => { navigate(`/details/${product.id}`) }}>Detalles <i className="fas fa-info-circle"></i></button>
                       <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold text-neutral-900 dark:text-neutral">{product.price} $</span>
+                        <span className="text-2xl font-bold text-neutral-900 dark:text-neutral">$ {product.price}</span>
                         <button onClick={() => actions.addToCart(product.id)} className="bg-black text-white  px-3 py-2 btn focus:outline-none rounded-lg gap-2">Agregar al carro</button>
                       </div>
                     </div>
