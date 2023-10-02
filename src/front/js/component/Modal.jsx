@@ -8,6 +8,11 @@ function Modal() {
   const [searchProduct, setSearchProduct] = useState([]);
   const { store, actions } = useContext(Context);
 
+  const redirect = (productId) => {
+    navigate(`/details/${productId}`);
+    setShowModal(false);
+  };
+
   useEffect(() => {
     if (store.searchValue != "") {
       const products = store.products.filter((product) => {
@@ -124,6 +129,9 @@ function Modal() {
                                   <img
                                     className="p-4 rounded-t-lg w-25 object-cover object-center group-hover:opacity-75"
                                     src={product.image}
+                                    onClick={() => {
+                                      redirect(product.id);
+                                    }}
                                     alt="product image"
                                   />
                                 </a>
@@ -133,12 +141,7 @@ function Modal() {
                                       {product.name}
                                     </h5>
                                   </a>
-                                  <button
-                                    className="btn btn-neutral text-black"
-                                    onClick={() => {
-                                      navigate(`/details/${product.id}`);
-                                    }}
-                                  >
+                                  <button className="btn btn-neutral text-black">
                                     Detalles{" "}
                                     <i className="fas fa-info-circle"></i>
                                   </button>
@@ -173,14 +176,7 @@ function Modal() {
                     type="button"
                     onClick={() => setShowModal(false)}
                   >
-                    Close
-                  </button>
-                  <button
-                    className="bg-neutral-500 text-black active:bg-neutral-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Busqueda
+                    Cerrar
                   </button>
                 </div>
               </div>

@@ -271,9 +271,7 @@ def delete_cart(id):
 @api.route('/cartitem', methods=['DELETE'])
 @jwt_required()
 def delete_items_cart():
-
-    
-    cart = Cart.query.get(get_jwt_identity())
+    cart = Cart.query.filter_by(user_id=get_jwt_identity()["id"]).first()
     if not cart:
         return {"mensaje" : "no existe un carro con este id"}   
     cartitems= Cartitem.query.filter_by(cart_id=cart.id).all()

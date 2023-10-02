@@ -51,7 +51,7 @@ function Accordion({ methods, setMethods }) {
   };
 
   return (
-    <div className=" hidden md:flex lg:block">
+    <div className=" md:flex lg:block">
       {methods.map((section, sectionIndex) => (
         <Disclosure
           as="div"

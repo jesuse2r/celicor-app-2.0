@@ -35,7 +35,7 @@ const Hamburger = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute right-full mt-2 w-48 bg-white rounded-lg shadow-lg">
+        <div className="z-10 absolute right-full mt-2 w-48 bg-white rounded-lg shadow-lg">
           <ul className="py-2">
             <li className="border-b-2  text-black px-4 py-2 cursor-pointer">
               <button
