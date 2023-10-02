@@ -10,6 +10,7 @@ from api.firebase.firebase import Bucket
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import os
 
 
 api = Blueprint('api', __name__)
@@ -776,7 +777,7 @@ def verify_pay():
         try:
             server = smtplib.SMTP("smtp.gmail.com",587)
             server.starttls()
-            server.login("jesuse2rr@gmail.com","uydwgtdbbcfhuszr")
+            server.login("jesuse2rr@gmail.com", os.environ.get('PASSWORD_MAIL'))
             server.sendmail("jesuse2rr@gmail.com","jesuse2rr@gmail.com",message.as_string())
             server.quit()
             print("Email send")
