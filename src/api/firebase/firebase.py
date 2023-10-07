@@ -4,7 +4,7 @@ cred = credentials.Certificate(os.environ.get("FIREBASE_URL"))
 default_app = initialize_app(
     cred,
     {
-        "storageBucket": "celicor.appspot.com"
+        "storageBucket": "celicorimagen.appspot.com"
     },
 )
 
