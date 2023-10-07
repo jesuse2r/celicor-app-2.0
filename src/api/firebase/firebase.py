@@ -1,6 +1,6 @@
 from firebase_admin import credentials, initialize_app, firestore, storage
 import os
-cred = credentials.Certificate(os.getenv(FIREBASE_URL))
+cred = credentials.Certificate(os.getenv("FIREBASE_URL"))
 default_app = initialize_app(
     cred,
     {
