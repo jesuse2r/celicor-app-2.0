@@ -25,7 +25,7 @@ const Navbardos = () => {
 
                         <ul className="items-center justify-center font-semibold  md:flex">
                             <li className="relative group px-3 py-2">
-                                <Link to="licor/whisky" className="hover:opacity-50
+                                <Link to="licor/whiskys" className="hover:opacity-50
 								cursor-default text-[20px]">Whisky</Link>
                                 <div className="absolute top-0 -left-48 transition
 								group-hover:translate-y-5 translate-y-0 

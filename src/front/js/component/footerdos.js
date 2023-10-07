@@ -54,7 +54,7 @@ const Footerdos = () => {
                                 <a href="#" className="hover:underline"></a>
                             </li>
                             <li className="mb-4">
-                                <a href="#" className="hover:underline">Número de contacto: 0414-2776795</a>
+                                <a href="https://api.whatsapp.com/send/?phone=4142776795&text&type=phone_number&app_absent=" className="hover:underline">Número de contacto: 0414-2776795</a>
                             </li>
 
                         </ul>
